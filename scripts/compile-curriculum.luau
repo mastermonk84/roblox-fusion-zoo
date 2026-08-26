@@ -210,29 +210,45 @@ addSemester(xia)
 
 assert(#items == 700, `expected 700 items, got {#items}`)
 
--- Bonus items: off-curriculum chars the game needs (zoo animals outside the
--- 识字表). Quizzable and masterable, excluded from the /700 claim.
+-- Bonus items: off-curriculum chars the game needs — zoo animals outside the
+-- 识字表, plus web-poster chars whose lesson could not be confirmed by source
+-- verification. Quizzable and masterable, excluded from the /700 claim. Poster
+-- chars take their metadata from the web data; the rest are animals.
 type BonusChar = { char: string, pinyin: string, english: string, band: number }
 local bonus = readJson("data-src/raw/bonus_chars.json") :: { note: string, chars: { BonusChar } }
 for _, b in bonus.chars do
 	assert(not seen[b.char], `bonus char {b.char} already in curriculum`)
 	seen[b.char] = true
+	local w = webByChar[b.char]
 	table.insert(items, {
 		text = b.char,
 		components = { b.char },
-		pinyin = b.pinyin,
-		english = b.english,
+		pinyin = if w then w.pinyin else b.pinyin,
+		english = if w then w.english else b.english,
 		band = b.band,
 		seq = #items + 1,
-		source = "bonus (zoo animal)",
-		category = "animal",
-		needs_visual = true,
-		grammar = false,
-		value = nil,
+		source = if w then "bonus (poster char pending textbook check)" else "bonus (zoo animal)",
+		category = if w then w.category else "animal",
+		needs_visual = if w then w.quizzable else true,
+		grammar = GRAMMAR[b.char] == true,
+		value = if w then w.value else nil,
 		confidence = "web",
 		bonus = true,
 	})
 end
+
+-- Mechanical invariant: every web poster char must exist somewhere in the game
+-- (curriculum or bonus) — the web game's content never silently disappears.
+local missingPoster: { string } = {}
+for _, w in web do
+	if not seen[w.char] then
+		table.insert(missingPoster, w.char)
+	end
+end
+assert(
+	#missingPoster == 0,
+	`poster chars missing from curriculum+bonus: {table.concat(missingPoster, " ")}`
+)
 
 -- Emit canonical curriculum
 fs.writeFile("data-src/curriculum_grade1.json", serde.encode("json", items, true))
@@ -263,6 +279,43 @@ push("certain entries first. To correct anything: edit `data-src/raw/shangce_300
 push("`xiace_400.json` (move, add, remove, or re-spell entries), rerun the compile script, then")
 push("`lune run scripts/build-data`. No code changes are ever needed for content fixes.")
 push("")
+push("## Verification status")
+push("")
+push("- **Pinyin axis: owner-verified 2026-08-26** — the owner reviewed the full list and")
+push('  confirmed "everything aligns with standard Mandarin pronunciation."')
+push("- **Lesson membership: independently re-verified against web sources 2026-08-26.**")
+push("  ~20 lessons/stations were confirmed character-by-character; the errata (below) were")
+push("  applied to the raw JSONs. Remaining open items for the physical textbook:")
+push("  the demoted poster chars (next section), the trimmed 13th char of 小壁虎借尾巴")
+push("  (难 or 转), and the lessons not individually confirmed (marked `·` in the band list).")
+push("")
+push("### Errata applied 2026-08-26 (source-verified)")
+push("")
+push(
+	"- Removed (not in the verified lesson lists): 挖 沙 洲 (吃水不忘挖井人) · 河 偷 (小公鸡和小鸭子)"
+)
+push(
+	"  · 鹊 (树和喜鹊) · 剥 (端午粽) · 荡 眨 (彩虹) · 苞 刨 (园地五) · 撑 艇 (古诗二首)"
+)
+push(
+	"  · 哈 欠 悔 (一分钟) · 狮 (动物王国开大会) · 蚜 盼 (棉花姑娘) · 湖 (咕咚) · 厕 (园地八) · 难 (小壁虎借尾巴, trimmed)"
+)
+push(
+	"- Added (recovered from verified lists): 暑 (古对今) · 她 (文具的家) · 背 刚 汽 (一分钟)"
+)
+push("  · 辆 匹 册 支 棵 架 (园地二, measure words) · 饭 能 茶 轻 鞭 (园地五)")
+push("  · 吵 胖 岁 现 票 交 弓 甘 (园地七) · 刷 梳 巾 擦 皂 澡 盆 (园地八)")
+push("- Moved: 铅 (文具的家 → 园地二) · 夜 (夜色 → 静夜思)")
+push("")
+push("### ⚠ Demoted poster chars — need a textbook home")
+push("")
+push(
+	"9 web-poster chars found **no** home in any source-verified lesson: 读 柳 名 班 级 菜 内 先 件."
+)
+push("They now live as bonus items (quizzable, masterable, excluded from the /700 claim).")
+push("If the textbook shows a 识字表 home for any of them, move it back into the raw JSON")
+push("(and rebalance that semester to its exact count) — a data-only edit.")
+push("")
 push(`| confidence | count | meaning |`)
 push(`|---|---|---|`)
 push(`| web | {counts.web} | also in the battle-tested web game's poster data |`)
@@ -273,11 +326,12 @@ push(
 	"**Known caveat:** the kickoff spec assumed the 236 poster chars were a subset of the 上册 300."
 )
 push(
-	"They are not quite: 17 of them (夜柳菜读内先名班级件 卫 etc.) belong to 下册 lessons"
+	"They are not quite: some belong to 下册 lessons (姓氏歌, 文具的家, 夜色 …) and 9 found no"
 )
 push(
-	"(e.g. 姓氏歌, 文具的家, 夜色). The enforced invariant is: all 236 poster chars ∈ the 700 total. ✓"
+	"verified 识字表 home at all (demoted to bonus, above). The mechanically enforced invariant"
 )
+push("is: all 236 poster chars ∈ curriculum ∪ bonus. ✓")
 push("")
 
 push("## ⚠ Low-confidence entries — verify against the textbook first")

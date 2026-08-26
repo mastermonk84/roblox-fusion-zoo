@@ -1,10 +1,89 @@
 {
-  "note": "Off-curriculum characters needed by game content (zoo animals whose chars are not in the Grade-1 识字表). Quizzable and masterable like any item, but excluded from the /700 progress claim. Future animal drips with off-curriculum chars go here.",
+  "note": "Off-curriculum characters needed by game content: zoo-animal chars not in the Grade-1 识字表, plus web-poster chars whose 识字表 lesson could not be confirmed by source verification (2026-08-26) — pending owner textbook check, movable back into the raws as a data-only edit. Quizzable and masterable like any item, but excluded from the /700 progress claim.",
   "chars": [
-    { "char": "鼠", "pinyin": "shǔ", "english": "mouse", "band": 5 },
-    { "char": "蛇", "pinyin": "shé", "english": "snake", "band": 6 },
-    { "char": "虾", "pinyin": "xiā", "english": "shrimp", "band": 8 },
-    { "char": "龙", "pinyin": "lóng", "english": "dragon", "band": 10 },
-    { "char": "鹰", "pinyin": "yīng", "english": "eagle", "band": 11 }
+    {
+      "char": "鼠",
+      "pinyin": "shǔ",
+      "english": "mouse",
+      "band": 5
+    },
+    {
+      "char": "蛇",
+      "pinyin": "shé",
+      "english": "snake",
+      "band": 6
+    },
+    {
+      "char": "虾",
+      "pinyin": "xiā",
+      "english": "shrimp",
+      "band": 8
+    },
+    {
+      "char": "龙",
+      "pinyin": "lóng",
+      "english": "dragon",
+      "band": 10
+    },
+    {
+      "char": "鹰",
+      "pinyin": "yīng",
+      "english": "eagle",
+      "band": 11
+    },
+    {
+      "char": "读",
+      "pinyin": "dú",
+      "english": "read",
+      "band": 7
+    },
+    {
+      "char": "柳",
+      "pinyin": "liǔ",
+      "english": "willow",
+      "band": 7
+    },
+    {
+      "char": "名",
+      "pinyin": "míng",
+      "english": "name",
+      "band": 8
+    },
+    {
+      "char": "班",
+      "pinyin": "bān",
+      "english": "class",
+      "band": 8
+    },
+    {
+      "char": "级",
+      "pinyin": "jí",
+      "english": "grade; level",
+      "band": 8
+    },
+    {
+      "char": "菜",
+      "pinyin": "cài",
+      "english": "vegetable",
+      "band": 8
+    },
+    {
+      "char": "内",
+      "pinyin": "nèi",
+      "english": "inside",
+      "band": 8
+    },
+    {
+      "char": "先",
+      "pinyin": "xiān",
+      "english": "first",
+      "band": 9
+    },
+    {
+      "char": "件",
+      "pinyin": "jiàn",
+      "english": "(measure for items)",
+      "band": 13
+    }
   ]
 }

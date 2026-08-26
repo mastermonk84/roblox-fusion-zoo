@@ -10,6 +10,7 @@ local Anim = require("./Controllers/Anim")
 local Audio = require("./Controllers/Audio")
 local BattleUi = require("./Controllers/BattleUi")
 local Hud = require("./Controllers/Hud")
+local Music = require("./Controllers/Music")
 local ProgressUi = require("./Controllers/ProgressUi")
 local QuizUi = require("./Controllers/QuizUi")
 local ZooUi = require("./Controllers/ZooUi")
@@ -109,6 +110,7 @@ Hud.initSettings(setPinyinMode, function()
 end)
 QuizUi.init(onChoiceTap, function()
 	QuizUi.close()
+	Music.setScene("hub")
 end)
 ProgressUi.init(function()
 	ProgressUi.close()
@@ -149,10 +151,25 @@ BattleUi.init({
 	end
 end)
 Anim.init()
+Music.init()
+
+-- Battle music: fight track while a match is live, victory sting (capped) on
+-- a win, back to the hub loop otherwise. BattleUi reports, Music decides.
+BattleUi.onMusic = function(event: string)
+	if event == "fight" then
+		Music.setScene("battle")
+	elseif event == "win" then
+		Music.setScene("hub")
+		Music.sting()
+	else -- "lose" | "idle"
+		Music.setScene("hub")
+	end
+end
 
 ProximityPromptService.PromptTriggered:Connect(function(prompt)
 	if prompt.Name == "KioskPrompt" then
 		QuizUi.open()
+		Music.setScene("kiosk")
 		nextQuestion()
 	elseif prompt.Name == "PenPrompt" then
 		ZooUi.open("rescue")

@@ -196,6 +196,27 @@ for text in iconManifest do
 	check(textSeen[text] == true, `icon manifest key {text} not in curriculum`)
 end
 
+-- ── Music (owner fills soundId after uploading assets/music/*.mp3) ──────────
+type MusicTrack = {
+	soundId: string,
+	file: string,
+	loop: boolean,
+	volume: number,
+	maxSeconds: number?,
+}
+local music =
+	readJson("data-src/music_manifest.json") :: { note: string, tracks: { [string]: MusicTrack } }
+for _, name in { "hub", "kiosk", "battle", "victory" } do
+	check(music.tracks[name] ~= nil, `music manifest missing track "{name}"`)
+end
+for name, track in music.tracks do
+	check(
+		track.soundId == "" or string.find(track.soundId, "^rbxassetid://%d+$") ~= nil,
+		`music track {name}: soundId must be "" or rbxassetid://<number>`
+	)
+	check(track.volume > 0 and track.volume <= 1, `music track {name}: volume outside (0, 1]`)
+end
+
 -- ── Conflicts (picture-confusable pairs, seeded from the web game) ──────────
 local conflicts = readJson("data-src/raw/conflicts_web.json") :: { [string]: { string } }
 
@@ -227,8 +248,9 @@ emit("HomophoneIndex", pinyinIndex)
 emit("Conflicts", conflicts)
 emit("Rigs", rigs)
 emit("StarterGhosts", readJson("data-src/starter_ghosts.json"))
+emit("MusicManifest", music.tracks)
 
 print(
 	`OK: {#curriculum} items (700 curriculum in 14 bands x 50, {#curriculum - 700} bonus), {#animals} animals, {#opponents} rungs, {#words} words`
 )
-print(`emitted 12 modules into src/shared/Data/`)
+print(`emitted 13 modules into src/shared/Data/`)

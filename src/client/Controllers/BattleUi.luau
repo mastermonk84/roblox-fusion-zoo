@@ -81,6 +81,16 @@ local currentFlashSound: string? = nil
 local currentQuestionId: string? = nil
 local resolving = false
 
+-- Optional music hook set by main.client: "fight" | "win" | "lose" | "idle"
+BattleUi.onMusic = nil :: ((event: string) -> ())?
+
+local function notifyMusic(event: string)
+	local hook = BattleUi.onMusic
+	if hook then
+		hook(event)
+	end
+end
+
 local STAT_ORDER = { "li", "su", "zhi" }
 local STAT_TEXT: { [string]: string } = { li = "力 💪", su = "速 ⚡", zhi = "智 🧠" }
 
@@ -122,7 +132,20 @@ function BattleUi.init(
 		Parent = card,
 	}).Activated
 		:Connect(function()
+			-- Closing mid-match must release the server session, or the player
+			-- is locked out ("battle_in_progress") until it is voided.
+			if battleId then
+				local abandoned = battleId
+				battleId = nil
+				isLive = false
+				task.spawn(function()
+					remotes.forfeit:InvokeServer({ battleId = abandoned })
+				end)
+			end
+			flashOverlay.Visible = false
+			resultOverlay.Visible = false
 			gui.Enabled = false
+			notifyMusic("idle")
 		end)
 
 	-- ladder page
@@ -355,6 +378,7 @@ function BattleUi.init(
 				`你的兽: 力{payload.yourStats.li} 速{payload.yourStats.su} 智{payload.yourStats.zhi}`
 			scoreLabel.Text = "0 : 0"
 			BattleUi.setPickEnabled(true)
+			notifyMusic("fight")
 		elseif event == "FlashPrompt" then
 			flashEndsAt = os.clock() + (payload.window or 4)
 			if payload.flash then
@@ -374,6 +398,7 @@ function BattleUi.init(
 			fightPage.Visible = false
 			ladderPage.Visible = true
 			Hint.flash("对方离开了 (opponent left)")
+			notifyMusic("idle")
 		end
 	end)
 end
@@ -461,6 +486,7 @@ function BattleUi.renderLiveRound(payload: any)
 			if match.playerWon then
 				Audio.fanfare()
 			end
+			notifyMusic(if match.playerWon then "win" else "lose")
 		end)
 	else
 		currentRound = payload.round
@@ -611,6 +637,7 @@ function BattleUi.startNpc(rung: number)
 		`你的兽: 力{started.yourStats.li} 速{started.yourStats.su} 智{started.yourStats.zhi}`
 	scoreLabel.Text = "0 : 0"
 	BattleUi.setPickEnabled(true)
+	notifyMusic("fight")
 end
 
 function BattleUi.setPickEnabled(enabled: boolean)
@@ -801,6 +828,7 @@ function BattleUi.resolve()
 			if match.playerWon then
 				Audio.fanfare()
 			end
+			notifyMusic(if match.playerWon then "win" else "lose")
 		end)
 	else
 		if not response.replay then
@@ -833,6 +861,7 @@ function BattleUi.startGhostBattle()
 		`你的兽: 力{started.yourStats.li} 速{started.yourStats.su} 智{started.yourStats.zhi}`
 	scoreLabel.Text = "0 : 0"
 	BattleUi.setPickEnabled(true)
+	notifyMusic("fight")
 end
 
 function BattleUi.openChallengeList()

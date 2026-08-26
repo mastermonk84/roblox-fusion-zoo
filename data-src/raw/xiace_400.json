@@ -1,7 +1,7 @@
 {
   "semester": "下册",
   "target": 400,
-  "note": "部编版一年级下册识字表, reconstructed by lesson in 识字表 order. Entries: [char, pinyin, english].",
+  "note": "部编版一年级下册识字表, reconstructed by lesson in 识字表 order and independently re-verified against web sources 2026-08-26 (see CURRICULUM_REVIEW.md errata). Entries: [char, pinyin, english].",
   "lessons": [
     {
       "unit": "识字一",
@@ -248,17 +248,6 @@
       ]
     },
     {
-      "unit": "补遗",
-      "lesson": "快乐读书吧",
-      "chars": [
-        [
-          "读",
-          "dú",
-          "read"
-        ]
-      ]
-    },
-    {
       "unit": "识字一",
       "lesson": "语文园地一",
       "chars": [
@@ -296,11 +285,6 @@
           "夹",
           "jiā",
           "clip; squeeze"
-        ],
-        [
-          "柳",
-          "liǔ",
-          "willow"
         ]
       ]
     },
@@ -372,23 +356,6 @@
           "面",
           "miàn",
           "face; noodle"
-        ],
-        [
-          "挖",
-          "wā",
-          "dig"
-        ],
-        [
-          "沙",
-          "shā",
-          "sand",
-          "low"
-        ],
-        [
-          "洲",
-          "zhōu",
-          "islet; continent",
-          "low"
         ]
       ]
     },
@@ -591,6 +558,47 @@
       ]
     },
     {
+      "unit": "课文一",
+      "lesson": "语文园地二",
+      "chars": [
+        [
+          "辆",
+          "liàng",
+          "(measure for vehicles)"
+        ],
+        [
+          "匹",
+          "pǐ",
+          "(measure for horses)"
+        ],
+        [
+          "册",
+          "cè",
+          "(measure for books)"
+        ],
+        [
+          "支",
+          "zhī",
+          "(measure for pens)"
+        ],
+        [
+          "铅",
+          "qiān",
+          "lead (铅笔 pencil)"
+        ],
+        [
+          "棵",
+          "kē",
+          "(measure for trees)"
+        ],
+        [
+          "架",
+          "jià",
+          "(measure for planes)"
+        ]
+      ]
+    },
+    {
       "unit": "课文二",
       "lesson": "5 小公鸡和小鸭子",
       "chars": [
@@ -613,11 +621,6 @@
           "直",
           "zhí",
           "straight"
-        ],
-        [
-          "河",
-          "hé",
-          "river"
         ],
         [
           "行",
@@ -653,17 +656,6 @@
           "身",
           "shēn",
           "body"
-        ],
-        [
-          "先",
-          "xiān",
-          "first"
-        ],
-        [
-          "偷",
-          "tōu",
-          "steal; stealthily",
-          "low"
         ]
       ]
     },
@@ -720,11 +712,6 @@
           "乐",
           "lè",
           "happy"
-        ],
-        [
-          "鹊",
-          "què",
-          "magpie"
         ]
       ]
     },
@@ -795,51 +782,14 @@
       ]
     },
     {
-      "unit": "补遗",
-      "lesson": "语文园地二",
-      "chars": [
-        [
-          "名",
-          "míng",
-          "name",
-          "low"
-        ],
-        [
-          "班",
-          "bān",
-          "class",
-          "low"
-        ],
-        [
-          "级",
-          "jí",
-          "grade; level",
-          "low"
-        ]
-      ]
-    },
-    {
-      "unit": "补遗",
-      "lesson": "语文园地三",
-      "chars": [
-        [
-          "菜",
-          "cài",
-          "vegetable",
-          "low"
-        ],
-        [
-          "内",
-          "nèi",
-          "inside",
-          "low"
-        ]
-      ]
-    },
-    {
       "unit": "课文三",
       "lesson": "8 静夜思",
       "chars": [
+        [
+          "夜",
+          "yè",
+          "night"
+        ],
         [
           "思",
           "sī",
@@ -945,11 +895,6 @@
           "微",
           "wēi",
           "tiny"
-        ],
-        [
-          "夜",
-          "yè",
-          "night"
         ]
       ]
     },
@@ -1021,12 +966,6 @@
           "念",
           "niàn",
           "read aloud; miss"
-        ],
-        [
-          "剥",
-          "bāo",
-          "peel; shell",
-          "low"
         ]
       ]
     },
@@ -1093,18 +1032,6 @@
           "裙",
           "qún",
           "skirt"
-        ],
-        [
-          "荡",
-          "dàng",
-          "swing; sway",
-          "low"
-        ],
-        [
-          "眨",
-          "zhǎ",
-          "blink",
-          "low"
         ]
       ]
     },
@@ -1243,6 +1170,11 @@
           "酷",
           "kù",
           "severe; cool"
+        ],
+        [
+          "暑",
+          "shǔ",
+          "summer heat"
         ],
         [
           "凉",
@@ -1414,8 +1346,7 @@
         [
           "器",
           "qì",
-          "utensil; instrument",
-          "low"
+          "utensil; instrument"
         ]
       ]
     },
@@ -1424,9 +1355,19 @@
       "lesson": "语文园地五",
       "chars": [
         [
-          "饱",
-          "bǎo",
-          "full (from eating)"
+          "饭",
+          "fàn",
+          "(cooked) rice; meal"
+        ],
+        [
+          "能",
+          "néng",
+          "can; able"
+        ],
+        [
+          "茶",
+          "chá",
+          "tea"
         ],
         [
           "泡",
@@ -1434,14 +1375,19 @@
           "bubble; soak"
         ],
         [
+          "轻",
+          "qīng",
+          "light (weight)"
+        ],
+        [
+          "鞭",
+          "biān",
+          "whip (鞭炮 firecracker)"
+        ],
+        [
           "炮",
           "pào",
           "cannon"
-        ],
-        [
-          "苞",
-          "bāo",
-          "bud"
         ],
         [
           "袍",
@@ -1449,9 +1395,9 @@
           "robe"
         ],
         [
-          "刨",
-          "páo",
-          "dig; plane"
+          "饱",
+          "bǎo",
+          "full (from eating)"
         ]
       ]
     },
@@ -1518,18 +1464,6 @@
           "角",
           "jiǎo",
           "corner; horn"
-        ],
-        [
-          "撑",
-          "chēng",
-          "pole (a boat); prop up",
-          "low"
-        ],
-        [
-          "艇",
-          "tǐng",
-          "small boat",
-          "low"
         ]
       ]
     },
@@ -1751,6 +1685,11 @@
           "flat"
         ],
         [
+          "她",
+          "tā",
+          "she"
+        ],
+        [
           "些",
           "xiē",
           "some"
@@ -1774,16 +1713,6 @@
           "所",
           "suǒ",
           "place; (particle)"
-        ],
-        [
-          "件",
-          "jiàn",
-          "(measure for items)"
-        ],
-        [
-          "铅",
-          "qiān",
-          "lead (铅笔 pencil)"
         ]
       ]
     },
@@ -1842,20 +1771,19 @@
           "fix; decide"
         ],
         [
-          "哈",
-          "hā",
-          "(sound of yawn/laugh)"
+          "背",
+          "bēi",
+          "carry on the back"
         ],
         [
-          "欠",
-          "qiàn",
-          "yawn; owe"
+          "刚",
+          "gāng",
+          "just (now)"
         ],
         [
-          "悔",
-          "huǐ",
-          "regret",
-          "low"
+          "汽",
+          "qì",
+          "steam (汽车 car)"
         ]
       ]
     },
@@ -1927,11 +1855,6 @@
           "第",
           "dì",
           "(ordinal prefix)"
-        ],
-        [
-          "狮",
-          "shī",
-          "lion"
         ]
       ]
     },
@@ -1998,6 +1921,52 @@
           "追",
           "zhuī",
           "chase"
+        ]
+      ]
+    },
+    {
+      "unit": "课文五",
+      "lesson": "语文园地七",
+      "chars": [
+        [
+          "吵",
+          "chǎo",
+          "noisy; quarrel"
+        ],
+        [
+          "胖",
+          "pàng",
+          "fat; chubby"
+        ],
+        [
+          "岁",
+          "suì",
+          "years old"
+        ],
+        [
+          "现",
+          "xiàn",
+          "now; appear"
+        ],
+        [
+          "票",
+          "piào",
+          "ticket"
+        ],
+        [
+          "交",
+          "jiāo",
+          "hand over"
+        ],
+        [
+          "弓",
+          "gōng",
+          "bow (weapon)"
+        ],
+        [
+          "甘",
+          "gān",
+          "sweet; willing"
         ]
       ]
     },
@@ -2069,17 +2038,6 @@
           "啦",
           "la",
           "(particle)"
-        ],
-        [
-          "蚜",
-          "yá",
-          "aphid"
-        ],
-        [
-          "盼",
-          "pàn",
-          "hope for",
-          "low"
         ]
       ]
     },
@@ -2146,11 +2104,6 @@
           "领",
           "lǐng",
           "lead; collar"
-        ],
-        [
-          "湖",
-          "hú",
-          "lake"
         ]
       ]
     },
@@ -2217,12 +2170,6 @@
           "傻",
           "shǎ",
           "silly"
-        ],
-        [
-          "难",
-          "nán",
-          "difficult",
-          "low"
         ]
       ]
     },
@@ -2236,10 +2183,39 @@
           "guard (卫生 hygiene)"
         ],
         [
-          "厕",
-          "cè",
-          "toilet",
-          "low"
+          "刷",
+          "shuā",
+          "brush (刷牙)"
+        ],
+        [
+          "梳",
+          "shū",
+          "comb"
+        ],
+        [
+          "巾",
+          "jīn",
+          "towel; cloth"
+        ],
+        [
+          "擦",
+          "cā",
+          "wipe"
+        ],
+        [
+          "皂",
+          "zào",
+          "soap"
+        ],
+        [
+          "澡",
+          "zǎo",
+          "bathe (洗澡)"
+        ],
+        [
+          "盆",
+          "pén",
+          "basin"
         ]
       ]
     }

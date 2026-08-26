@@ -5171,21 +5171,6 @@
   },
   {
     "band": 7,
-    "category": "action",
-    "components": [
-      "读"
-    ],
-    "confidence": "web",
-    "english": "read",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "dú",
-    "seq": 345,
-    "source": "下册 快乐读书吧",
-    "text": "读"
-  },
-  {
-    "band": 7,
     "category": "abstract",
     "components": [
       "阴"
@@ -5195,7 +5180,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yīn",
-    "seq": 346,
+    "seq": 345,
     "source": "下册 语文园地一",
     "text": "阴"
   },
@@ -5210,7 +5195,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "léi",
-    "seq": 347,
+    "seq": 346,
     "source": "下册 语文园地一",
     "text": "雷"
   },
@@ -5225,7 +5210,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "diàn",
-    "seq": 348,
+    "seq": 347,
     "source": "下册 语文园地一",
     "text": "电"
   },
@@ -5240,7 +5225,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhèn",
-    "seq": 349,
+    "seq": 348,
     "source": "下册 语文园地一",
     "text": "阵"
   },
@@ -5255,12 +5240,12 @@
     "grammar": false,
     "needs_visual": true,
     "pinyin": "bīng",
-    "seq": 350,
+    "seq": 349,
     "source": "下册 语文园地一",
     "text": "冰"
   },
   {
-    "band": 8,
+    "band": 7,
     "category": "abstract",
     "components": [
       "冻"
@@ -5270,7 +5255,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dòng",
-    "seq": 351,
+    "seq": 350,
     "source": "下册 语文园地一",
     "text": "冻"
   },
@@ -5285,24 +5270,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiā",
-    "seq": 352,
+    "seq": 351,
     "source": "下册 语文园地一",
     "text": "夹"
-  },
-  {
-    "band": 8,
-    "category": "nature",
-    "components": [
-      "柳"
-    ],
-    "confidence": "web",
-    "english": "willow",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "liǔ",
-    "seq": 353,
-    "source": "下册 语文园地一",
-    "text": "柳"
   },
   {
     "band": 8,
@@ -5315,7 +5285,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chī",
-    "seq": 354,
+    "seq": 352,
     "source": "下册 1 吃水不忘挖井人",
     "text": "吃"
   },
@@ -5330,7 +5300,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wàng",
-    "seq": 355,
+    "seq": 353,
     "source": "下册 1 吃水不忘挖井人",
     "text": "忘"
   },
@@ -5345,7 +5315,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jǐng",
-    "seq": 356,
+    "seq": 354,
     "source": "下册 1 吃水不忘挖井人",
     "text": "井"
   },
@@ -5360,7 +5330,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cūn",
-    "seq": 357,
+    "seq": 355,
     "source": "下册 1 吃水不忘挖井人",
     "text": "村"
   },
@@ -5375,7 +5345,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiào",
-    "seq": 358,
+    "seq": 356,
     "source": "下册 1 吃水不忘挖井人",
     "text": "叫"
   },
@@ -5390,7 +5360,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "máo",
-    "seq": 359,
+    "seq": 357,
     "source": "下册 1 吃水不忘挖井人",
     "text": "毛"
   },
@@ -5405,7 +5375,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhǔ",
-    "seq": 360,
+    "seq": 358,
     "source": "下册 1 吃水不忘挖井人",
     "text": "主"
   },
@@ -5420,7 +5390,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xí",
-    "seq": 361,
+    "seq": 359,
     "source": "下册 1 吃水不忘挖井人",
     "text": "席"
   },
@@ -5435,7 +5405,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiāng",
-    "seq": 362,
+    "seq": 360,
     "source": "下册 1 吃水不忘挖井人",
     "text": "乡"
   },
@@ -5450,7 +5420,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qīn",
-    "seq": 363,
+    "seq": 361,
     "source": "下册 1 吃水不忘挖井人",
     "text": "亲"
   },
@@ -5465,7 +5435,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhàn",
-    "seq": 364,
+    "seq": 362,
     "source": "下册 1 吃水不忘挖井人",
     "text": "战"
   },
@@ -5480,7 +5450,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shì",
-    "seq": 365,
+    "seq": 363,
     "source": "下册 1 吃水不忘挖井人",
     "text": "士"
   },
@@ -5495,54 +5465,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "miàn",
-    "seq": 366,
+    "seq": 364,
     "source": "下册 1 吃水不忘挖井人",
     "text": "面"
-  },
-  {
-    "band": 8,
-    "category": "abstract",
-    "components": [
-      "挖"
-    ],
-    "confidence": "model",
-    "english": "dig",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "wā",
-    "seq": 367,
-    "source": "下册 1 吃水不忘挖井人",
-    "text": "挖"
-  },
-  {
-    "band": 8,
-    "category": "nature",
-    "components": [
-      "沙"
-    ],
-    "confidence": "low",
-    "english": "sand",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "shā",
-    "seq": 368,
-    "source": "下册 1 吃水不忘挖井人",
-    "text": "沙"
-  },
-  {
-    "band": 8,
-    "category": "nature",
-    "components": [
-      "洲"
-    ],
-    "confidence": "low",
-    "english": "islet; continent",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "zhōu",
-    "seq": 369,
-    "source": "下册 1 吃水不忘挖井人",
-    "text": "洲"
   },
   {
     "band": 8,
@@ -5555,7 +5480,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiǎng",
-    "seq": 370,
+    "seq": 365,
     "source": "下册 2 我多想去看看",
     "text": "想"
   },
@@ -5570,7 +5495,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gào",
-    "seq": 371,
+    "seq": 366,
     "source": "下册 2 我多想去看看",
     "text": "告"
   },
@@ -5585,7 +5510,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "sù",
-    "seq": 372,
+    "seq": 367,
     "source": "下册 2 我多想去看看",
     "text": "诉"
   },
@@ -5600,7 +5525,7 @@
     "grammar": false,
     "needs_visual": true,
     "pinyin": "lù",
-    "seq": 373,
+    "seq": 368,
     "source": "下册 2 我多想去看看",
     "text": "路"
   },
@@ -5615,7 +5540,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jīng",
-    "seq": 374,
+    "seq": 369,
     "source": "下册 2 我多想去看看",
     "text": "京"
   },
@@ -5630,7 +5555,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "ān",
-    "seq": 375,
+    "seq": 370,
     "source": "下册 2 我多想去看看",
     "text": "安"
   },
@@ -5645,7 +5570,7 @@
     "grammar": false,
     "needs_visual": true,
     "pinyin": "mén",
-    "seq": 376,
+    "seq": 371,
     "source": "下册 2 我多想去看看",
     "text": "门"
   },
@@ -5660,7 +5585,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "guǎng",
-    "seq": 377,
+    "seq": 372,
     "source": "下册 2 我多想去看看",
     "text": "广"
   },
@@ -5675,7 +5600,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "fēi",
-    "seq": 378,
+    "seq": 373,
     "source": "下册 2 我多想去看看",
     "text": "非"
   },
@@ -5690,7 +5615,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cháng",
-    "seq": 379,
+    "seq": 374,
     "source": "下册 2 我多想去看看",
     "text": "常"
   },
@@ -5705,7 +5630,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhuàng",
-    "seq": 380,
+    "seq": 375,
     "source": "下册 2 我多想去看看",
     "text": "壮"
   },
@@ -5720,7 +5645,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "guān",
-    "seq": 381,
+    "seq": 376,
     "source": "下册 2 我多想去看看",
     "text": "观"
   },
@@ -5735,7 +5660,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiē",
-    "seq": 382,
+    "seq": 377,
     "source": "下册 3 一个接一个",
     "text": "接"
   },
@@ -5750,7 +5675,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zài",
-    "seq": 383,
+    "seq": 378,
     "source": "下册 3 一个接一个",
     "text": "再"
   },
@@ -5765,7 +5690,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zuò",
-    "seq": 384,
+    "seq": 379,
     "source": "下册 3 一个接一个",
     "text": "做"
   },
@@ -5780,7 +5705,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gè",
-    "seq": 385,
+    "seq": 380,
     "source": "下册 3 一个接一个",
     "text": "各"
   },
@@ -5795,7 +5720,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhǒng",
-    "seq": 386,
+    "seq": 381,
     "source": "下册 3 一个接一个",
     "text": "种"
   },
@@ -5810,7 +5735,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yàng",
-    "seq": 387,
+    "seq": 382,
     "source": "下册 3 一个接一个",
     "text": "样"
   },
@@ -5825,7 +5750,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "huǒ",
-    "seq": 388,
+    "seq": 383,
     "source": "下册 3 一个接一个",
     "text": "伙"
   },
@@ -5840,7 +5765,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bàn",
-    "seq": 389,
+    "seq": 384,
     "source": "下册 3 一个接一个",
     "text": "伴"
   },
@@ -5855,7 +5780,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "què",
-    "seq": 390,
+    "seq": 385,
     "source": "下册 3 一个接一个",
     "text": "却"
   },
@@ -5870,7 +5795,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qù",
-    "seq": 391,
+    "seq": 386,
     "source": "下册 3 一个接一个",
     "text": "趣"
   },
@@ -5885,7 +5810,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhè",
-    "seq": 392,
+    "seq": 387,
     "source": "下册 3 一个接一个",
     "text": "这"
   },
@@ -5900,7 +5825,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tài",
-    "seq": 393,
+    "seq": 388,
     "source": "下册 4 四个太阳",
     "text": "太"
   },
@@ -5915,7 +5840,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yáng",
-    "seq": 394,
+    "seq": 389,
     "source": "下册 4 四个太阳",
     "text": "阳"
   },
@@ -5930,7 +5855,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dào",
-    "seq": 395,
+    "seq": 390,
     "source": "下册 4 四个太阳",
     "text": "道"
   },
@@ -5945,7 +5870,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "sòng",
-    "seq": 396,
+    "seq": 391,
     "source": "下册 4 四个太阳",
     "text": "送"
   },
@@ -5960,7 +5885,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "máng",
-    "seq": 397,
+    "seq": 392,
     "source": "下册 4 四个太阳",
     "text": "忙"
   },
@@ -5975,7 +5900,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cháng",
-    "seq": 398,
+    "seq": 393,
     "source": "下册 4 四个太阳",
     "text": "尝"
   },
@@ -5990,7 +5915,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiāng",
-    "seq": 399,
+    "seq": 394,
     "source": "下册 4 四个太阳",
     "text": "香"
   },
@@ -6005,12 +5930,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tián",
-    "seq": 400,
+    "seq": 395,
     "source": "下册 4 四个太阳",
     "text": "甜"
   },
   {
-    "band": 9,
+    "band": 8,
     "category": "body",
     "components": [
       "温"
@@ -6020,12 +5945,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wēn",
-    "seq": 401,
+    "seq": 396,
     "source": "下册 4 四个太阳",
     "text": "温"
   },
   {
-    "band": 9,
+    "band": 8,
     "category": "body",
     "components": [
       "暖"
@@ -6035,12 +5960,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "nuǎn",
-    "seq": 402,
+    "seq": 397,
     "source": "下册 4 四个太阳",
     "text": "暖"
   },
   {
-    "band": 9,
+    "band": 8,
     "category": "abstract",
     "components": [
       "该"
@@ -6050,12 +5975,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gāi",
-    "seq": 403,
+    "seq": 398,
     "source": "下册 4 四个太阳",
     "text": "该"
   },
   {
-    "band": 9,
+    "band": 8,
     "category": "body",
     "components": [
       "颜"
@@ -6065,12 +5990,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yán",
-    "seq": 404,
+    "seq": 399,
     "source": "下册 4 四个太阳",
     "text": "颜"
   },
   {
-    "band": 9,
+    "band": 8,
     "category": "abstract",
     "components": [
       "因"
@@ -6080,9 +6005,114 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yīn",
-    "seq": 405,
+    "seq": 400,
     "source": "下册 4 四个太阳",
     "text": "因"
+  },
+  {
+    "band": 9,
+    "category": "modifier",
+    "components": [
+      "辆"
+    ],
+    "confidence": "model",
+    "english": "(measure for vehicles)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "liàng",
+    "seq": 401,
+    "source": "下册 语文园地二",
+    "text": "辆"
+  },
+  {
+    "band": 9,
+    "category": "modifier",
+    "components": [
+      "匹"
+    ],
+    "confidence": "model",
+    "english": "(measure for horses)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "pǐ",
+    "seq": 402,
+    "source": "下册 语文园地二",
+    "text": "匹"
+  },
+  {
+    "band": 9,
+    "category": "modifier",
+    "components": [
+      "册"
+    ],
+    "confidence": "model",
+    "english": "(measure for books)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "cè",
+    "seq": 403,
+    "source": "下册 语文园地二",
+    "text": "册"
+  },
+  {
+    "band": 9,
+    "category": "modifier",
+    "components": [
+      "支"
+    ],
+    "confidence": "model",
+    "english": "(measure for pens)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "zhī",
+    "seq": 404,
+    "source": "下册 语文园地二",
+    "text": "支"
+  },
+  {
+    "band": 9,
+    "category": "object",
+    "components": [
+      "铅"
+    ],
+    "confidence": "model",
+    "english": "lead (铅笔 pencil)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "qiān",
+    "seq": 405,
+    "source": "下册 语文园地二",
+    "text": "铅"
+  },
+  {
+    "band": 9,
+    "category": "modifier",
+    "components": [
+      "棵"
+    ],
+    "confidence": "model",
+    "english": "(measure for trees)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "kē",
+    "seq": 406,
+    "source": "下册 语文园地二",
+    "text": "棵"
+  },
+  {
+    "band": 9,
+    "category": "modifier",
+    "components": [
+      "架"
+    ],
+    "confidence": "model",
+    "english": "(measure for planes)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "jià",
+    "seq": 407,
+    "source": "下册 语文园地二",
+    "text": "架"
   },
   {
     "band": 9,
@@ -6095,7 +6125,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "kuài",
-    "seq": 406,
+    "seq": 408,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "块"
   },
@@ -6110,7 +6140,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhuō",
-    "seq": 407,
+    "seq": 409,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "捉"
   },
@@ -6125,7 +6155,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jí",
-    "seq": 408,
+    "seq": 410,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "急"
   },
@@ -6140,24 +6170,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhí",
-    "seq": 409,
+    "seq": 411,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "直"
-  },
-  {
-    "band": 9,
-    "category": "nature",
-    "components": [
-      "河"
-    ],
-    "confidence": "model",
-    "english": "river",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "hé",
-    "seq": 410,
-    "source": "下册 5 小公鸡和小鸭子",
-    "text": "河"
   },
   {
     "band": 9,
@@ -6170,7 +6185,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xíng",
-    "seq": 411,
+    "seq": 412,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "行"
   },
@@ -6185,7 +6200,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "sǐ",
-    "seq": 412,
+    "seq": 413,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "死"
   },
@@ -6200,7 +6215,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xìn",
-    "seq": 413,
+    "seq": 414,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "信"
   },
@@ -6215,7 +6230,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gēn",
-    "seq": 414,
+    "seq": 415,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "跟"
   },
@@ -6230,7 +6245,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hū",
-    "seq": 415,
+    "seq": 416,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "忽"
   },
@@ -6245,7 +6260,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hǎn",
-    "seq": 416,
+    "seq": 417,
     "source": "下册 5 小公鸡和小鸭子",
     "text": "喊"
   },
@@ -6260,39 +6275,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shēn",
-    "seq": 417,
-    "source": "下册 5 小公鸡和小鸭子",
-    "text": "身"
-  },
-  {
-    "band": 9,
-    "category": "abstract",
-    "components": [
-      "先"
-    ],
-    "confidence": "web",
-    "english": "first",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "xiān",
     "seq": 418,
     "source": "下册 5 小公鸡和小鸭子",
-    "text": "先"
-  },
-  {
-    "band": 9,
-    "category": "abstract",
-    "components": [
-      "偷"
-    ],
-    "confidence": "low",
-    "english": "steal; stealthily",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "tōu",
-    "seq": 419,
-    "source": "下册 5 小公鸡和小鸭子",
-    "text": "偷"
+    "text": "身"
   },
   {
     "band": 9,
@@ -6305,7 +6290,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wō",
-    "seq": 420,
+    "seq": 419,
     "source": "下册 6 树和喜鹊",
     "text": "窝"
   },
@@ -6320,7 +6305,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gū",
-    "seq": 421,
+    "seq": 420,
     "source": "下册 6 树和喜鹊",
     "text": "孤"
   },
@@ -6335,7 +6320,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dān",
-    "seq": 422,
+    "seq": 421,
     "source": "下册 6 树和喜鹊",
     "text": "单"
   },
@@ -6350,7 +6335,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dōu",
-    "seq": 423,
+    "seq": 422,
     "source": "下册 6 树和喜鹊",
     "text": "都"
   },
@@ -6365,7 +6350,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lín",
-    "seq": 424,
+    "seq": 423,
     "source": "下册 6 树和喜鹊",
     "text": "邻"
   },
@@ -6380,7 +6365,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jū",
-    "seq": 425,
+    "seq": 424,
     "source": "下册 6 树和喜鹊",
     "text": "居"
   },
@@ -6395,7 +6380,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhāo",
-    "seq": 426,
+    "seq": 425,
     "source": "下册 6 树和喜鹊",
     "text": "招"
   },
@@ -6410,7 +6395,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hū",
-    "seq": 427,
+    "seq": 426,
     "source": "下册 6 树和喜鹊",
     "text": "呼"
   },
@@ -6425,7 +6410,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jìng",
-    "seq": 428,
+    "seq": 427,
     "source": "下册 6 树和喜鹊",
     "text": "静"
   },
@@ -6440,24 +6425,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lè",
-    "seq": 429,
+    "seq": 428,
     "source": "下册 6 树和喜鹊",
     "text": "乐"
-  },
-  {
-    "band": 9,
-    "category": "animal",
-    "components": [
-      "鹊"
-    ],
-    "confidence": "model",
-    "english": "magpie",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "què",
-    "seq": 430,
-    "source": "下册 6 树和喜鹊",
-    "text": "鹊"
   },
   {
     "band": 9,
@@ -6470,7 +6440,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zěn",
-    "seq": 431,
+    "seq": 429,
     "source": "下册 7 怎么都快乐",
     "text": "怎"
   },
@@ -6485,7 +6455,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dú",
-    "seq": 432,
+    "seq": 430,
     "source": "下册 7 怎么都快乐",
     "text": "独"
   },
@@ -6500,7 +6470,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tiào",
-    "seq": 433,
+    "seq": 431,
     "source": "下册 7 怎么都快乐",
     "text": "跳"
   },
@@ -6515,7 +6485,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shéng",
-    "seq": 434,
+    "seq": 432,
     "source": "下册 7 怎么都快乐",
     "text": "绳"
   },
@@ -6530,7 +6500,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiǎng",
-    "seq": 435,
+    "seq": 433,
     "source": "下册 7 怎么都快乐",
     "text": "讲"
   },
@@ -6545,7 +6515,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yǔ",
-    "seq": 436,
+    "seq": 434,
     "source": "下册 7 怎么都快乐",
     "text": "羽"
   },
@@ -6560,7 +6530,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qiú",
-    "seq": 437,
+    "seq": 435,
     "source": "下册 7 怎么都快乐",
     "text": "球"
   },
@@ -6575,7 +6545,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xì",
-    "seq": 438,
+    "seq": 436,
     "source": "下册 7 怎么都快乐",
     "text": "戏"
   },
@@ -6590,7 +6560,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pái",
-    "seq": 439,
+    "seq": 437,
     "source": "下册 7 怎么都快乐",
     "text": "排"
   },
@@ -6605,7 +6575,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lán",
-    "seq": 440,
+    "seq": 438,
     "source": "下册 7 怎么都快乐",
     "text": "篮"
   },
@@ -6620,7 +6590,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lián",
-    "seq": 441,
+    "seq": 439,
     "source": "下册 7 怎么都快乐",
     "text": "连"
   },
@@ -6635,84 +6605,24 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yùn",
-    "seq": 442,
+    "seq": 440,
     "source": "下册 7 怎么都快乐",
     "text": "运"
   },
   {
     "band": 9,
-    "category": "abstract",
+    "category": "time",
     "components": [
-      "名"
+      "夜"
     ],
     "confidence": "web",
-    "english": "name",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "míng",
-    "seq": 443,
-    "source": "下册 语文园地二",
-    "text": "名"
-  },
-  {
-    "band": 9,
-    "category": "abstract",
-    "components": [
-      "班"
-    ],
-    "confidence": "web",
-    "english": "class",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "bān",
-    "seq": 444,
-    "source": "下册 语文园地二",
-    "text": "班"
-  },
-  {
-    "band": 9,
-    "category": "abstract",
-    "components": [
-      "级"
-    ],
-    "confidence": "web",
-    "english": "grade",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "jí",
-    "seq": 445,
-    "source": "下册 语文园地二",
-    "text": "级"
-  },
-  {
-    "band": 9,
-    "category": "food",
-    "components": [
-      "菜"
-    ],
-    "confidence": "web",
-    "english": "vegetable",
+    "english": "night",
     "grammar": false,
     "needs_visual": true,
-    "pinyin": "cài",
-    "seq": 446,
-    "source": "下册 语文园地三",
-    "text": "菜"
-  },
-  {
-    "band": 9,
-    "category": "direction",
-    "components": [
-      "内"
-    ],
-    "confidence": "web",
-    "english": "inside",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "nèi",
-    "seq": 447,
-    "source": "下册 语文园地三",
-    "text": "内"
+    "pinyin": "yè",
+    "seq": 441,
+    "source": "下册 8 静夜思",
+    "text": "夜"
   },
   {
     "band": 9,
@@ -6725,7 +6635,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "sī",
-    "seq": 448,
+    "seq": 442,
     "source": "下册 8 静夜思",
     "text": "思"
   },
@@ -6740,7 +6650,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chuáng",
-    "seq": 449,
+    "seq": 443,
     "source": "下册 8 静夜思",
     "text": "床"
   },
@@ -6755,12 +6665,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "guāng",
-    "seq": 450,
+    "seq": 444,
     "source": "下册 8 静夜思",
     "text": "光"
   },
   {
-    "band": 10,
+    "band": 9,
     "category": "abstract",
     "components": [
       "疑"
@@ -6770,12 +6680,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yí",
-    "seq": 451,
+    "seq": 445,
     "source": "下册 8 静夜思",
     "text": "疑"
   },
   {
-    "band": 10,
+    "band": 9,
     "category": "abstract",
     "components": [
       "举"
@@ -6785,12 +6695,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jǔ",
-    "seq": 452,
+    "seq": 446,
     "source": "下册 8 静夜思",
     "text": "举"
   },
   {
-    "band": 10,
+    "band": 9,
     "category": "abstract",
     "components": [
       "望"
@@ -6800,12 +6710,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wàng",
-    "seq": 453,
+    "seq": 447,
     "source": "下册 8 静夜思",
     "text": "望"
   },
   {
-    "band": 10,
+    "band": 9,
     "category": "abstract",
     "components": [
       "低"
@@ -6815,12 +6725,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dī",
-    "seq": 454,
+    "seq": 448,
     "source": "下册 8 静夜思",
     "text": "低"
   },
   {
-    "band": 10,
+    "band": 9,
     "category": "abstract",
     "components": [
       "故"
@@ -6830,12 +6740,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gù",
-    "seq": 455,
+    "seq": 449,
     "source": "下册 8 静夜思",
     "text": "故"
   },
   {
-    "band": 10,
+    "band": 9,
     "category": "abstract",
     "components": [
       "胆"
@@ -6845,7 +6755,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dǎn",
-    "seq": 456,
+    "seq": 450,
     "source": "下册 9 夜色",
     "text": "胆"
   },
@@ -6860,7 +6770,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gǎn",
-    "seq": 457,
+    "seq": 451,
     "source": "下册 9 夜色",
     "text": "敢"
   },
@@ -6875,7 +6785,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wǎng",
-    "seq": 458,
+    "seq": 452,
     "source": "下册 9 夜色",
     "text": "往"
   },
@@ -6890,7 +6800,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wài",
-    "seq": 459,
+    "seq": 453,
     "source": "下册 9 夜色",
     "text": "外"
   },
@@ -6905,7 +6815,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yǒng",
-    "seq": 460,
+    "seq": 454,
     "source": "下册 9 夜色",
     "text": "勇"
   },
@@ -6920,7 +6830,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chuāng",
-    "seq": 461,
+    "seq": 455,
     "source": "下册 9 夜色",
     "text": "窗"
   },
@@ -6935,7 +6845,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "luàn",
-    "seq": 462,
+    "seq": 456,
     "source": "下册 9 夜色",
     "text": "乱"
   },
@@ -6950,7 +6860,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "piān",
-    "seq": 463,
+    "seq": 457,
     "source": "下册 9 夜色",
     "text": "偏"
   },
@@ -6965,7 +6875,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "sàn",
-    "seq": 464,
+    "seq": 458,
     "source": "下册 9 夜色",
     "text": "散"
   },
@@ -6980,7 +6890,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yuán",
-    "seq": 465,
+    "seq": 459,
     "source": "下册 9 夜色",
     "text": "原"
   },
@@ -6995,7 +6905,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiàng",
-    "seq": 466,
+    "seq": 460,
     "source": "下册 9 夜色",
     "text": "像"
   },
@@ -7010,24 +6920,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wēi",
-    "seq": 467,
+    "seq": 461,
     "source": "下册 9 夜色",
     "text": "微"
-  },
-  {
-    "band": 10,
-    "category": "time",
-    "components": [
-      "夜"
-    ],
-    "confidence": "web",
-    "english": "night",
-    "grammar": false,
-    "needs_visual": true,
-    "pinyin": "yè",
-    "seq": 468,
-    "source": "下册 9 夜色",
-    "text": "夜"
   },
   {
     "band": 10,
@@ -7040,7 +6935,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "duān",
-    "seq": 469,
+    "seq": 462,
     "source": "下册 10 端午粽",
     "text": "端"
   },
@@ -7055,7 +6950,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zòng",
-    "seq": 470,
+    "seq": 463,
     "source": "下册 10 端午粽",
     "text": "粽"
   },
@@ -7070,7 +6965,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jié",
-    "seq": 471,
+    "seq": 464,
     "source": "下册 10 端午粽",
     "text": "节"
   },
@@ -7085,7 +6980,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zǒng",
-    "seq": 472,
+    "seq": 465,
     "source": "下册 10 端午粽",
     "text": "总"
   },
@@ -7100,7 +6995,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mǐ",
-    "seq": 473,
+    "seq": 466,
     "source": "下册 10 端午粽",
     "text": "米"
   },
@@ -7115,7 +7010,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiān",
-    "seq": 474,
+    "seq": 467,
     "source": "下册 10 端午粽",
     "text": "间"
   },
@@ -7130,7 +7025,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "fēn",
-    "seq": 475,
+    "seq": 468,
     "source": "下册 10 端午粽",
     "text": "分"
   },
@@ -7145,7 +7040,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dòu",
-    "seq": 476,
+    "seq": 469,
     "source": "下册 10 端午粽",
     "text": "豆"
   },
@@ -7160,7 +7055,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "ròu",
-    "seq": 477,
+    "seq": 470,
     "source": "下册 10 端午粽",
     "text": "肉"
   },
@@ -7175,7 +7070,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dài",
-    "seq": 478,
+    "seq": 471,
     "source": "下册 10 端午粽",
     "text": "带"
   },
@@ -7190,7 +7085,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhī",
-    "seq": 479,
+    "seq": 472,
     "source": "下册 10 端午粽",
     "text": "知"
   },
@@ -7205,7 +7100,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jù",
-    "seq": 480,
+    "seq": 473,
     "source": "下册 10 端午粽",
     "text": "据"
   },
@@ -7220,24 +7115,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "niàn",
-    "seq": 481,
+    "seq": 474,
     "source": "下册 10 端午粽",
     "text": "念"
-  },
-  {
-    "band": 10,
-    "category": "abstract",
-    "components": [
-      "剥"
-    ],
-    "confidence": "low",
-    "english": "peel; shell",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "bāo",
-    "seq": 482,
-    "source": "下册 10 端午粽",
-    "text": "剥"
   },
   {
     "band": 10,
@@ -7250,7 +7130,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hóng",
-    "seq": 483,
+    "seq": 475,
     "source": "下册 11 彩虹",
     "text": "虹"
   },
@@ -7265,7 +7145,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zuò",
-    "seq": 484,
+    "seq": 476,
     "source": "下册 11 彩虹",
     "text": "座"
   },
@@ -7280,7 +7160,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiāo",
-    "seq": 485,
+    "seq": 477,
     "source": "下册 11 彩虹",
     "text": "浇"
   },
@@ -7295,7 +7175,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tí",
-    "seq": 486,
+    "seq": 478,
     "source": "下册 11 彩虹",
     "text": "提"
   },
@@ -7310,7 +7190,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "sǎ",
-    "seq": 487,
+    "seq": 479,
     "source": "下册 11 彩虹",
     "text": "洒"
   },
@@ -7325,7 +7205,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tiāo",
-    "seq": 488,
+    "seq": 480,
     "source": "下册 11 彩虹",
     "text": "挑"
   },
@@ -7340,7 +7220,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xìng",
-    "seq": 489,
+    "seq": 481,
     "source": "下册 11 彩虹",
     "text": "兴"
   },
@@ -7355,7 +7235,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jìng",
-    "seq": 490,
+    "seq": 482,
     "source": "下册 11 彩虹",
     "text": "镜"
   },
@@ -7370,7 +7250,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "ná",
-    "seq": 491,
+    "seq": 483,
     "source": "下册 11 彩虹",
     "text": "拿"
   },
@@ -7385,7 +7265,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhào",
-    "seq": 492,
+    "seq": 484,
     "source": "下册 11 彩虹",
     "text": "照"
   },
@@ -7400,7 +7280,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qiān",
-    "seq": 493,
+    "seq": 485,
     "source": "下册 11 彩虹",
     "text": "千"
   },
@@ -7415,39 +7295,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qún",
-    "seq": 494,
+    "seq": 486,
     "source": "下册 11 彩虹",
     "text": "裙"
-  },
-  {
-    "band": 10,
-    "category": "body",
-    "components": [
-      "荡"
-    ],
-    "confidence": "low",
-    "english": "swing; sway",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "dàng",
-    "seq": 495,
-    "source": "下册 11 彩虹",
-    "text": "荡"
-  },
-  {
-    "band": 10,
-    "category": "abstract",
-    "components": [
-      "眨"
-    ],
-    "confidence": "low",
-    "english": "blink",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "zhǎ",
-    "seq": 496,
-    "source": "下册 11 彩虹",
-    "text": "眨"
   },
   {
     "band": 10,
@@ -7460,7 +7310,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "méi",
-    "seq": 497,
+    "seq": 487,
     "source": "下册 语文园地四",
     "text": "眉"
   },
@@ -7475,7 +7325,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bí",
-    "seq": 498,
+    "seq": 488,
     "source": "下册 语文园地四",
     "text": "鼻"
   },
@@ -7490,7 +7340,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zuǐ",
-    "seq": 499,
+    "seq": 489,
     "source": "下册 语文园地四",
     "text": "嘴"
   },
@@ -7505,12 +7355,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bó",
-    "seq": 500,
+    "seq": 490,
     "source": "下册 语文园地四",
     "text": "脖"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "body",
     "components": [
       "臂"
@@ -7520,12 +7370,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bì",
-    "seq": 501,
+    "seq": 491,
     "source": "下册 语文园地四",
     "text": "臂"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "body",
     "components": [
       "肚"
@@ -7535,12 +7385,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dù",
-    "seq": 502,
+    "seq": 492,
     "source": "下册 语文园地四",
     "text": "肚"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "body",
     "components": [
       "腿"
@@ -7550,12 +7400,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tuǐ",
-    "seq": 503,
+    "seq": 493,
     "source": "下册 语文园地四",
     "text": "腿"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "body",
     "components": [
       "脚"
@@ -7565,12 +7415,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiǎo",
-    "seq": 504,
+    "seq": 494,
     "source": "下册 语文园地四",
     "text": "脚"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "animal",
     "components": [
       "蜻"
@@ -7580,12 +7430,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qīng",
-    "seq": 505,
+    "seq": 495,
     "source": "下册 5 动物儿歌",
     "text": "蜻"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "animal",
     "components": [
       "蜓"
@@ -7595,12 +7445,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tíng",
-    "seq": 506,
+    "seq": 496,
     "source": "下册 5 动物儿歌",
     "text": "蜓"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "object",
     "components": [
       "迷"
@@ -7610,12 +7460,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mí",
-    "seq": 507,
+    "seq": 497,
     "source": "下册 5 动物儿歌",
     "text": "迷"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "abstract",
     "components": [
       "藏"
@@ -7625,12 +7475,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cáng",
-    "seq": 508,
+    "seq": 498,
     "source": "下册 5 动物儿歌",
     "text": "藏"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "abstract",
     "components": [
       "造"
@@ -7640,12 +7490,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zào",
-    "seq": 509,
+    "seq": 499,
     "source": "下册 5 动物儿歌",
     "text": "造"
   },
   {
-    "band": 11,
+    "band": 10,
     "category": "animal",
     "components": [
       "蚂"
@@ -7655,7 +7505,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mǎ",
-    "seq": 510,
+    "seq": 500,
     "source": "下册 5 动物儿歌",
     "text": "蚂"
   },
@@ -7670,7 +7520,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yǐ",
-    "seq": 511,
+    "seq": 501,
     "source": "下册 5 动物儿歌",
     "text": "蚁"
   },
@@ -7685,7 +7535,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shí",
-    "seq": 512,
+    "seq": 502,
     "source": "下册 5 动物儿歌",
     "text": "食"
   },
@@ -7700,7 +7550,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "liáng",
-    "seq": 513,
+    "seq": 503,
     "source": "下册 5 动物儿歌",
     "text": "粮"
   },
@@ -7715,7 +7565,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhī",
-    "seq": 514,
+    "seq": 504,
     "source": "下册 5 动物儿歌",
     "text": "蜘"
   },
@@ -7730,7 +7580,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhū",
-    "seq": 515,
+    "seq": 505,
     "source": "下册 5 动物儿歌",
     "text": "蛛"
   },
@@ -7745,7 +7595,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wǎng",
-    "seq": 516,
+    "seq": 506,
     "source": "下册 5 动物儿歌",
     "text": "网"
   },
@@ -7760,7 +7610,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yuán",
-    "seq": 517,
+    "seq": 507,
     "source": "下册 6 古对今",
     "text": "圆"
   },
@@ -7775,7 +7625,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yán",
-    "seq": 518,
+    "seq": 508,
     "source": "下册 6 古对今",
     "text": "严"
   },
@@ -7790,7 +7640,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hán",
-    "seq": 519,
+    "seq": 509,
     "source": "下册 6 古对今",
     "text": "寒"
   },
@@ -7805,9 +7655,24 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "kù",
-    "seq": 520,
+    "seq": 510,
     "source": "下册 6 古对今",
     "text": "酷"
+  },
+  {
+    "band": 11,
+    "category": "abstract",
+    "components": [
+      "暑"
+    ],
+    "confidence": "model",
+    "english": "summer heat",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "shǔ",
+    "seq": 511,
+    "source": "下册 6 古对今",
+    "text": "暑"
   },
   {
     "band": 11,
@@ -7820,7 +7685,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "liáng",
-    "seq": 521,
+    "seq": 512,
     "source": "下册 6 古对今",
     "text": "凉"
   },
@@ -7835,7 +7700,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chén",
-    "seq": 522,
+    "seq": 513,
     "source": "下册 6 古对今",
     "text": "晨"
   },
@@ -7850,7 +7715,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xì",
-    "seq": 523,
+    "seq": 514,
     "source": "下册 6 古对今",
     "text": "细"
   },
@@ -7865,7 +7730,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhāo",
-    "seq": 524,
+    "seq": 515,
     "source": "下册 6 古对今",
     "text": "朝"
   },
@@ -7880,7 +7745,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiá",
-    "seq": 525,
+    "seq": 516,
     "source": "下册 6 古对今",
     "text": "霞"
   },
@@ -7895,7 +7760,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xī",
-    "seq": 526,
+    "seq": 517,
     "source": "下册 6 古对今",
     "text": "夕"
   },
@@ -7910,7 +7775,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yáng",
-    "seq": 527,
+    "seq": 518,
     "source": "下册 6 古对今",
     "text": "杨"
   },
@@ -7925,7 +7790,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cāo",
-    "seq": 528,
+    "seq": 519,
     "source": "下册 7 操场上",
     "text": "操"
   },
@@ -7940,7 +7805,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chǎng",
-    "seq": 529,
+    "seq": 520,
     "source": "下册 7 操场上",
     "text": "场"
   },
@@ -7955,7 +7820,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bá",
-    "seq": 530,
+    "seq": 521,
     "source": "下册 7 操场上",
     "text": "拔"
   },
@@ -7970,7 +7835,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pāi",
-    "seq": 531,
+    "seq": 522,
     "source": "下册 7 操场上",
     "text": "拍"
   },
@@ -7985,7 +7850,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pǎo",
-    "seq": 532,
+    "seq": 523,
     "source": "下册 7 操场上",
     "text": "跑"
   },
@@ -8000,7 +7865,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tī",
-    "seq": 533,
+    "seq": 524,
     "source": "下册 7 操场上",
     "text": "踢"
   },
@@ -8015,7 +7880,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "líng",
-    "seq": 534,
+    "seq": 525,
     "source": "下册 7 操场上",
     "text": "铃"
   },
@@ -8030,7 +7895,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "rè",
-    "seq": 535,
+    "seq": 526,
     "source": "下册 7 操场上",
     "text": "热"
   },
@@ -8045,7 +7910,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "nào",
-    "seq": 536,
+    "seq": 527,
     "source": "下册 7 操场上",
     "text": "闹"
   },
@@ -8060,7 +7925,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "duàn",
-    "seq": 537,
+    "seq": 528,
     "source": "下册 7 操场上",
     "text": "锻"
   },
@@ -8075,7 +7940,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "liàn",
-    "seq": 538,
+    "seq": 529,
     "source": "下册 7 操场上",
     "text": "炼"
   },
@@ -8090,7 +7955,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tǐ",
-    "seq": 539,
+    "seq": 530,
     "source": "下册 7 操场上",
     "text": "体"
   },
@@ -8105,7 +7970,7 @@
     "grammar": true,
     "needs_visual": false,
     "pinyin": "zhī",
-    "seq": 540,
+    "seq": 531,
     "source": "下册 8 人之初",
     "text": "之"
   },
@@ -8120,7 +7985,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chū",
-    "seq": 541,
+    "seq": 532,
     "source": "下册 8 人之初",
     "text": "初"
   },
@@ -8135,7 +8000,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xìng",
-    "seq": 542,
+    "seq": 533,
     "source": "下册 8 人之初",
     "text": "性"
   },
@@ -8150,7 +8015,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shàn",
-    "seq": 543,
+    "seq": 534,
     "source": "下册 8 人之初",
     "text": "善"
   },
@@ -8165,7 +8030,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xí",
-    "seq": 544,
+    "seq": 535,
     "source": "下册 8 人之初",
     "text": "习"
   },
@@ -8180,7 +8045,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiào",
-    "seq": 545,
+    "seq": 536,
     "source": "下册 8 人之初",
     "text": "教"
   },
@@ -8195,7 +8060,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qiān",
-    "seq": 546,
+    "seq": 537,
     "source": "下册 8 人之初",
     "text": "迁"
   },
@@ -8210,7 +8075,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "guì",
-    "seq": 547,
+    "seq": 538,
     "source": "下册 8 人之初",
     "text": "贵"
   },
@@ -8225,7 +8090,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhuān",
-    "seq": 548,
+    "seq": 539,
     "source": "下册 8 人之初",
     "text": "专"
   },
@@ -8240,7 +8105,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yòu",
-    "seq": 549,
+    "seq": 540,
     "source": "下册 8 人之初",
     "text": "幼"
   },
@@ -8255,12 +8120,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yù",
-    "seq": 550,
+    "seq": 541,
     "source": "下册 8 人之初",
     "text": "玉"
   },
   {
-    "band": 12,
+    "band": 11,
     "category": "abstract",
     "components": [
       "义"
@@ -8270,42 +8135,72 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yì",
-    "seq": 551,
+    "seq": 542,
     "source": "下册 8 人之初",
     "text": "义"
   },
   {
-    "band": 12,
+    "band": 11,
     "category": "abstract",
     "components": [
       "器"
     ],
-    "confidence": "low",
+    "confidence": "model",
     "english": "utensil; instrument",
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qì",
-    "seq": 552,
+    "seq": 543,
     "source": "下册 8 人之初",
     "text": "器"
   },
   {
-    "band": 12,
-    "category": "abstract",
+    "band": 11,
+    "category": "nature",
     "components": [
-      "饱"
+      "饭"
     ],
     "confidence": "model",
-    "english": "full (from eating)",
+    "english": "(cooked) rice; meal",
     "grammar": false,
     "needs_visual": false,
-    "pinyin": "bǎo",
-    "seq": 553,
+    "pinyin": "fàn",
+    "seq": 544,
     "source": "下册 语文园地五",
-    "text": "饱"
+    "text": "饭"
   },
   {
-    "band": 12,
+    "band": 11,
+    "category": "abstract",
+    "components": [
+      "能"
+    ],
+    "confidence": "model",
+    "english": "can; able",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "néng",
+    "seq": 545,
+    "source": "下册 语文园地五",
+    "text": "能"
+  },
+  {
+    "band": 11,
+    "category": "abstract",
+    "components": [
+      "茶"
+    ],
+    "confidence": "model",
+    "english": "tea",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "chá",
+    "seq": 546,
+    "source": "下册 语文园地五",
+    "text": "茶"
+  },
+  {
+    "band": 11,
     "category": "abstract",
     "components": [
       "泡"
@@ -8315,12 +8210,42 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pào",
-    "seq": 554,
+    "seq": 547,
     "source": "下册 语文园地五",
     "text": "泡"
   },
   {
-    "band": 12,
+    "band": 11,
+    "category": "abstract",
+    "components": [
+      "轻"
+    ],
+    "confidence": "model",
+    "english": "light (weight)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "qīng",
+    "seq": 548,
+    "source": "下册 语文园地五",
+    "text": "轻"
+  },
+  {
+    "band": 11,
+    "category": "abstract",
+    "components": [
+      "鞭"
+    ],
+    "confidence": "model",
+    "english": "whip (鞭炮 firecracker)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "biān",
+    "seq": 549,
+    "source": "下册 语文园地五",
+    "text": "鞭"
+  },
+  {
+    "band": 11,
     "category": "abstract",
     "components": [
       "炮"
@@ -8330,24 +8255,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pào",
-    "seq": 555,
+    "seq": 550,
     "source": "下册 语文园地五",
     "text": "炮"
-  },
-  {
-    "band": 12,
-    "category": "abstract",
-    "components": [
-      "苞"
-    ],
-    "confidence": "model",
-    "english": "bud",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "bāo",
-    "seq": 556,
-    "source": "下册 语文园地五",
-    "text": "苞"
   },
   {
     "band": 12,
@@ -8360,7 +8270,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "páo",
-    "seq": 557,
+    "seq": 551,
     "source": "下册 语文园地五",
     "text": "袍"
   },
@@ -8368,16 +8278,16 @@
     "band": 12,
     "category": "abstract",
     "components": [
-      "刨"
+      "饱"
     ],
     "confidence": "model",
-    "english": "dig; plane",
+    "english": "full (from eating)",
     "grammar": false,
     "needs_visual": false,
-    "pinyin": "páo",
-    "seq": 558,
+    "pinyin": "bǎo",
+    "seq": 552,
     "source": "下册 语文园地五",
-    "text": "刨"
+    "text": "饱"
   },
   {
     "band": 12,
@@ -8390,7 +8300,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shǒu",
-    "seq": 559,
+    "seq": 553,
     "source": "下册 12 古诗二首",
     "text": "首"
   },
@@ -8405,7 +8315,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zōng",
-    "seq": 560,
+    "seq": 554,
     "source": "下册 12 古诗二首",
     "text": "踪"
   },
@@ -8420,7 +8330,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jì",
-    "seq": 561,
+    "seq": 555,
     "source": "下册 12 古诗二首",
     "text": "迹"
   },
@@ -8435,7 +8345,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "fú",
-    "seq": 562,
+    "seq": 556,
     "source": "下册 12 古诗二首",
     "text": "浮"
   },
@@ -8450,7 +8360,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "píng",
-    "seq": 563,
+    "seq": 557,
     "source": "下册 12 古诗二首",
     "text": "萍"
   },
@@ -8465,7 +8375,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "quán",
-    "seq": 564,
+    "seq": 558,
     "source": "下册 12 古诗二首",
     "text": "泉"
   },
@@ -8480,7 +8390,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "liú",
-    "seq": 565,
+    "seq": 559,
     "source": "下册 12 古诗二首",
     "text": "流"
   },
@@ -8495,7 +8405,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "ài",
-    "seq": 566,
+    "seq": 560,
     "source": "下册 12 古诗二首",
     "text": "爱"
   },
@@ -8510,7 +8420,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "róu",
-    "seq": 567,
+    "seq": 561,
     "source": "下册 12 古诗二首",
     "text": "柔"
   },
@@ -8525,7 +8435,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hé",
-    "seq": 568,
+    "seq": 562,
     "source": "下册 12 古诗二首",
     "text": "荷"
   },
@@ -8540,7 +8450,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lù",
-    "seq": 569,
+    "seq": 563,
     "source": "下册 12 古诗二首",
     "text": "露"
   },
@@ -8555,39 +8465,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiǎo",
-    "seq": 570,
+    "seq": 564,
     "source": "下册 12 古诗二首",
     "text": "角"
-  },
-  {
-    "band": 12,
-    "category": "object",
-    "components": [
-      "撑"
-    ],
-    "confidence": "low",
-    "english": "pole (a boat); prop up",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "chēng",
-    "seq": 571,
-    "source": "下册 12 古诗二首",
-    "text": "撑"
-  },
-  {
-    "band": 12,
-    "category": "object",
-    "components": [
-      "艇"
-    ],
-    "confidence": "low",
-    "english": "small boat",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "tǐng",
-    "seq": 572,
-    "source": "下册 12 古诗二首",
-    "text": "艇"
   },
   {
     "band": 12,
@@ -8600,7 +8480,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhū",
-    "seq": 573,
+    "seq": 565,
     "source": "下册 13 荷叶圆圆",
     "text": "珠"
   },
@@ -8615,7 +8495,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yáo",
-    "seq": 574,
+    "seq": 566,
     "source": "下册 13 荷叶圆圆",
     "text": "摇"
   },
@@ -8630,7 +8510,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tǎng",
-    "seq": 575,
+    "seq": 567,
     "source": "下册 13 荷叶圆圆",
     "text": "躺"
   },
@@ -8645,7 +8525,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jīng",
-    "seq": 576,
+    "seq": 568,
     "source": "下册 13 荷叶圆圆",
     "text": "晶"
   },
@@ -8660,7 +8540,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tíng",
-    "seq": 577,
+    "seq": 569,
     "source": "下册 13 荷叶圆圆",
     "text": "停"
   },
@@ -8675,7 +8555,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jī",
-    "seq": 578,
+    "seq": 570,
     "source": "下册 13 荷叶圆圆",
     "text": "机"
   },
@@ -8690,7 +8570,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhǎn",
-    "seq": 579,
+    "seq": 571,
     "source": "下册 13 荷叶圆圆",
     "text": "展"
   },
@@ -8705,7 +8585,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tòu",
-    "seq": 580,
+    "seq": 572,
     "source": "下册 13 荷叶圆圆",
     "text": "透"
   },
@@ -8720,7 +8600,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chì",
-    "seq": 581,
+    "seq": 573,
     "source": "下册 13 荷叶圆圆",
     "text": "翅"
   },
@@ -8735,7 +8615,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bǎng",
-    "seq": 582,
+    "seq": 574,
     "source": "下册 13 荷叶圆圆",
     "text": "膀"
   },
@@ -8750,7 +8630,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chàng",
-    "seq": 583,
+    "seq": 575,
     "source": "下册 13 荷叶圆圆",
     "text": "唱"
   },
@@ -8765,7 +8645,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "duǒ",
-    "seq": 584,
+    "seq": 576,
     "source": "下册 13 荷叶圆圆",
     "text": "朵"
   },
@@ -8780,7 +8660,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yāo",
-    "seq": 585,
+    "seq": 577,
     "source": "下册 14 要下雨了",
     "text": "腰"
   },
@@ -8795,7 +8675,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pō",
-    "seq": 586,
+    "seq": 578,
     "source": "下册 14 要下雨了",
     "text": "坡"
   },
@@ -8810,7 +8690,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chén",
-    "seq": 587,
+    "seq": 579,
     "source": "下册 14 要下雨了",
     "text": "沉"
   },
@@ -8825,7 +8705,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shēn",
-    "seq": 588,
+    "seq": 580,
     "source": "下册 14 要下雨了",
     "text": "伸"
   },
@@ -8840,7 +8720,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cháo",
-    "seq": 589,
+    "seq": 581,
     "source": "下册 14 要下雨了",
     "text": "潮"
   },
@@ -8855,7 +8735,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shī",
-    "seq": 590,
+    "seq": 582,
     "source": "下册 14 要下雨了",
     "text": "湿"
   },
@@ -8870,7 +8750,7 @@
     "grammar": true,
     "needs_visual": false,
     "pinyin": "ne",
-    "seq": 591,
+    "seq": 583,
     "source": "下册 14 要下雨了",
     "text": "呢"
   },
@@ -8885,7 +8765,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mēn",
-    "seq": 592,
+    "seq": 584,
     "source": "下册 14 要下雨了",
     "text": "闷"
   },
@@ -8900,7 +8780,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiāo",
-    "seq": 593,
+    "seq": 585,
     "source": "下册 14 要下雨了",
     "text": "消"
   },
@@ -8915,7 +8795,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xī",
-    "seq": 594,
+    "seq": 586,
     "source": "下册 14 要下雨了",
     "text": "息"
   },
@@ -8930,7 +8810,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bān",
-    "seq": 595,
+    "seq": 587,
     "source": "下册 14 要下雨了",
     "text": "搬"
   },
@@ -8945,7 +8825,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiǎng",
-    "seq": 596,
+    "seq": 588,
     "source": "下册 14 要下雨了",
     "text": "响"
   },
@@ -8960,7 +8840,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gùn",
-    "seq": 597,
+    "seq": 589,
     "source": "下册 语文园地六",
     "text": "棍"
   },
@@ -8975,7 +8855,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tāng",
-    "seq": 598,
+    "seq": 590,
     "source": "下册 语文园地六",
     "text": "汤"
   },
@@ -8990,7 +8870,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shàn",
-    "seq": 599,
+    "seq": 591,
     "source": "下册 语文园地六",
     "text": "扇"
   },
@@ -9005,12 +8885,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yǐ",
-    "seq": 600,
+    "seq": 592,
     "source": "下册 语文园地六",
     "text": "椅"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "nature",
     "components": [
       "萤"
@@ -9020,12 +8900,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yíng",
-    "seq": 601,
+    "seq": 593,
     "source": "下册 语文园地六",
     "text": "萤"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "牵"
@@ -9035,12 +8915,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qiān",
-    "seq": 602,
+    "seq": 594,
     "source": "下册 语文园地六",
     "text": "牵"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "织"
@@ -9050,12 +8930,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhī",
-    "seq": 603,
+    "seq": 595,
     "source": "下册 语文园地六",
     "text": "织"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "斗"
@@ -9065,12 +8945,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dǒu",
-    "seq": 604,
+    "seq": 596,
     "source": "下册 语文园地六",
     "text": "斗"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "具"
@@ -9080,12 +8960,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jù",
-    "seq": 605,
+    "seq": 597,
     "source": "下册 15 文具的家",
     "text": "具"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "次"
@@ -9095,12 +8975,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "cì",
-    "seq": 606,
+    "seq": 598,
     "source": "下册 15 文具的家",
     "text": "次"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "丢"
@@ -9110,12 +8990,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "diū",
-    "seq": 607,
+    "seq": 599,
     "source": "下册 15 文具的家",
     "text": "丢"
   },
   {
-    "band": 13,
+    "band": 12,
     "category": "abstract",
     "components": [
       "哪"
@@ -9125,7 +9005,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "nǎ",
-    "seq": 608,
+    "seq": 600,
     "source": "下册 15 文具的家",
     "text": "哪"
   },
@@ -9140,7 +9020,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xīn",
-    "seq": 609,
+    "seq": 601,
     "source": "下册 15 文具的家",
     "text": "新"
   },
@@ -9155,7 +9035,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "měi",
-    "seq": 610,
+    "seq": 602,
     "source": "下册 15 文具的家",
     "text": "每"
   },
@@ -9170,9 +9050,24 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "píng",
-    "seq": 611,
+    "seq": 603,
     "source": "下册 15 文具的家",
     "text": "平"
+  },
+  {
+    "band": 13,
+    "category": "abstract",
+    "components": [
+      "她"
+    ],
+    "confidence": "model",
+    "english": "she",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "tā",
+    "seq": 604,
+    "source": "下册 15 文具的家",
+    "text": "她"
   },
   {
     "band": 13,
@@ -9185,7 +9080,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiē",
-    "seq": 612,
+    "seq": 605,
     "source": "下册 15 文具的家",
     "text": "些"
   },
@@ -9200,7 +9095,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zǐ",
-    "seq": 613,
+    "seq": 606,
     "source": "下册 15 文具的家",
     "text": "仔"
   },
@@ -9215,7 +9110,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiǎn",
-    "seq": 614,
+    "seq": 607,
     "source": "下册 15 文具的家",
     "text": "检"
   },
@@ -9230,7 +9125,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chá",
-    "seq": 615,
+    "seq": 608,
     "source": "下册 15 文具的家",
     "text": "查"
   },
@@ -9245,39 +9140,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "suǒ",
-    "seq": 616,
+    "seq": 609,
     "source": "下册 15 文具的家",
     "text": "所"
-  },
-  {
-    "band": 13,
-    "category": "abstract",
-    "components": [
-      "件"
-    ],
-    "confidence": "web",
-    "english": "(item of)",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "jiàn",
-    "seq": 617,
-    "source": "下册 15 文具的家",
-    "text": "件"
-  },
-  {
-    "band": 13,
-    "category": "object",
-    "components": [
-      "铅"
-    ],
-    "confidence": "model",
-    "english": "lead (铅笔 pencil)",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "qiān",
-    "seq": 618,
-    "source": "下册 15 文具的家",
-    "text": "铅"
   },
   {
     "band": 13,
@@ -9290,7 +9155,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhōng",
-    "seq": 619,
+    "seq": 610,
     "source": "下册 16 一分钟",
     "text": "钟"
   },
@@ -9305,7 +9170,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yuán",
-    "seq": 620,
+    "seq": 611,
     "source": "下册 16 一分钟",
     "text": "元"
   },
@@ -9320,7 +9185,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xǐ",
-    "seq": 621,
+    "seq": 612,
     "source": "下册 16 一分钟",
     "text": "洗"
   },
@@ -9335,7 +9200,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gòng",
-    "seq": 622,
+    "seq": 613,
     "source": "下册 16 一分钟",
     "text": "共"
   },
@@ -9350,7 +9215,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yǐ",
-    "seq": 623,
+    "seq": 614,
     "source": "下册 16 一分钟",
     "text": "已"
   },
@@ -9365,7 +9230,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jīng",
-    "seq": 624,
+    "seq": 615,
     "source": "下册 16 一分钟",
     "text": "经"
   },
@@ -9380,7 +9245,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "chí",
-    "seq": 625,
+    "seq": 616,
     "source": "下册 16 一分钟",
     "text": "迟"
   },
@@ -9395,7 +9260,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tàn",
-    "seq": 626,
+    "seq": 617,
     "source": "下册 16 一分钟",
     "text": "叹"
   },
@@ -9410,7 +9275,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jué",
-    "seq": 627,
+    "seq": 618,
     "source": "下册 16 一分钟",
     "text": "决"
   },
@@ -9425,7 +9290,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dìng",
-    "seq": 628,
+    "seq": 619,
     "source": "下册 16 一分钟",
     "text": "定"
   },
@@ -9433,46 +9298,46 @@
     "band": 13,
     "category": "abstract",
     "components": [
-      "哈"
+      "背"
     ],
     "confidence": "model",
-    "english": "(sound of yawn/laugh)",
+    "english": "carry on the back",
     "grammar": false,
     "needs_visual": false,
-    "pinyin": "hā",
-    "seq": 629,
+    "pinyin": "bēi",
+    "seq": 620,
     "source": "下册 16 一分钟",
-    "text": "哈"
+    "text": "背"
   },
   {
     "band": 13,
     "category": "abstract",
     "components": [
-      "欠"
+      "刚"
     ],
     "confidence": "model",
-    "english": "yawn; owe",
+    "english": "just (now)",
     "grammar": false,
     "needs_visual": false,
-    "pinyin": "qiàn",
-    "seq": 630,
+    "pinyin": "gāng",
+    "seq": 621,
     "source": "下册 16 一分钟",
-    "text": "欠"
+    "text": "刚"
   },
   {
     "band": 13,
     "category": "abstract",
     "components": [
-      "悔"
+      "汽"
     ],
-    "confidence": "low",
-    "english": "regret",
+    "confidence": "model",
+    "english": "steam (汽车 car)",
     "grammar": false,
     "needs_visual": false,
-    "pinyin": "huǐ",
-    "seq": 631,
+    "pinyin": "qì",
+    "seq": 622,
     "source": "下册 16 一分钟",
-    "text": "悔"
+    "text": "汽"
   },
   {
     "band": 13,
@@ -9485,7 +9350,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wù",
-    "seq": 632,
+    "seq": 623,
     "source": "下册 17 动物王国开大会",
     "text": "物"
   },
@@ -9500,7 +9365,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hǔ",
-    "seq": 633,
+    "seq": 624,
     "source": "下册 17 动物王国开大会",
     "text": "虎"
   },
@@ -9515,7 +9380,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xióng",
-    "seq": 634,
+    "seq": 625,
     "source": "下册 17 动物王国开大会",
     "text": "熊"
   },
@@ -9530,7 +9395,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tōng",
-    "seq": 635,
+    "seq": 626,
     "source": "下册 17 动物王国开大会",
     "text": "通"
   },
@@ -9545,7 +9410,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhù",
-    "seq": 636,
+    "seq": 627,
     "source": "下册 17 动物王国开大会",
     "text": "注"
   },
@@ -9560,7 +9425,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yì",
-    "seq": 637,
+    "seq": 628,
     "source": "下册 17 动物王国开大会",
     "text": "意"
   },
@@ -9575,7 +9440,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "biàn",
-    "seq": 638,
+    "seq": 629,
     "source": "下册 17 动物王国开大会",
     "text": "遍"
   },
@@ -9590,7 +9455,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bǎi",
-    "seq": 639,
+    "seq": 630,
     "source": "下册 17 动物王国开大会",
     "text": "百"
   },
@@ -9605,7 +9470,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shé",
-    "seq": 640,
+    "seq": 631,
     "source": "下册 17 动物王国开大会",
     "text": "舌"
   },
@@ -9620,7 +9485,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "guǐ",
-    "seq": 641,
+    "seq": 632,
     "source": "下册 17 动物王国开大会",
     "text": "鬼"
   },
@@ -9635,7 +9500,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "liǎn",
-    "seq": 642,
+    "seq": 633,
     "source": "下册 17 动物王国开大会",
     "text": "脸"
   },
@@ -9650,7 +9515,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhǔn",
-    "seq": 643,
+    "seq": 634,
     "source": "下册 17 动物王国开大会",
     "text": "准"
   },
@@ -9665,24 +9530,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dì",
-    "seq": 644,
+    "seq": 635,
     "source": "下册 17 动物王国开大会",
     "text": "第"
-  },
-  {
-    "band": 13,
-    "category": "animal",
-    "components": [
-      "狮"
-    ],
-    "confidence": "model",
-    "english": "lion",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "shī",
-    "seq": 645,
-    "source": "下册 17 动物王国开大会",
-    "text": "狮"
   },
   {
     "band": 13,
@@ -9695,7 +9545,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "hóu",
-    "seq": 646,
+    "seq": 636,
     "source": "下册 18 小猴子下山",
     "text": "猴"
   },
@@ -9710,7 +9560,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiē",
-    "seq": 647,
+    "seq": 637,
     "source": "下册 18 小猴子下山",
     "text": "结"
   },
@@ -9725,7 +9575,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bāi",
-    "seq": 648,
+    "seq": 638,
     "source": "下册 18 小猴子下山",
     "text": "掰"
   },
@@ -9740,7 +9590,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "káng",
-    "seq": 649,
+    "seq": 639,
     "source": "下册 18 小猴子下山",
     "text": "扛"
   },
@@ -9755,12 +9605,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mǎn",
-    "seq": 650,
+    "seq": 640,
     "source": "下册 18 小猴子下山",
     "text": "满"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "abstract",
     "components": [
       "扔"
@@ -9770,12 +9620,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "rēng",
-    "seq": 651,
+    "seq": 641,
     "source": "下册 18 小猴子下山",
     "text": "扔"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "abstract",
     "components": [
       "摘"
@@ -9785,12 +9635,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhāi",
-    "seq": 652,
+    "seq": 642,
     "source": "下册 18 小猴子下山",
     "text": "摘"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "abstract",
     "components": [
       "捧"
@@ -9800,12 +9650,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "pěng",
-    "seq": 653,
+    "seq": 643,
     "source": "下册 18 小猴子下山",
     "text": "捧"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "food",
     "components": [
       "瓜"
@@ -9815,12 +9665,12 @@
     "grammar": false,
     "needs_visual": true,
     "pinyin": "guā",
-    "seq": 654,
+    "seq": 644,
     "source": "下册 18 小猴子下山",
     "text": "瓜"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "abstract",
     "components": [
       "抱"
@@ -9830,12 +9680,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bào",
-    "seq": 655,
+    "seq": 645,
     "source": "下册 18 小猴子下山",
     "text": "抱"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "abstract",
     "components": [
       "蹦"
@@ -9845,12 +9695,12 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bèng",
-    "seq": 656,
+    "seq": 646,
     "source": "下册 18 小猴子下山",
     "text": "蹦"
   },
   {
-    "band": 14,
+    "band": 13,
     "category": "abstract",
     "components": [
       "追"
@@ -9860,9 +9710,129 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhuī",
-    "seq": 657,
+    "seq": 647,
     "source": "下册 18 小猴子下山",
     "text": "追"
+  },
+  {
+    "band": 13,
+    "category": "abstract",
+    "components": [
+      "吵"
+    ],
+    "confidence": "model",
+    "english": "noisy; quarrel",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "chǎo",
+    "seq": 648,
+    "source": "下册 语文园地七",
+    "text": "吵"
+  },
+  {
+    "band": 13,
+    "category": "abstract",
+    "components": [
+      "胖"
+    ],
+    "confidence": "model",
+    "english": "fat; chubby",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "pàng",
+    "seq": 649,
+    "source": "下册 语文园地七",
+    "text": "胖"
+  },
+  {
+    "band": 13,
+    "category": "abstract",
+    "components": [
+      "岁"
+    ],
+    "confidence": "model",
+    "english": "years old",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "suì",
+    "seq": 650,
+    "source": "下册 语文园地七",
+    "text": "岁"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "现"
+    ],
+    "confidence": "model",
+    "english": "now; appear",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "xiàn",
+    "seq": 651,
+    "source": "下册 语文园地七",
+    "text": "现"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "票"
+    ],
+    "confidence": "model",
+    "english": "ticket",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "piào",
+    "seq": 652,
+    "source": "下册 语文园地七",
+    "text": "票"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "交"
+    ],
+    "confidence": "model",
+    "english": "hand over",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "jiāo",
+    "seq": 653,
+    "source": "下册 语文园地七",
+    "text": "交"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "弓"
+    ],
+    "confidence": "model",
+    "english": "bow (weapon)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "gōng",
+    "seq": 654,
+    "source": "下册 语文园地七",
+    "text": "弓"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "甘"
+    ],
+    "confidence": "model",
+    "english": "sweet; willing",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "gān",
+    "seq": 655,
+    "source": "下册 语文园地七",
+    "text": "甘"
   },
   {
     "band": 14,
@@ -9875,7 +9845,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mián",
-    "seq": 658,
+    "seq": 656,
     "source": "下册 19 棉花姑娘",
     "text": "棉"
   },
@@ -9890,7 +9860,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "niáng",
-    "seq": 659,
+    "seq": 657,
     "source": "下册 19 棉花姑娘",
     "text": "娘"
   },
@@ -9905,7 +9875,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "zhì",
-    "seq": 660,
+    "seq": 658,
     "source": "下册 19 棉花姑娘",
     "text": "治"
   },
@@ -9920,7 +9890,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yàn",
-    "seq": 661,
+    "seq": 659,
     "source": "下册 19 棉花姑娘",
     "text": "燕"
   },
@@ -9935,7 +9905,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bié",
-    "seq": 662,
+    "seq": 660,
     "source": "下册 19 棉花姑娘",
     "text": "别"
   },
@@ -9950,7 +9920,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gàn",
-    "seq": 663,
+    "seq": 661,
     "source": "下册 19 棉花姑娘",
     "text": "干"
   },
@@ -9965,7 +9935,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "rán",
-    "seq": 664,
+    "seq": 662,
     "source": "下册 19 棉花姑娘",
     "text": "然"
   },
@@ -9980,7 +9950,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qí",
-    "seq": 665,
+    "seq": 663,
     "source": "下册 19 棉花姑娘",
     "text": "奇"
   },
@@ -9995,7 +9965,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "kē",
-    "seq": 666,
+    "seq": 664,
     "source": "下册 19 棉花姑娘",
     "text": "颗"
   },
@@ -10010,7 +9980,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "piáo",
-    "seq": 667,
+    "seq": 665,
     "source": "下册 19 棉花姑娘",
     "text": "瓢"
   },
@@ -10025,7 +9995,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bì",
-    "seq": 668,
+    "seq": 666,
     "source": "下册 19 棉花姑娘",
     "text": "碧"
   },
@@ -10040,7 +10010,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "tǔ",
-    "seq": 669,
+    "seq": 667,
     "source": "下册 19 棉花姑娘",
     "text": "吐"
   },
@@ -10055,39 +10025,9 @@
     "grammar": true,
     "needs_visual": false,
     "pinyin": "la",
-    "seq": 670,
+    "seq": 668,
     "source": "下册 19 棉花姑娘",
     "text": "啦"
-  },
-  {
-    "band": 14,
-    "category": "animal",
-    "components": [
-      "蚜"
-    ],
-    "confidence": "model",
-    "english": "aphid",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "yá",
-    "seq": 671,
-    "source": "下册 19 棉花姑娘",
-    "text": "蚜"
-  },
-  {
-    "band": 14,
-    "category": "abstract",
-    "components": [
-      "盼"
-    ],
-    "confidence": "low",
-    "english": "hope for",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "pàn",
-    "seq": 672,
-    "source": "下册 19 棉花姑娘",
-    "text": "盼"
   },
   {
     "band": 14,
@@ -10100,7 +10040,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gū",
-    "seq": 673,
+    "seq": 669,
     "source": "下册 20 咕咚",
     "text": "咕"
   },
@@ -10115,7 +10055,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "dōng",
-    "seq": 674,
+    "seq": 670,
     "source": "下册 20 咕咚",
     "text": "咚"
   },
@@ -10130,7 +10070,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shú",
-    "seq": 675,
+    "seq": 671,
     "source": "下册 20 咕咚",
     "text": "熟"
   },
@@ -10145,7 +10085,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "diào",
-    "seq": 676,
+    "seq": 672,
     "source": "下册 20 咕咚",
     "text": "掉"
   },
@@ -10160,7 +10100,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xià",
-    "seq": 677,
+    "seq": 673,
     "source": "下册 20 咕咚",
     "text": "吓"
   },
@@ -10175,7 +10115,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lù",
-    "seq": 678,
+    "seq": 674,
     "source": "下册 20 咕咚",
     "text": "鹿"
   },
@@ -10190,7 +10130,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "táo",
-    "seq": 679,
+    "seq": 675,
     "source": "下册 20 咕咚",
     "text": "逃"
   },
@@ -10205,7 +10145,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "mìng",
-    "seq": 680,
+    "seq": 676,
     "source": "下册 20 咕咚",
     "text": "命"
   },
@@ -10220,7 +10160,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "xiàng",
-    "seq": 681,
+    "seq": 677,
     "source": "下册 20 咕咚",
     "text": "象"
   },
@@ -10235,7 +10175,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yě",
-    "seq": 682,
+    "seq": 678,
     "source": "下册 20 咕咚",
     "text": "野"
   },
@@ -10250,7 +10190,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lán",
-    "seq": 683,
+    "seq": 679,
     "source": "下册 20 咕咚",
     "text": "拦"
   },
@@ -10265,24 +10205,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "lǐng",
-    "seq": 684,
+    "seq": 680,
     "source": "下册 20 咕咚",
     "text": "领"
-  },
-  {
-    "band": 14,
-    "category": "nature",
-    "components": [
-      "湖"
-    ],
-    "confidence": "model",
-    "english": "lake",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "hú",
-    "seq": 685,
-    "source": "下册 20 咕咚",
-    "text": "湖"
   },
   {
     "band": 14,
@@ -10295,7 +10220,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bì",
-    "seq": 686,
+    "seq": 681,
     "source": "下册 21 小壁虎借尾巴",
     "text": "壁"
   },
@@ -10310,7 +10235,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "jiè",
-    "seq": 687,
+    "seq": 682,
     "source": "下册 21 小壁虎借尾巴",
     "text": "借"
   },
@@ -10325,7 +10250,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "qiáng",
-    "seq": 688,
+    "seq": 683,
     "source": "下册 21 小壁虎借尾巴",
     "text": "墙"
   },
@@ -10340,7 +10265,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wén",
-    "seq": 689,
+    "seq": 684,
     "source": "下册 21 小壁虎借尾巴",
     "text": "蚊"
   },
@@ -10355,7 +10280,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "yǎo",
-    "seq": 690,
+    "seq": 685,
     "source": "下册 21 小壁虎借尾巴",
     "text": "咬"
   },
@@ -10370,7 +10295,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "duàn",
-    "seq": 691,
+    "seq": 686,
     "source": "下册 21 小壁虎借尾巴",
     "text": "断"
   },
@@ -10385,7 +10310,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "nín",
-    "seq": 692,
+    "seq": 687,
     "source": "下册 21 小壁虎借尾巴",
     "text": "您"
   },
@@ -10400,7 +10325,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "bō",
-    "seq": 693,
+    "seq": 688,
     "source": "下册 21 小壁虎借尾巴",
     "text": "拨"
   },
@@ -10415,7 +10340,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shuǎi",
-    "seq": 694,
+    "seq": 689,
     "source": "下册 21 小壁虎借尾巴",
     "text": "甩"
   },
@@ -10430,7 +10355,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "gǎn",
-    "seq": 695,
+    "seq": 690,
     "source": "下册 21 小壁虎借尾巴",
     "text": "赶"
   },
@@ -10445,7 +10370,7 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "fáng",
-    "seq": 696,
+    "seq": 691,
     "source": "下册 21 小壁虎借尾巴",
     "text": "房"
   },
@@ -10460,24 +10385,9 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "shǎ",
-    "seq": 697,
+    "seq": 692,
     "source": "下册 21 小壁虎借尾巴",
     "text": "傻"
-  },
-  {
-    "band": 14,
-    "category": "abstract",
-    "components": [
-      "难"
-    ],
-    "confidence": "low",
-    "english": "difficult",
-    "grammar": false,
-    "needs_visual": false,
-    "pinyin": "nán",
-    "seq": 698,
-    "source": "下册 21 小壁虎借尾巴",
-    "text": "难"
   },
   {
     "band": 14,
@@ -10490,24 +10400,114 @@
     "grammar": false,
     "needs_visual": false,
     "pinyin": "wèi",
-    "seq": 699,
+    "seq": 693,
     "source": "下册 语文园地八",
     "text": "卫"
   },
   {
     "band": 14,
-    "category": "place",
+    "category": "abstract",
     "components": [
-      "厕"
+      "刷"
     ],
-    "confidence": "low",
-    "english": "toilet",
+    "confidence": "model",
+    "english": "brush (刷牙)",
     "grammar": false,
     "needs_visual": false,
-    "pinyin": "cè",
+    "pinyin": "shuā",
+    "seq": 694,
+    "source": "下册 语文园地八",
+    "text": "刷"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "梳"
+    ],
+    "confidence": "model",
+    "english": "comb",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "shū",
+    "seq": 695,
+    "source": "下册 语文园地八",
+    "text": "梳"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "巾"
+    ],
+    "confidence": "model",
+    "english": "towel; cloth",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "jīn",
+    "seq": 696,
+    "source": "下册 语文园地八",
+    "text": "巾"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "擦"
+    ],
+    "confidence": "model",
+    "english": "wipe",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "cā",
+    "seq": 697,
+    "source": "下册 语文园地八",
+    "text": "擦"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "皂"
+    ],
+    "confidence": "model",
+    "english": "soap",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "zào",
+    "seq": 698,
+    "source": "下册 语文园地八",
+    "text": "皂"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "澡"
+    ],
+    "confidence": "model",
+    "english": "bathe (洗澡)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "zǎo",
+    "seq": 699,
+    "source": "下册 语文园地八",
+    "text": "澡"
+  },
+  {
+    "band": 14,
+    "category": "abstract",
+    "components": [
+      "盆"
+    ],
+    "confidence": "model",
+    "english": "basin",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "pén",
     "seq": 700,
     "source": "下册 语文园地八",
-    "text": "厕"
+    "text": "盆"
   },
   {
     "band": 5,
@@ -10588,5 +10588,149 @@
     "seq": 705,
     "source": "bonus (zoo animal)",
     "text": "鹰"
+  },
+  {
+    "band": 7,
+    "bonus": true,
+    "category": "action",
+    "components": [
+      "读"
+    ],
+    "confidence": "web",
+    "english": "read",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "dú",
+    "seq": 706,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "读"
+  },
+  {
+    "band": 7,
+    "bonus": true,
+    "category": "nature",
+    "components": [
+      "柳"
+    ],
+    "confidence": "web",
+    "english": "willow",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "liǔ",
+    "seq": 707,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "柳"
+  },
+  {
+    "band": 8,
+    "bonus": true,
+    "category": "abstract",
+    "components": [
+      "名"
+    ],
+    "confidence": "web",
+    "english": "name",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "míng",
+    "seq": 708,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "名"
+  },
+  {
+    "band": 8,
+    "bonus": true,
+    "category": "abstract",
+    "components": [
+      "班"
+    ],
+    "confidence": "web",
+    "english": "class",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "bān",
+    "seq": 709,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "班"
+  },
+  {
+    "band": 8,
+    "bonus": true,
+    "category": "abstract",
+    "components": [
+      "级"
+    ],
+    "confidence": "web",
+    "english": "grade",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "jí",
+    "seq": 710,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "级"
+  },
+  {
+    "band": 8,
+    "bonus": true,
+    "category": "food",
+    "components": [
+      "菜"
+    ],
+    "confidence": "web",
+    "english": "vegetable",
+    "grammar": false,
+    "needs_visual": true,
+    "pinyin": "cài",
+    "seq": 711,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "菜"
+  },
+  {
+    "band": 8,
+    "bonus": true,
+    "category": "direction",
+    "components": [
+      "内"
+    ],
+    "confidence": "web",
+    "english": "inside",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "nèi",
+    "seq": 712,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "内"
+  },
+  {
+    "band": 9,
+    "bonus": true,
+    "category": "abstract",
+    "components": [
+      "先"
+    ],
+    "confidence": "web",
+    "english": "first",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "xiān",
+    "seq": 713,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "先"
+  },
+  {
+    "band": 13,
+    "bonus": true,
+    "category": "abstract",
+    "components": [
+      "件"
+    ],
+    "confidence": "web",
+    "english": "(item of)",
+    "grammar": false,
+    "needs_visual": false,
+    "pinyin": "jiàn",
+    "seq": 714,
+    "source": "bonus (poster char pending textbook check)",
+    "text": "件"
   }
 ]

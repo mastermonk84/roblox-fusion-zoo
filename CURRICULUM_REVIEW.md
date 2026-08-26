@@ -9,33 +9,48 @@ certain entries first. To correct anything: edit `data-src/raw/shangce_300.json`
 `xiace_400.json` (move, add, remove, or re-spell entries), rerun the compile script, then
 `lune run scripts/build-data`. No code changes are ever needed for content fixes.
 
+## Verification status
+
+- **Pinyin axis: owner-verified 2026-08-26** — the owner reviewed the full list and
+  confirmed "everything aligns with standard Mandarin pronunciation."
+- **Lesson membership: independently re-verified against web sources 2026-08-26.**
+  ~20 lessons/stations were confirmed character-by-character; the errata (below) were
+  applied to the raw JSONs. Remaining open items for the physical textbook:
+  the demoted poster chars (next section), the trimmed 13th char of 小壁虎借尾巴
+  (难 or 转), and the lessons not individually confirmed (marked `·` in the band list).
+
+### Errata applied 2026-08-26 (source-verified)
+
+- Removed (not in the verified lesson lists): 挖 沙 洲 (吃水不忘挖井人) · 河 偷 (小公鸡和小鸭子)
+  · 鹊 (树和喜鹊) · 剥 (端午粽) · 荡 眨 (彩虹) · 苞 刨 (园地五) · 撑 艇 (古诗二首)
+  · 哈 欠 悔 (一分钟) · 狮 (动物王国开大会) · 蚜 盼 (棉花姑娘) · 湖 (咕咚) · 厕 (园地八) · 难 (小壁虎借尾巴, trimmed)
+- Added (recovered from verified lists): 暑 (古对今) · 她 (文具的家) · 背 刚 汽 (一分钟)
+  · 辆 匹 册 支 棵 架 (园地二, measure words) · 饭 能 茶 轻 鞭 (园地五)
+  · 吵 胖 岁 现 票 交 弓 甘 (园地七) · 刷 梳 巾 擦 皂 澡 盆 (园地八)
+- Moved: 铅 (文具的家 → 园地二) · 夜 (夜色 → 静夜思)
+
+### ⚠ Demoted poster chars — need a textbook home
+
+9 web-poster chars found **no** home in any source-verified lesson: 读 柳 名 班 级 菜 内 先 件.
+They now live as bonus items (quizzable, masterable, excluded from the /700 claim).
+If the textbook shows a 识字表 home for any of them, move it back into the raw JSON
+(and rebalance that semester to its exact count) — a data-only edit.
+
 | confidence | count | meaning |
 |---|---|---|
-| web | 236 | also in the battle-tested web game's poster data |
-| model | 451 | reconstructed from model knowledge of the 识字表 |
-| low | 13 | best-effort fill — CHECK THESE FIRST |
+| web | 227 | also in the battle-tested web game's poster data |
+| model | 473 | reconstructed from model knowledge of the 识字表 |
+| low | 0 | best-effort fill — CHECK THESE FIRST |
 
 **Known caveat:** the kickoff spec assumed the 236 poster chars were a subset of the 上册 300.
-They are not quite: 17 of them (夜柳菜读内先名班级件 卫 etc.) belong to 下册 lessons
-(e.g. 姓氏歌, 文具的家, 夜色). The enforced invariant is: all 236 poster chars ∈ the 700 total. ✓
+They are not quite: some belong to 下册 lessons (姓氏歌, 文具的家, 夜色 …) and 9 found no
+verified 识字表 home at all (demoted to bonus, above). The mechanically enforced invariant
+is: all 236 poster chars ∈ curriculum ∪ bonus. ✓
 
 ## ⚠ Low-confidence entries — verify against the textbook first
 
 | # | 字 | pinyin | band | placed in |
 |---|---|---|---|---|
-| 368 | 沙 | shā | 8 | 下册 1 吃水不忘挖井人 |
-| 369 | 洲 | zhōu | 8 | 下册 1 吃水不忘挖井人 |
-| 419 | 偷 | tōu | 9 | 下册 5 小公鸡和小鸭子 |
-| 482 | 剥 | bāo | 10 | 下册 10 端午粽 |
-| 495 | 荡 | dàng | 10 | 下册 11 彩虹 |
-| 496 | 眨 | zhǎ | 10 | 下册 11 彩虹 |
-| 552 | 器 | qì | 12 | 下册 8 人之初 |
-| 571 | 撑 | chēng | 12 | 下册 12 古诗二首 |
-| 572 | 艇 | tǐng | 12 | 下册 12 古诗二首 |
-| 631 | 悔 | huǐ | 13 | 下册 16 一分钟 |
-| 672 | 盼 | pàn | 14 | 下册 19 棉花姑娘 |
-| 698 | 难 | nán | 14 | 下册 21 小壁虎借尾巴 |
-| 700 | 厕 | cè | 14 | 下册 语文园地八 |
 
 ## Full list by band (识字表 order, 50 per band)
 
@@ -65,34 +80,34 @@ They are not quite: 17 of them (夜柳菜读内先名班级件 卫 etc.) belong 
 
 ### Band 7  (下册 1 春夏秋冬 → 下册 语文园地一)
 
-霜· 吹· 落· 降· 飘· 游· 池· 入· 姓 氏· 李· 张· 古· 吴· 赵· 钱· 孙· 周· 王 官· 清 晴· 眼· 睛· 保· 护· 害· 事· 情· 请· 让· 病· 相· 遇· 喜· 欢· 怕· 言· 互· 令· 动· 万· 纯· 净· 读 阴· 雷· 电· 阵· 冰
+霜· 吹· 落· 降· 飘· 游· 池· 入· 姓 氏· 李· 张· 古· 吴· 赵· 钱· 孙· 周· 王 官· 清 晴· 眼· 睛· 保· 护· 害· 事· 情· 请· 让· 病· 相· 遇· 喜· 欢· 怕· 言· 互· 令· 动· 万· 纯· 净· 阴· 雷· 电· 阵· 冰 冻·
 
 ### Band 8  (下册 语文园地一 → 下册 4 四个太阳)
 
-冻· 夹· 柳 吃· 忘· 井· 村· 叫· 毛· 主· 席· 乡· 亲· 战· 士· 面· 挖· 沙? 洲? 想· 告· 诉· 路 京· 安· 门 广· 非· 常 壮· 观· 接· 再· 做 各· 种· 样· 伙· 伴· 却· 趣· 这 太· 阳· 道· 送· 忙· 尝· 香· 甜·
+夹· 吃· 忘· 井· 村· 叫· 毛· 主· 席· 乡· 亲· 战· 士· 面· 想· 告· 诉· 路 京· 安· 门 广· 非· 常 壮· 观· 接· 再· 做 各· 种· 样· 伙· 伴· 却· 趣· 这 太· 阳· 道· 送· 忙· 尝· 香· 甜· 温· 暖· 该· 颜· 因·
 
-### Band 9  (下册 4 四个太阳 → 下册 8 静夜思)
+### Band 9  (下册 语文园地二 → 下册 9 夜色)
 
-温· 暖· 该· 颜· 因· 块· 捉· 急· 直· 河· 行 死· 信· 跟· 忽· 喊· 身· 先 偷? 窝· 孤· 单· 都· 邻· 居· 招· 呼· 静· 乐· 鹊· 怎· 独· 跳· 绳· 讲· 羽· 球· 戏 排· 篮· 连· 运· 名 班 级 菜 内 思· 床· 光·
+辆· 匹· 册· 支· 铅· 棵· 架· 块· 捉· 急· 直· 行 死· 信· 跟· 忽· 喊· 身· 窝· 孤· 单· 都· 邻· 居· 招· 呼· 静· 乐· 怎· 独· 跳· 绳· 讲· 羽· 球· 戏 排· 篮· 连· 运· 夜 思· 床· 光· 疑· 举· 望· 低· 故· 胆·
 
-### Band 10  (下册 8 静夜思 → 下册 语文园地四)
+### Band 10  (下册 9 夜色 → 下册 5 动物儿歌)
 
-疑· 举· 望· 低· 故· 胆· 敢· 往· 外 勇· 窗· 乱· 偏· 散· 原 像· 微· 夜 端· 粽· 节· 总· 米· 间 分· 豆· 肉· 带· 知· 据· 念· 剥? 虹· 座· 浇· 提· 洒· 挑· 兴· 镜· 拿· 照· 千· 裙· 荡? 眨? 眉· 鼻· 嘴· 脖·
+敢· 往· 外 勇· 窗· 乱· 偏· 散· 原 像· 微· 端· 粽· 节· 总· 米· 间 分· 豆· 肉· 带· 知· 据· 念· 虹· 座· 浇· 提· 洒· 挑· 兴· 镜· 拿· 照· 千· 裙· 眉· 鼻· 嘴· 脖· 臂· 肚· 腿· 脚· 蜻· 蜓· 迷· 藏· 造· 蚂·
 
-### Band 11  (下册 语文园地四 → 下册 8 人之初)
+### Band 11  (下册 5 动物儿歌 → 下册 语文园地五)
 
-臂· 肚· 腿· 脚· 蜻· 蜓· 迷· 藏· 造· 蚂· 蚁· 食· 粮· 蜘· 蛛· 网· 圆· 严· 寒· 酷· 凉· 晨· 细· 朝· 霞· 夕· 杨· 操· 场· 拔· 拍· 跑· 踢· 铃· 热· 闹· 锻· 炼· 体· 之· 初· 性· 善· 习· 教· 迁· 贵· 专· 幼· 玉·
+蚁· 食· 粮· 蜘· 蛛· 网· 圆· 严· 寒· 酷· 暑· 凉· 晨· 细· 朝· 霞· 夕· 杨· 操· 场· 拔· 拍· 跑· 踢· 铃· 热· 闹· 锻· 炼· 体· 之· 初· 性· 善· 习· 教· 迁· 贵· 专· 幼· 玉· 义· 器· 饭· 能· 茶· 泡· 轻· 鞭· 炮·
 
-### Band 12  (下册 8 人之初 → 下册 语文园地六)
+### Band 12  (下册 语文园地五 → 下册 15 文具的家)
 
-义· 器? 饱· 泡· 炮· 苞· 袍· 刨· 首· 踪· 迹· 浮· 萍· 泉· 流 爱· 柔· 荷· 露· 角· 撑? 艇? 珠· 摇· 躺· 晶· 停· 机· 展· 透· 翅· 膀· 唱· 朵· 腰· 坡· 沉· 伸· 潮· 湿· 呢· 闷· 消· 息· 搬· 响· 棍· 汤· 扇· 椅·
+袍· 饱· 首· 踪· 迹· 浮· 萍· 泉· 流 爱· 柔· 荷· 露· 角· 珠· 摇· 躺· 晶· 停· 机· 展· 透· 翅· 膀· 唱· 朵· 腰· 坡· 沉· 伸· 潮· 湿· 呢· 闷· 消· 息· 搬· 响· 棍· 汤· 扇· 椅· 萤· 牵· 织· 斗· 具· 次· 丢· 哪·
 
-### Band 13  (下册 语文园地六 → 下册 18 小猴子下山)
+### Band 13  (下册 15 文具的家 → 下册 语文园地七)
 
-萤· 牵· 织· 斗· 具· 次· 丢· 哪· 新· 每· 平· 些· 仔· 检· 查· 所· 件 铅· 钟· 元· 洗· 共· 已· 经· 迟· 叹· 决· 定· 哈· 欠· 悔? 物· 虎· 熊· 通· 注· 意· 遍· 百· 舌· 鬼· 脸· 准· 第· 狮· 猴· 结· 掰· 扛· 满·
+新· 每· 平· 她· 些· 仔· 检· 查· 所· 钟· 元· 洗· 共· 已· 经· 迟· 叹· 决· 定· 背· 刚· 汽· 物· 虎· 熊· 通· 注· 意· 遍· 百· 舌· 鬼· 脸· 准· 第· 猴· 结· 掰· 扛· 满· 扔· 摘· 捧· 瓜 抱· 蹦· 追· 吵· 胖· 岁·
 
-### Band 14  (下册 18 小猴子下山 → 下册 语文园地八)
+### Band 14  (下册 语文园地七 → 下册 语文园地八)
 
-扔· 摘· 捧· 瓜 抱· 蹦· 追· 棉· 娘· 治· 燕· 别· 干· 然· 奇· 颗· 瓢· 碧· 吐· 啦· 蚜· 盼? 咕· 咚· 熟· 掉· 吓· 鹿· 逃· 命· 象· 野· 拦· 领· 湖· 壁· 借· 墙· 蚊· 咬· 断· 您· 拨· 甩· 赶· 房· 傻· 难? 卫 厕?
+现· 票· 交· 弓· 甘· 棉· 娘· 治· 燕· 别· 干· 然· 奇· 颗· 瓢· 碧· 吐· 啦· 咕· 咚· 熟· 掉· 吓· 鹿· 逃· 命· 象· 野· 拦· 领· 壁· 借· 墙· 蚊· 咬· 断· 您· 拨· 甩· 赶· 房· 傻· 卫 刷· 梳· 巾· 擦· 皂· 澡· 盆·
 
 Markers: `?` = low confidence, `·` = model-reconstructed (unmarked = web-verified).

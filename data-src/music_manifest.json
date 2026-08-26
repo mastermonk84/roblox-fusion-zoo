@@ -1,0 +1,30 @@
+{
+  "note": "Background music tracks. Source MP3s live in assets/music/ (Suno-generated, owned by the game owner). To activate: upload each MP3 at create.roblox.com → Creations → Audio, paste the resulting rbxassetid://… into soundId here, then rerun `lune run scripts/build-data`. An empty soundId means the track is silently skipped — never an error.",
+  "tracks": {
+    "hub": {
+      "soundId": "",
+      "file": "assets/music/sunny_zoo_garden.mp3",
+      "loop": true,
+      "volume": 0.35
+    },
+    "kiosk": {
+      "soundId": "",
+      "file": "assets/music/quiet_curiosity.mp3",
+      "loop": true,
+      "volume": 0.25
+    },
+    "battle": {
+      "soundId": "",
+      "file": "assets/music/toy_monster_showdown.mp3",
+      "loop": true,
+      "volume": 0.4
+    },
+    "victory": {
+      "soundId": "",
+      "file": "assets/music/victory_bell.mp3",
+      "loop": false,
+      "volume": 0.5,
+      "maxSeconds": 10
+    }
+  }
+}

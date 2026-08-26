@@ -34,6 +34,12 @@ Start a 2-player local server. On **Player1**:
 - [ ] Progress Board shows 识字进度 N/700 with 14 band bars; screenshot-worthy on a phone.
 - [ ] Screenshot pass: line up 马蛙 vs 蛙马 (and 2-3 other swaps) at min and max feed; silhouettes must read differently at plot distance. (The math side is already covered by `lune run scripts/geometry-check`.)
 
+## Music (one-time, ~10 minutes)
+The 4 Suno tracks live in `assets/music/`. Until their SoundIds are filled the game is silent — by design, never an error.
+- [ ] Upload each of `assets/music/*.mp3` at create.roblox.com → Creations → **Audio** (they pass moderation as owner-created music).
+- [ ] Paste each returned asset id into `data-src/music_manifest.json` as `rbxassetid://<id>` (hub = sunny_zoo_garden, kiosk = quiet_curiosity, battle = toy_monster_showdown, victory = victory_bell), then `lune run scripts/build-data`.
+- [ ] In game: hub loop plays on spawn → kiosk track while the quiz is open → battle track during a match → ≤10s victory bell on a win, then back to the hub loop. Crossfades, no hard cuts.
+
 ## Device checks
 - [ ] 汉字 render on iPhone/iPad + at least one Android device (SourceSans fallback) — kiosk, hover cards, progress board, coin math flashes.
 - [ ] Audio: fill band-1 entries in `data-src/audio_manifest.json` with uploaded SoundIds, rebuild data, verify listen mode plays on device (iOS needs the first user tap).
