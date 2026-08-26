@@ -134,24 +134,20 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 	end
 
 	-- rescue page: scrolling rows
-	rescueRows = Ui.new(
-		"ScrollingFrame",
-		{
-			Size = UDim2.fromScale(1, 1),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ScrollBarThickness = 6,
-			CanvasSize = UDim2.new(),
-			AutomaticCanvasSize = Enum.AutomaticSize.Y,
-			Parent = pages.rescue,
-		},
-		{
-			Ui.new(
-				"UIListLayout",
-				{ Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }
-			),
-		}
-	)
+	rescueRows = Ui.new("ScrollingFrame", {
+		Size = UDim2.fromScale(1, 1),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		ScrollBarThickness = 6,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = Enum.AutomaticSize.Y,
+		Parent = pages.rescue,
+	}, {
+		Ui.new(
+			"UIListLayout",
+			{ Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }
+		),
+	})
 
 	-- fuse page: two pickers + button
 	Ui.text({
@@ -167,46 +163,38 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 		TextSize = 18,
 		Parent = pages.fuse,
 	})
-	fuseHeadList = Ui.new(
-		"ScrollingFrame",
-		{
-			Size = UDim2.new(0.5, -6, 1, -120),
-			Position = UDim2.new(0, 0, 0, 28),
-			BackgroundColor3 = Ui.COLORS.cardDim,
-			BorderSizePixel = 0,
-			ScrollBarThickness = 6,
-			CanvasSize = UDim2.new(),
-			AutomaticCanvasSize = Enum.AutomaticSize.Y,
-			Parent = pages.fuse,
-		},
-		{
-			Ui.corner(10),
-			Ui.new(
-				"UIGridLayout",
-				{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
-			),
-		}
-	)
-	fuseBodyList = Ui.new(
-		"ScrollingFrame",
-		{
-			Size = UDim2.new(0.5, -6, 1, -120),
-			Position = UDim2.new(0.5, 6, 0, 28),
-			BackgroundColor3 = Ui.COLORS.cardDim,
-			BorderSizePixel = 0,
-			ScrollBarThickness = 6,
-			CanvasSize = UDim2.new(),
-			AutomaticCanvasSize = Enum.AutomaticSize.Y,
-			Parent = pages.fuse,
-		},
-		{
-			Ui.corner(10),
-			Ui.new(
-				"UIGridLayout",
-				{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
-			),
-		}
-	)
+	fuseHeadList = Ui.new("ScrollingFrame", {
+		Size = UDim2.new(0.5, -6, 1, -120),
+		Position = UDim2.new(0, 0, 0, 28),
+		BackgroundColor3 = Ui.COLORS.cardDim,
+		BorderSizePixel = 0,
+		ScrollBarThickness = 6,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = Enum.AutomaticSize.Y,
+		Parent = pages.fuse,
+	}, {
+		Ui.corner(10),
+		Ui.new(
+			"UIGridLayout",
+			{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
+		),
+	})
+	fuseBodyList = Ui.new("ScrollingFrame", {
+		Size = UDim2.new(0.5, -6, 1, -120),
+		Position = UDim2.new(0.5, 6, 0, 28),
+		BackgroundColor3 = Ui.COLORS.cardDim,
+		BorderSizePixel = 0,
+		ScrollBarThickness = 6,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = Enum.AutomaticSize.Y,
+		Parent = pages.fuse,
+	}, {
+		Ui.corner(10),
+		Ui.new(
+			"UIGridLayout",
+			{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
+		),
+	})
 	fuseButton = Ui.button({
 		Text = "融合! Fuse (🪙10)",
 		Size = UDim2.new(1, 0, 0, 48),
@@ -254,24 +242,20 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 	end)
 
 	-- beasts page: list + detail
-	beastList = Ui.new(
-		"ScrollingFrame",
-		{
-			Size = UDim2.new(0.45, 0, 1, 0),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ScrollBarThickness = 6,
-			CanvasSize = UDim2.new(),
-			AutomaticCanvasSize = Enum.AutomaticSize.Y,
-			Parent = pages.beasts,
-		},
-		{
-			Ui.new(
-				"UIListLayout",
-				{ Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }
-			),
-		}
-	)
+	beastList = Ui.new("ScrollingFrame", {
+		Size = UDim2.new(0.45, 0, 1, 0),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		ScrollBarThickness = 6,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = Enum.AutomaticSize.Y,
+		Parent = pages.beasts,
+	}, {
+		Ui.new(
+			"UIListLayout",
+			{ Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }
+		),
+	})
 	beastDetail = Ui.new("Frame", {
 		Size = UDim2.new(0.55, -8, 1, 0),
 		Position = UDim2.new(0.45, 8, 0, 0),
@@ -529,25 +513,21 @@ function ZooUi.openNamePicker(snapshot: any, beastId: string)
 		TextSize = 20,
 		Parent = namePicker,
 	})
-	local grid = Ui.new(
-		"ScrollingFrame",
-		{
-			Size = UDim2.new(1, 0, 1, -120),
-			Position = UDim2.new(0, 0, 0, 36),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ScrollBarThickness = 6,
-			CanvasSize = UDim2.new(),
-			AutomaticCanvasSize = Enum.AutomaticSize.Y,
-			Parent = namePicker,
-		},
-		{
-			Ui.new(
-				"UIGridLayout",
-				{ CellSize = UDim2.new(0, 56, 0, 56), CellPadding = UDim2.new(0, 4, 0, 4) }
-			),
-		}
-	)
+	local grid = Ui.new("ScrollingFrame", {
+		Size = UDim2.new(1, 0, 1, -120),
+		Position = UDim2.new(0, 0, 0, 36),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		ScrollBarThickness = 6,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = Enum.AutomaticSize.Y,
+		Parent = namePicker,
+	}, {
+		Ui.new(
+			"UIGridLayout",
+			{ CellSize = UDim2.new(0, 56, 0, 56), CellPadding = UDim2.new(0, 4, 0, 4) }
+		),
+	})
 
 	local confirm: TextButton
 	local function renderPicks()

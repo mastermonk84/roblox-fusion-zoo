@@ -7,6 +7,7 @@ local RunService = game:GetService("RunService")
 
 local Net = require("./Net")
 local Analytics = require("./Services/Analytics")
+local BattleService = require("./Services/BattleService")
 local ProfileBackend = require("./Services/ProfileBackend")
 local Profiles = require("./Services/Profiles")
 local PlotService = require("./Services/PlotService")
@@ -35,6 +36,7 @@ local profiles = Profiles.new(ProfileBackend.new(not canPersist))
 local analytics = Analytics.new()
 local quiz = QuizService.new({ profiles = profiles, analytics = analytics })
 local plots = PlotService.new()
+local battle = BattleService.new({ profiles = profiles, quiz = quiz, analytics = analytics })
 local zoo = ZooService.new({
 	profiles = profiles,
 	analytics = analytics,
@@ -165,6 +167,51 @@ Net.handle("Zoo", "GetSnapshot", nil, function(player)
 	return zoo:snapshot(player.UserId)
 end)
 
+-- battle surface
+Net.handle("Battle", "GetLadder", nil, function(player)
+	return battle:ladder(player.UserId)
+end)
+Net.handle(
+	"Battle",
+	"StartNpc",
+	Guard.shape({ rung = Guard.integer(1, 12) }),
+	function(player, payload)
+		return battle:startNpc(player.UserId, payload.rung)
+	end
+)
+Net.handle(
+	"Battle",
+	"PickStat",
+	Guard.shape({
+		battleId = Guard.stringOf(16),
+		round = Guard.integer(1, 99),
+		stat = Guard.oneOf({ "li", "su", "zhi" }),
+	}),
+	function(player, payload)
+		return battle:pickStat(player.UserId, payload)
+	end
+)
+Net.handle(
+	"Battle",
+	"SubmitFlash",
+	Guard.shape({
+		battleId = Guard.stringOf(16),
+		questionId = Guard.stringOf(24),
+		choiceIndex = Guard.integer(1, 3),
+	}),
+	function(player, payload)
+		return battle:submitFlash(player.UserId, payload)
+	end
+)
+Net.handle(
+	"Battle",
+	"ResolveRound",
+	Guard.shape({ battleId = Guard.stringOf(16) }),
+	function(player, payload)
+		return battle:resolveRound(player.UserId, payload)
+	end
+)
+
 -- ── player lifecycle ────────────────────────────────────────────────────────
 local TUTORIAL_ANIMALS = { "猫", "鸟" } -- user-approved onboarding exemption
 
@@ -200,6 +247,7 @@ local function onJoin(player: Player)
 	end
 	profiles:onRelease(player.UserId, function()
 		quiz:dropPlayer(player.UserId)
+		battle:dropPlayer(player.UserId)
 		plots:release(player.UserId)
 		if player.Parent then
 			player:Kick("存档已保存，请重新进入。 (Save released — please rejoin.)")
@@ -225,4 +273,4 @@ if RunService:IsStudio() then
 		"[FusionZoo] Studio session — remember Game Settings → Security → API Services for saves"
 	)
 end
-print("[FusionZoo] server booted (M3: zoo + plots + fusion)")
+print("[FusionZoo] server booted (M4: battle ladder live)")

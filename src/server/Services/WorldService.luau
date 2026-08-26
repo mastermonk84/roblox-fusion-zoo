@@ -187,6 +187,41 @@ function WorldService.build(): Folder
 	pen.Parent = world
 	WorldService.rescuePenModel = pen
 
+	-- ── Battle Arena 竞技场 ───────────────────────────────────────────────
+	local arenaPos = WorldService.ANCHORS.arena
+	local arena = Instance.new("Model")
+	arena.Name = "BattleArena"
+	local ring = part({
+		Size = Vector3.new(26, 0.8, 26),
+		Position = arenaPos + Vector3.new(0, 0.4, 0),
+		Color = Color3.fromRGB(212, 160, 120),
+		Material = Enum.Material.Slate,
+	}, arena)
+	local arenaSign = part({
+		Size = Vector3.new(10, 2.4, 0.4),
+		Position = arenaPos + Vector3.new(0, 8, 8),
+		Color = ROOF,
+	}, arena)
+	label(arenaSign, Enum.NormalId.Front, "竞技场 Arena", 0)
+	label(arenaSign, Enum.NormalId.Back, "竞技场 Arena", 0)
+	local arenaPrompt = Instance.new("ProximityPrompt")
+	arenaPrompt.Name = "ArenaPrompt"
+	arenaPrompt.ActionText = "打怪! Battle!"
+	arenaPrompt.ObjectText = "竞技场"
+	arenaPrompt.MaxActivationDistance = 16
+	arenaPrompt.RequiresLineOfSight = false
+	arenaPrompt.Parent = ring
+	-- challenge pad (live battles, M5)
+	local pad = part({
+		Name = "ChallengePad",
+		Size = Vector3.new(8, 0.6, 8),
+		Position = arenaPos + Vector3.new(18, 0.5, 0),
+		Color = Color3.fromRGB(130, 120, 200),
+		Material = Enum.Material.Neon,
+	}, arena)
+	pad.Transparency = 0.3
+	arena.Parent = world
+
 	Lighting.Ambient = Color3.fromRGB(140, 140, 140)
 	Lighting.Brightness = 2.4
 	Lighting.ClockTime = 13.5

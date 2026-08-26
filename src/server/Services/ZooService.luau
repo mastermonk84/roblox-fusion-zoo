@@ -142,15 +142,12 @@ local function realWordPayout(self: any, userId: number, profile: Profile, beast
 	for _, word in RealWords.matches(beast) do
 		local coin = Ledger.faucet(profile, "real_word", { comboWord = word.word }, self._now())
 		if coin.delta > 0 then
-			table.insert(
-				discovered,
-				{
-					word = word.word,
-					pinyin = word.pinyin,
-					english = word.english,
-					coinMath = coin.mathString,
-				}
-			)
+			table.insert(discovered, {
+				word = word.word,
+				pinyin = word.pinyin,
+				english = word.english,
+				coinMath = coin.mathString,
+			})
 			self._analytics:track(userId, "faucet", "real_word", coin.delta, { word = word.word })
 		end
 	end

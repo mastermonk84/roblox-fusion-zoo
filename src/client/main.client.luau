@@ -8,6 +8,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Anim = require("./Controllers/Anim")
 local Audio = require("./Controllers/Audio")
+local BattleUi = require("./Controllers/BattleUi")
 local Hud = require("./Controllers/Hud")
 local ProgressUi = require("./Controllers/ProgressUi")
 local QuizUi = require("./Controllers/QuizUi")
@@ -20,6 +21,7 @@ local submitAnswer = quizFolder:WaitForChild("SubmitAnswer") :: RemoteFunction
 local getSummary = remotes:WaitForChild("Progress"):WaitForChild("GetSummary") :: RemoteFunction
 local readyEvent = remotes:WaitForChild("Profile"):WaitForChild("Ready") :: RemoteEvent
 local zooFolder = remotes:WaitForChild("Zoo")
+local battleFolder = remotes:WaitForChild("Battle")
 
 local currentQuestionId: string? = nil
 local busy = false
@@ -123,6 +125,18 @@ ZooUi.init({
 		Hud.flash(mathString, "spend")
 	end
 end)
+BattleUi.init({
+	ladder = battleFolder:WaitForChild("GetLadder") :: RemoteFunction,
+	startNpc = battleFolder:WaitForChild("StartNpc") :: RemoteFunction,
+	pickStat = battleFolder:WaitForChild("PickStat") :: RemoteFunction,
+	submitFlash = battleFolder:WaitForChild("SubmitFlash") :: RemoteFunction,
+	resolveRound = battleFolder:WaitForChild("ResolveRound") :: RemoteFunction,
+}, function(coins, mathString)
+	Hud.setCoins(coins)
+	if mathString then
+		Hud.flash(mathString, "earn")
+	end
+end)
 Anim.init()
 
 ProximityPromptService.PromptTriggered:Connect(function(prompt)
@@ -133,6 +147,8 @@ ProximityPromptService.PromptTriggered:Connect(function(prompt)
 		ZooUi.open("rescue")
 	elseif prompt.Name == "LabPrompt" then
 		ZooUi.open("fuse")
+	elseif prompt.Name == "ArenaPrompt" then
+		BattleUi.open()
 	elseif prompt.Name == "BoardPrompt" then
 		local summary = getSummary:InvokeServer()
 		if summary and summary.ok then
