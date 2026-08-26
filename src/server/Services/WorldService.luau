@@ -18,9 +18,10 @@ local INK = Color3.fromRGB(45, 41, 56)
 WorldService.ANCHORS = {
 	kiosk = Vector3.new(26, 0, 0),
 	board = Vector3.new(-26, 0, 0),
-	lab = Vector3.new(0, 0, 42), -- M3
+	lab = Vector3.new(0, 0, 42),
 	arena = Vector3.new(0, 0, -46), -- M4
-	plotsOrigin = Vector3.new(64, 0, -48), -- M3: 8 plots fan out from here
+	plotsOrigin = Vector3.new(64, 0, -48),
+	rescuePen = Vector3.new(-64, 0, -40),
 }
 
 local function part(props: { [string]: any }, parent: Instance): Part
@@ -132,6 +133,59 @@ function WorldService.build(): Folder
 	boardPrompt.MaxActivationDistance = 14
 	boardPrompt.RequiresLineOfSight = false
 	boardPrompt.Parent = board
+
+	-- ── Fusion Lab 融合屋 ─────────────────────────────────────────────────
+	local labPos = WorldService.ANCHORS.lab
+	local lab = Instance.new("Model")
+	lab.Name = "FusionLab"
+	local labBase = part({
+		Size = Vector3.new(12, 1, 12),
+		Position = labPos + Vector3.new(0, 0.5, 0),
+		Color = STONE,
+		Material = Enum.Material.Slate,
+	}, lab)
+	local machine = part({
+		Size = Vector3.new(5, 7, 5),
+		Position = labPos + Vector3.new(0, 4.5, 0),
+		Color = Color3.fromRGB(130, 120, 200),
+		Material = Enum.Material.Neon,
+	}, lab)
+	machine.Transparency = 0.25
+	label(labBase, Enum.NormalId.Top, "", 0)
+	local labSign = part({
+		Size = Vector3.new(8, 2, 0.4),
+		Position = labPos + Vector3.new(0, 9, 0),
+		Color = ROOF,
+	}, lab)
+	label(labSign, Enum.NormalId.Front, "融合屋 Fusion Lab", 0)
+	local labPrompt = Instance.new("ProximityPrompt")
+	labPrompt.Name = "LabPrompt"
+	labPrompt.ActionText = "融合! Fuse!"
+	labPrompt.ObjectText = "融合屋"
+	labPrompt.MaxActivationDistance = 12
+	labPrompt.RequiresLineOfSight = false
+	labPrompt.Parent = machine
+	lab.Parent = world
+
+	-- ── Rescue Pen 救援站: locked animals as silhouettes with their char ──
+	local penPos = WorldService.ANCHORS.rescuePen
+	local pen = Instance.new("Model")
+	pen.Name = "RescuePen"
+	local penBase = part({
+		Size = Vector3.new(56, 0.6, 26),
+		Position = penPos + Vector3.new(0, 0.3, 0),
+		Color = Color3.fromRGB(222, 205, 170),
+		Material = Enum.Material.Sand,
+	}, pen)
+	local penPrompt = Instance.new("ProximityPrompt")
+	penPrompt.Name = "PenPrompt"
+	penPrompt.ActionText = "救援! Rescue!"
+	penPrompt.ObjectText = "救援站"
+	penPrompt.MaxActivationDistance = 16
+	penPrompt.RequiresLineOfSight = false
+	penPrompt.Parent = penBase
+	pen.Parent = world
+	WorldService.rescuePenModel = pen
 
 	Lighting.Ambient = Color3.fromRGB(140, 140, 140)
 	Lighting.Brightness = 2.4

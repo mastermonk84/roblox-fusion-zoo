@@ -199,6 +199,12 @@ end
 -- ── Conflicts (picture-confusable pairs, seeded from the web game) ──────────
 local conflicts = readJson("data-src/raw/conflicts_web.json") :: { [string]: { string } }
 
+-- ── Rigs (procedural build parameters; every animal needs one) ──────────────
+local rigs = readJson("data-src/rigs.json") :: { note: string, rigs: { [string]: any } }
+for _, a in animals do
+	check(rigs.rigs[a.rig] ~= nil, `animal {a.char}: no rig params for "{a.rig}"`)
+end
+
 if #errors > 0 then
 	print(`BUILD-DATA FAILED — {#errors} error(s):`)
 	for _, e in errors do
@@ -219,6 +225,7 @@ emit("AudioManifest", audioManifest)
 emit("IconManifest", iconManifest)
 emit("HomophoneIndex", pinyinIndex)
 emit("Conflicts", conflicts)
+emit("Rigs", rigs)
 
 print(
 	`OK: {#curriculum} items (700 curriculum in 14 bands x 50, {#curriculum - 700} bonus), {#animals} animals, {#opponents} rungs, {#words} words`

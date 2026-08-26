@@ -9,8 +9,10 @@ local Net = require("./Net")
 local Analytics = require("./Services/Analytics")
 local ProfileBackend = require("./Services/ProfileBackend")
 local Profiles = require("./Services/Profiles")
+local PlotService = require("./Services/PlotService")
 local QuizService = require("./Services/QuizService")
 local WorldService = require("./Services/WorldService")
+local ZooService = require("./Services/ZooService")
 local Guard = require("../shared/Util/Guard")
 local Types = require("../shared/Types")
 
@@ -32,6 +34,17 @@ end
 local profiles = Profiles.new(ProfileBackend.new(not canPersist))
 local analytics = Analytics.new()
 local quiz = QuizService.new({ profiles = profiles, analytics = analytics })
+local plots = PlotService.new()
+local zoo = ZooService.new({
+	profiles = profiles,
+	analytics = analytics,
+	onBeastChanged = function(userId, profile)
+		local player = Players:GetPlayerByUserId(userId)
+		if player then
+			plots:refresh(userId, profile, player.DisplayName)
+		end
+	end,
+})
 
 -- ── remote surface ──────────────────────────────────────────────────────────
 local readyEvent = Net.event("Profile", "Ready")
@@ -60,6 +73,96 @@ Net.handle(
 
 Net.handle("Progress", "GetSummary", nil, function(player)
 	return quiz:progressSummary(player.UserId)
+end)
+
+-- zoo surface
+Net.handle("Zoo", "GetRescueList", nil, function(player)
+	return zoo:rescueList(player.UserId)
+end)
+Net.handle("Zoo", "Rescue", Guard.shape({ char = Guard.stringOf(8) }), function(player, payload)
+	return zoo:rescue(player.UserId, payload.char)
+end)
+Net.handle(
+	"Zoo",
+	"Fuse",
+	Guard.shape({ head = Guard.stringOf(8), body = Guard.stringOf(8) }),
+	function(player, payload)
+		return zoo:fuse(player.UserId, payload)
+	end
+)
+Net.handle(
+	"Zoo",
+	"Refuse",
+	Guard.shape({
+		beastId = Guard.stringOf(12),
+		head = Guard.stringOf(8),
+		body = Guard.stringOf(8),
+		legs = Guard.optional(Guard.stringOf(8)),
+		tail = Guard.optional(Guard.stringOf(8)),
+	}),
+	function(player, payload)
+		return zoo:refuse(player.UserId, payload)
+	end
+)
+Net.handle(
+	"Zoo",
+	"FeedSlot",
+	Guard.shape({
+		beastId = Guard.stringOf(12),
+		slot = Guard.oneOf({ "head", "body", "legs", "tail" }),
+	}),
+	function(player, payload)
+		return zoo:feedSlot(player.UserId, payload)
+	end
+)
+Net.handle(
+	"Zoo",
+	"UnlockSlot",
+	Guard.shape({ slot = Guard.oneOf({ "legs", "tail" }) }),
+	function(player, payload)
+		return zoo:unlockSlot(player.UserId, payload.slot)
+	end
+)
+Net.handle("Zoo", "NameBeast", nil, function(player, payload)
+	if type(payload) ~= "table" or type(payload.beastId) ~= "string" then
+		return { ok = false, err = "bad_request" }
+	end
+	return zoo:nameBeast(player.UserId, payload)
+end)
+Net.handle(
+	"Zoo",
+	"SetActiveBeast",
+	Guard.shape({ beastId = Guard.stringOf(12) }),
+	function(player, payload)
+		return zoo:setActiveBeast(player.UserId, payload.beastId)
+	end
+)
+Net.handle(
+	"Zoo",
+	"BuyDecoration",
+	Guard.shape({ itemId = Guard.stringOf(24) }),
+	function(player, payload)
+		return zoo:buyDecoration(player.UserId, payload.itemId)
+	end
+)
+Net.handle(
+	"Zoo",
+	"PlaceDecoration",
+	Guard.shape({ itemId = Guard.stringOf(24), gridIndex = Guard.integer(1, 12) }),
+	function(player, payload)
+		return zoo:placeDecoration(player.UserId, payload)
+	end
+)
+Net.handle(
+	"Zoo",
+	"BuyColorway",
+	Guard.shape({ beastId = Guard.stringOf(12), colorwayId = Guard.stringOf(24) }),
+	function(player, payload)
+		return zoo:buyColorway(player.UserId, payload)
+	end
+)
+Net.handle("Zoo", "GetSnapshot", nil, function(player)
+	return zoo:snapshot(player.UserId)
 end)
 
 -- ── player lifecycle ────────────────────────────────────────────────────────
@@ -97,10 +200,13 @@ local function onJoin(player: Player)
 	end
 	profiles:onRelease(player.UserId, function()
 		quiz:dropPlayer(player.UserId)
+		plots:release(player.UserId)
 		if player.Parent then
 			player:Kick("存档已保存，请重新进入。 (Save released — please rejoin.)")
 		end
 	end)
+	plots:claim(player.UserId, player.DisplayName)
+	plots:refresh(player.UserId, profile, player.DisplayName)
 	pushReady(player, profile)
 end
 
@@ -110,6 +216,7 @@ end
 Players.PlayerAdded:Connect(onJoin)
 
 Players.PlayerRemoving:Connect(function(player)
+	plots:release(player.UserId)
 	profiles:release(player.UserId)
 end)
 
@@ -118,4 +225,4 @@ if RunService:IsStudio() then
 		"[FusionZoo] Studio session — remember Game Settings → Security → API Services for saves"
 	)
 end
-print("[FusionZoo] server booted (M2: quiz engine + kiosk + progress board)")
+print("[FusionZoo] server booted (M3: zoo + plots + fusion)")

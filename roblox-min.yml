@@ -26,6 +26,16 @@ globals:
     any: true
   Random:
     any: true
+  NumberRange:
+    any: true
+  NumberSequence:
+    any: true
+  ColorSequence:
+    any: true
+  Rect:
+    any: true
+  BrickColor:
+    any: true
   task:
     any: true
   warn:
