@@ -32,12 +32,6 @@
       "band": 11
     },
     {
-      "char": "读",
-      "pinyin": "dú",
-      "english": "read",
-      "band": 7
-    },
-    {
       "char": "柳",
       "pinyin": "liǔ",
       "english": "willow",
@@ -84,6 +78,30 @@
       "pinyin": "jiàn",
       "english": "(measure for items)",
       "band": 13
+    },
+    {
+      "char": "主",
+      "pinyin": "zhǔ",
+      "english": "main; host",
+      "band": 7
+    },
+    {
+      "char": "叫",
+      "pinyin": "jiào",
+      "english": "call",
+      "band": 7
+    },
+    {
+      "char": "闷",
+      "pinyin": "mēn",
+      "english": "stuffy",
+      "band": 12
+    },
+    {
+      "char": "期",
+      "pinyin": "qī",
+      "english": "period (星期 week)",
+      "band": 3
     }
   ]
 }

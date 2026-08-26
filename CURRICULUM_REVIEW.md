@@ -21,18 +21,33 @@ certain entries first. To correct anything: edit `data-src/raw/shangce_300.json`
 
 ### Errata applied 2026-08-26 (source-verified)
 
-- Removed (not in the verified lesson lists): 挖 沙 洲 (吃水不忘挖井人) · 河 偷 (小公鸡和小鸭子)
+- Removed (not in the verified lesson lists): 沙 洲 面 (吃水不忘挖井人) · 偷 (小公鸡和小鸭子)
   · 鹊 (树和喜鹊) · 剥 (端午粽) · 荡 眨 (彩虹) · 苞 刨 (园地五) · 撑 艇 (古诗二首)
   · 哈 欠 悔 (一分钟) · 狮 (动物王国开大会) · 蚜 盼 (棉花姑娘) · 湖 (咕咚) · 厕 (园地八) · 难 (小壁虎借尾巴, trimmed)
 - Added (recovered from verified lists): 暑 (古对今) · 她 (文具的家) · 背 刚 汽 (一分钟)
   · 辆 匹 册 支 棵 架 (园地二, measure words) · 饭 能 茶 轻 鞭 (园地五)
   · 吵 胖 岁 现 票 交 弓 甘 (园地七) · 刷 梳 巾 擦 皂 澡 盆 (园地八)
+  · 遥 (我多想去看看) · 河 (小公鸡和小鸭子) · 梦 (一个接一个) · 挖 (吃水不忘挖井人 — round-1 removal reversed)
 - Moved: 铅 (文具的家 → 园地二) · 夜 (夜色 → 静夜思)
 
-### ⚠ Demoted poster chars — need a textbook home
+### Official re-listings (multi-reading characters)
 
-9 web-poster chars found **no** home in any source-verified lesson: 读 柳 名 班 级 菜 内 先 件.
-They now live as bonus items (quizzable, masterable, excluded from the /700 claim).
+The official 识字表 re-lists a character when a new reading is taught: at least
+觉 (jué 上册 / jiào 一个接一个) · 只 (zhī 上册 / zhǐ 树和喜鹊) · 种 (zhǒng 一个接一个 / zhòng 树和喜鹊)
+· 得 (dé 上册 / děi 怎么都快乐) · 数 (shù 拼音 ai-ei-ui / shǔ 雨点儿 — both 上册).
+The game holds one item per character, so a re-listed entry is covered by its first
+appearance — the official "300+400" counts a few more ENTRIES than there are unique
+characters. Each known re-list slot is filled by an explicitly-marked extension char
+(扩展位: 读 fills the 数 slot in 上册). Owner: while checking the textbook, please note
+every re-listed entry so remaining slots are filled deliberately, not by leftover padding.
+
+### ⚠ Demoted chars — need a textbook ruling
+
+8 web-poster chars found **no** home in any source-verified lesson: 柳 名 班 级 菜 内 先 件
+(读 was promoted back as the 扩展位 extension char). 4 more were demoted after round-2
+verification: 主 叫 (listed as 会写字 for 吃水不忘挖井人, absent from its 会认 enumeration)
+· 闷 (要下雨了 sources disagree) · 期 (上册园地五 verified as exactly 午晚昨今年).
+All live as bonus items (quizzable, masterable, excluded from the /700 claim).
 If the textbook shows a 识字表 home for any of them, move it back into the raw JSON
 (and rebalance that semester to its exact count) — a data-only edit.
 
@@ -68,15 +83,15 @@ is: all 236 poster chars ∈ curriculum ∪ bonus. ✓
 
 ### Band 4  (上册 8 小书包 → 上册 6 比尾巴)
 
-刀 课 早 校 明 力 尘 从 众 双 木 林 森 条 心 升 国 旗 中 红 歌 起 么 美 丽· 立 午 晚 昨 今 年 期 影 前 后 黑 狗 左 右 它 好 朋 友 比· 尾· 巴· 谁· 长· 短· 把·
+刀 课 早 校 明 力 尘 从 众 双 木 林 森 条 心 升 国 旗 中 红 歌 起 么 美 丽· 立 午 晚 昨 今 年 影 前 后 黑 狗 左 右 它 好 朋 友 比· 尾· 巴· 谁· 长· 短· 把· 伞·
 
 ### Band 5  (上册 6 比尾巴 → 上册 10 大还是小)
 
-伞· 兔· 最· 公· 写 诗· 点· 要· 过· 给· 当· 串· 们 以· 彩· 半· 空· 问· 到 方· 没 更· 绿 哥 姐· 弟 叔· 爷· 川 睡· 那· 海· 真· 老 师 吗· 同· 什· 才 亮· 时· 候· 觉· 得· 自 己· 很· 穿· 衣· 服·
+兔· 最· 公· 写 诗· 点· 要· 过· 给· 当· 串· 们 以· 彩· 半· 空· 问· 到 方· 没 更· 绿 哥 姐· 弟 叔· 爷· 川 睡· 那· 海· 真· 老 师 吗· 同· 什· 才 亮· 时· 候· 觉· 得· 自 己· 很· 穿· 衣· 服· 快·
 
-### Band 6  (上册 10 大还是小 → 上册 语文园地八)
+### Band 6  (上册 11 项链 → 上册 扩展位 (官方多音字重列: 数))
 
-快· 蓝 又 笑· 着 向 和 贝 娃· 挂· 活· 金 宝 群· 竹 牙 用 几 步 为· 参 加 洞· 乌 鸦 处· 找· 办 旁· 许· 法· 放· 进· 高· 住· 孩· 玩· 吧· 发· 芽· 爬· 呀· 久· 回· 全· 工 厂 医 院 生
+蓝 又 笑· 着 向 和 贝 娃· 挂· 活· 金 宝 群· 竹 牙 用 几 步 为· 参 加 洞· 乌 鸦 处· 找· 办 旁· 许· 法· 放· 进· 高· 住· 孩· 玩· 吧· 发· 芽· 爬· 呀· 久· 回· 全· 工 厂 医 院 生 读
 
 ### Band 7  (下册 1 春夏秋冬 → 下册 语文园地一)
 
@@ -84,23 +99,23 @@ is: all 236 poster chars ∈ curriculum ∪ bonus. ✓
 
 ### Band 8  (下册 语文园地一 → 下册 4 四个太阳)
 
-夹· 吃· 忘· 井· 村· 叫· 毛· 主· 席· 乡· 亲· 战· 士· 面· 想· 告· 诉· 路 京· 安· 门 广· 非· 常 壮· 观· 接· 再· 做 各· 种· 样· 伙· 伴· 却· 趣· 这 太· 阳· 道· 送· 忙· 尝· 香· 甜· 温· 暖· 该· 颜· 因·
+夹· 吃· 忘· 挖· 井· 村· 毛· 席· 乡· 亲· 战· 士· 想· 告· 诉· 遥· 路 京· 安· 门 广· 非· 常 壮· 观· 接· 再· 做 各· 种· 样· 梦· 伙· 伴· 却· 趣· 这 太· 阳· 道· 送· 忙· 尝· 香· 甜· 温· 暖· 该· 颜· 因·
 
-### Band 9  (下册 语文园地二 → 下册 9 夜色)
+### Band 9  (下册 语文园地二 → 下册 8 静夜思)
 
-辆· 匹· 册· 支· 铅· 棵· 架· 块· 捉· 急· 直· 行 死· 信· 跟· 忽· 喊· 身· 窝· 孤· 单· 都· 邻· 居· 招· 呼· 静· 乐· 怎· 独· 跳· 绳· 讲· 羽· 球· 戏 排· 篮· 连· 运· 夜 思· 床· 光· 疑· 举· 望· 低· 故· 胆·
+辆· 匹· 册· 支· 铅· 棵· 架· 块· 捉· 急· 直· 河· 行 死· 信· 跟· 忽· 喊· 身· 窝· 孤· 单· 都· 邻· 居· 招· 呼· 静· 乐· 怎· 独· 跳· 绳· 讲· 羽· 球· 戏 排· 篮· 连· 运· 夜 思· 床· 光· 疑· 举· 望· 低· 故·
 
 ### Band 10  (下册 9 夜色 → 下册 5 动物儿歌)
 
-敢· 往· 外 勇· 窗· 乱· 偏· 散· 原 像· 微· 端· 粽· 节· 总· 米· 间 分· 豆· 肉· 带· 知· 据· 念· 虹· 座· 浇· 提· 洒· 挑· 兴· 镜· 拿· 照· 千· 裙· 眉· 鼻· 嘴· 脖· 臂· 肚· 腿· 脚· 蜻· 蜓· 迷· 藏· 造· 蚂·
+胆· 敢· 往· 外 勇· 窗· 乱· 偏· 散· 原 像· 微· 端· 粽· 节· 总· 米· 间 分· 豆· 肉· 带· 知· 据· 念· 虹· 座· 浇· 提· 洒· 挑· 兴· 镜· 拿· 照· 千· 裙· 眉· 鼻· 嘴· 脖· 臂· 肚· 腿· 脚· 蜻· 蜓· 迷· 藏· 造·
 
 ### Band 11  (下册 5 动物儿歌 → 下册 语文园地五)
 
-蚁· 食· 粮· 蜘· 蛛· 网· 圆· 严· 寒· 酷· 暑· 凉· 晨· 细· 朝· 霞· 夕· 杨· 操· 场· 拔· 拍· 跑· 踢· 铃· 热· 闹· 锻· 炼· 体· 之· 初· 性· 善· 习· 教· 迁· 贵· 专· 幼· 玉· 义· 器· 饭· 能· 茶· 泡· 轻· 鞭· 炮·
+蚂· 蚁· 食· 粮· 蜘· 蛛· 网· 圆· 严· 寒· 酷· 暑· 凉· 晨· 细· 朝· 霞· 夕· 杨· 操· 场· 拔· 拍· 跑· 踢· 铃· 热· 闹· 锻· 炼· 体· 之· 初· 性· 善· 习· 教· 迁· 贵· 专· 幼· 玉· 义· 器· 饭· 能· 茶· 泡· 轻· 鞭·
 
 ### Band 12  (下册 语文园地五 → 下册 15 文具的家)
 
-袍· 饱· 首· 踪· 迹· 浮· 萍· 泉· 流 爱· 柔· 荷· 露· 角· 珠· 摇· 躺· 晶· 停· 机· 展· 透· 翅· 膀· 唱· 朵· 腰· 坡· 沉· 伸· 潮· 湿· 呢· 闷· 消· 息· 搬· 响· 棍· 汤· 扇· 椅· 萤· 牵· 织· 斗· 具· 次· 丢· 哪·
+炮· 袍· 饱· 首· 踪· 迹· 浮· 萍· 泉· 流 爱· 柔· 荷· 露· 角· 珠· 摇· 躺· 晶· 停· 机· 展· 透· 翅· 膀· 唱· 朵· 腰· 坡· 沉· 伸· 潮· 湿· 呢· 消· 息· 搬· 响· 棍· 汤· 扇· 椅· 萤· 牵· 织· 斗· 具· 次· 丢· 哪·
 
 ### Band 13  (下册 15 文具的家 → 下册 语文园地七)
 

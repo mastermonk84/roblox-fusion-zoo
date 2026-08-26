@@ -292,7 +292,7 @@ push("")
 push("### Errata applied 2026-08-26 (source-verified)")
 push("")
 push(
-	"- Removed (not in the verified lesson lists): 挖 沙 洲 (吃水不忘挖井人) · 河 偷 (小公鸡和小鸭子)"
+	"- Removed (not in the verified lesson lists): 沙 洲 面 (吃水不忘挖井人) · 偷 (小公鸡和小鸭子)"
 )
 push(
 	"  · 鹊 (树和喜鹊) · 剥 (端午粽) · 荡 眨 (彩虹) · 苞 刨 (园地五) · 撑 艇 (古诗二首)"
@@ -305,14 +305,41 @@ push(
 )
 push("  · 辆 匹 册 支 棵 架 (园地二, measure words) · 饭 能 茶 轻 鞭 (园地五)")
 push("  · 吵 胖 岁 现 票 交 弓 甘 (园地七) · 刷 梳 巾 擦 皂 澡 盆 (园地八)")
+push(
+	"  · 遥 (我多想去看看) · 河 (小公鸡和小鸭子) · 梦 (一个接一个) · 挖 (吃水不忘挖井人 — round-1 removal reversed)"
+)
 push("- Moved: 铅 (文具的家 → 园地二) · 夜 (夜色 → 静夜思)")
 push("")
-push("### ⚠ Demoted poster chars — need a textbook home")
+push("### Official re-listings (multi-reading characters)")
+push("")
+push("The official 识字表 re-lists a character when a new reading is taught: at least")
+push(
+	"觉 (jué 上册 / jiào 一个接一个) · 只 (zhī 上册 / zhǐ 树和喜鹊) · 种 (zhǒng 一个接一个 / zhòng 树和喜鹊)"
+)
+push(
+	"· 得 (dé 上册 / děi 怎么都快乐) · 数 (shù 拼音 ai-ei-ui / shǔ 雨点儿 — both 上册)."
+)
+push("The game holds one item per character, so a re-listed entry is covered by its first")
+push('appearance — the official "300+400" counts a few more ENTRIES than there are unique')
+push("characters. Each known re-list slot is filled by an explicitly-marked extension char")
+push(
+	"(扩展位: 读 fills the 数 slot in 上册). Owner: while checking the textbook, please note"
+)
+push("every re-listed entry so remaining slots are filled deliberately, not by leftover padding.")
+push("")
+push("### ⚠ Demoted chars — need a textbook ruling")
 push("")
 push(
-	"9 web-poster chars found **no** home in any source-verified lesson: 读 柳 名 班 级 菜 内 先 件."
+	"8 web-poster chars found **no** home in any source-verified lesson: 柳 名 班 级 菜 内 先 件"
 )
-push("They now live as bonus items (quizzable, masterable, excluded from the /700 claim).")
+push("(读 was promoted back as the 扩展位 extension char). 4 more were demoted after round-2")
+push(
+	"verification: 主 叫 (listed as 会写字 for 吃水不忘挖井人, absent from its 会认 enumeration)"
+)
+push(
+	"· 闷 (要下雨了 sources disagree) · 期 (上册园地五 verified as exactly 午晚昨今年)."
+)
+push("All live as bonus items (quizzable, masterable, excluded from the /700 claim).")
 push("If the textbook shows a 识字表 home for any of them, move it back into the raw JSON")
 push("(and rebalance that semester to its exact count) — a data-only edit.")
 push("")
