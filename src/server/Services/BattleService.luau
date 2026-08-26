@@ -63,6 +63,9 @@ export type Deps = {
 	analytics: any,
 	now: (() -> number)?,
 	rand: Rng.Rand?,
+	push: ((userId: number, event: string, payload: any) -> ())?, -- live-battle RE pushes
+	nearPad: ((userIdA: number, userIdB: number) -> boolean)?, -- challenge-pad proximity
+	displayName: ((userId: number) -> string)?,
 }
 
 local counter = 0
@@ -75,7 +78,16 @@ function BattleService.new(deps: Deps)
 		_analytics = deps.analytics,
 		_now = deps.now or os.time,
 		_rand = deps.rand or Rng.mulberry32(os.clock() * 1e6 % 2 ^ 31),
-		_sessions = {} :: { [number]: Session }, -- one live battle per player
+		_push = deps.push or function() end,
+		_nearPad = deps.nearPad or function()
+			return true
+		end,
+		_displayName = deps.displayName or function(userId: number)
+			return `Player{userId}`
+		end,
+		_sessions = {} :: { [number]: Session }, -- one brain battle per player
+		_live = {} :: { [number]: any }, -- userId -> shared LiveSession
+		_challenges = {} :: { [number]: { from: number, expiresAt: number } },
 	}, BattleService)
 end
 
@@ -97,6 +109,15 @@ end
 
 function BattleService.dropPlayer(self: any, userId: number)
 	self._sessions[userId] = nil
+	self._challenges[userId] = nil
+	local live = self._live[userId]
+	if live then
+		-- a vanished player voids the match: no coins move, the opponent is freed
+		local other = if live.a.userId == userId then live.b.userId else live.a.userId
+		self._live[live.a.userId] = nil
+		self._live[live.b.userId] = nil
+		self._push(other, "LiveEnded", { reason = "opponent_left" })
+	end
 end
 
 -- Ladder snapshot for the arena UI.
@@ -240,6 +261,9 @@ end
 -- Secret pick; the response carries the charge-flash question for THIS player
 -- (served from their own band/mode mix) plus the server deadline.
 function BattleService.pickStat(self: any, userId: number, payload: any): any
+	if self._live[userId] then
+		return BattleService.livePick(self, userId, payload)
+	end
 	local session = self._sessions[userId] :: Session?
 	if not session or session.battleId ~= payload.battleId then
 		return fail("no_battle")
@@ -253,6 +277,12 @@ function BattleService.pickStat(self: any, userId: number, payload: any): any
 	end
 
 	session.playerPick = stat
+	do
+		local profile = self._profiles:get(userId) :: Profile?
+		if profile then
+			(profile.pickHistogram :: any)[stat] += 1
+		end
+	end
 	-- brain picks + rolls its charge the moment picks close (server-side only;
 	-- nothing about the brain's pick leaves the server before the reveal)
 	if session.brain.kind == "npc" then
@@ -277,6 +307,9 @@ function BattleService.pickStat(self: any, userId: number, payload: any): any
 end
 
 function BattleService.submitFlash(self: any, userId: number, payload: any): any
+	if self._live[userId] then
+		return BattleService.liveFlash(self, userId, payload)
+	end
 	local session = self._sessions[userId] :: Session?
 	if not session or session.battleId ~= payload.battleId then
 		return fail("no_battle")
@@ -356,6 +389,9 @@ end
 -- Resolve the current round. Idempotent within a phase; callable by the client
 -- after the flash deadline (an unanswered flash is simply uncharged).
 function BattleService.resolveRound(self: any, userId: number, payload: any): any
+	if self._live[userId] then
+		return BattleService.liveResolve(self, userId, payload)
+	end
 	local session = self._sessions[userId] :: Session?
 	if not session or session.battleId ~= payload.battleId then
 		return fail("no_battle")
@@ -443,6 +479,318 @@ function BattleService.resolveRound(self: any, userId: number, payload: any): an
 		session.flashDeadline = nil
 	end
 	return response
+end
+
+-- ── Live battles (two players, same server, challenge pad) ─────────────────
+
+type LiveSide = {
+	userId: number,
+	stats: Stats,
+	pick: Types.Stat?,
+	charged: boolean?,
+	displayName: string,
+}
+
+type LiveSession = {
+	battleId: string,
+	a: LiveSide,
+	b: LiveSide,
+	round: number,
+	scoreA: number,
+	scoreB: number,
+	tieStreak: number,
+	phase: "picking" | "flash" | "done",
+	flashDeadline: number?,
+}
+
+local CHALLENGE_TTL = Config.Battle.CHALLENGE_TIMEOUT_SECONDS
+
+function BattleService.challenge(self: any, userId: number, targetUserId: number): any
+	if userId == targetUserId then
+		return fail("bad_request")
+	end
+	if self._sessions[userId] or self._live[userId] then
+		return fail("battle_in_progress")
+	end
+	if self._sessions[targetUserId] or self._live[targetUserId] then
+		return fail("target_busy")
+	end
+	local profile = self._profiles:get(userId) :: Profile?
+	local targetProfile = self._profiles:get(targetUserId) :: Profile?
+	if not profile or not targetProfile then
+		return fail("no_profile")
+	end
+	if not activeStats(profile) then
+		return fail("no_active_beast")
+	end
+	if not activeStats(targetProfile) then
+		return fail("target_has_no_beast")
+	end
+	if not self._nearPad(userId, targetUserId) then
+		return fail("not_on_pad")
+	end
+	self._challenges[targetUserId] = { from = userId, expiresAt = self._now() + CHALLENGE_TTL }
+	self._push(targetUserId, "ChallengeIncoming", {
+		fromUserId = userId,
+		fromName = self._displayName(userId),
+	})
+	return { ok = true, pending = true }
+end
+
+function BattleService.respondChallenge(self: any, userId: number, accept: boolean): any
+	local challenge = self._challenges[userId]
+	if not challenge or self._now() > challenge.expiresAt then
+		self._challenges[userId] = nil
+		return fail("no_challenge")
+	end
+	self._challenges[userId] = nil
+	local fromUserId = challenge.from
+	if not accept then
+		self._push(fromUserId, "ChallengeDeclined", {})
+		return { ok = true, accepted = false }
+	end
+	if
+		self._sessions[fromUserId]
+		or self._live[fromUserId]
+		or self._sessions[userId]
+		or self._live[userId]
+	then
+		return fail("battle_in_progress")
+	end
+	local profileA = self._profiles:get(fromUserId) :: Profile?
+	local profileB = self._profiles:get(userId) :: Profile?
+	if not profileA or not profileB then
+		return fail("no_profile")
+	end
+	local statsA = activeStats(profileA)
+	local statsB = activeStats(profileB)
+	if not statsA or not statsB then
+		return fail("no_active_beast")
+	end
+
+	counter += 1
+	local session: LiveSession = {
+		battleId = `lv{counter}`,
+		a = {
+			userId = fromUserId,
+			stats = statsA :: Stats,
+			pick = nil,
+			charged = nil,
+			displayName = self._displayName(fromUserId),
+		},
+		b = {
+			userId = userId,
+			stats = statsB :: Stats,
+			pick = nil,
+			charged = nil,
+			displayName = self._displayName(userId),
+		},
+		round = 1,
+		scoreA = 0,
+		scoreB = 0,
+		tieStreak = 0,
+		phase = "picking",
+		flashDeadline = nil,
+	}
+	self._live[fromUserId] = session
+	self._live[userId] = session
+	for _, side in { session.a, session.b } do
+		local opponent = if side.userId == session.a.userId then session.b else session.a
+		self._push(side.userId, "LiveStarted", {
+			battleId = session.battleId,
+			opponentName = opponent.displayName,
+			opponentStats = opponent.stats,
+			yourStats = side.stats,
+		})
+	end
+	return { ok = true, accepted = true, battleId = session.battleId }
+end
+
+local function liveSide(session: LiveSession, userId: number): (LiveSide, LiveSide)
+	if session.a.userId == userId then
+		return session.a, session.b
+	end
+	return session.b, session.a
+end
+
+function BattleService.livePick(self: any, userId: number, payload: any): any
+	local session = self._live[userId] :: LiveSession
+	if session.battleId ~= payload.battleId or session.phase ~= "picking" then
+		return fail("wrong_phase")
+	end
+	local stat = payload.stat
+	if stat ~= "li" and stat ~= "su" and stat ~= "zhi" then
+		return fail("bad_request")
+	end
+	local mine = liveSide(session, userId)
+	if mine.pick then
+		return fail("already_picked")
+	end
+	mine.pick = stat
+	local profile = self._profiles:get(userId) :: Profile?
+	if profile then
+		(profile.pickHistogram :: any)[stat] += 1
+	end
+
+	if session.a.pick and session.b.pick then
+		-- both picks are in: flashes fire SIMULTANEOUSLY for both players,
+		-- each from their own band/mode mix, same 4-second window (spec)
+		session.phase = "flash"
+		session.flashDeadline = self._now() + Config.Quiz.FLASH_SECONDS
+		for _, side in { session.a, session.b } do
+			local flash = self._quiz:generateFlash(side.userId)
+			if not flash then
+				side.charged = false
+			end
+			self._push(side.userId, "FlashPrompt", {
+				battleId = session.battleId,
+				flash = flash,
+				deadline = session.flashDeadline,
+			})
+		end
+		return { ok = true, waiting = false, deadline = session.flashDeadline }
+	end
+	return { ok = true, waiting = true }
+end
+
+function BattleService.liveFlash(self: any, userId: number, payload: any): any
+	local session = self._live[userId] :: LiveSession
+	if session.battleId ~= payload.battleId or session.phase ~= "flash" then
+		return fail("wrong_phase")
+	end
+	local result = self._quiz:submitFlash(userId, payload)
+	if not result.ok then
+		return result
+	end
+	local mine = liveSide(session, userId)
+	mine.charged = result.charged == true
+	if session.a.charged ~= nil and session.b.charged ~= nil then
+		BattleService.liveResolve(self, userId, { battleId = session.battleId })
+	end
+	return { ok = true, charged = mine.charged }
+end
+
+function BattleService.liveResolve(self: any, userId: number, payload: any): any
+	local session = self._live[userId] :: LiveSession?
+	if not session or session.battleId ~= payload.battleId then
+		return fail("no_battle")
+	end
+	if session.phase ~= "flash" then
+		return fail("wrong_phase")
+	end
+	local now = self._now()
+	if session.a.charged == nil or session.b.charged == nil then
+		if now < (session.flashDeadline :: number) then
+			return fail("flash_pending")
+		end
+		session.a.charged = session.a.charged or false
+		session.b.charged = session.b.charged or false
+	end
+
+	local result = Resolver.resolveRound({
+		stat = session.a.pick :: Types.Stat,
+		value = (session.a.stats :: any)[session.a.pick],
+		charged = session.a.charged :: boolean,
+	}, {
+		stat = session.b.pick :: Types.Stat,
+		value = (session.b.stats :: any)[session.b.pick],
+		charged = session.b.charged :: boolean,
+	})
+
+	local replay = false
+	local stallWinner: ("a" | "b")? = nil
+	if result.winner == "tie" then
+		session.tieStreak += 1
+		if session.tieStreak >= Config.Battle.MAX_TIE_REPLAYS then
+			local totalsA = session.a.stats.li + session.a.stats.su + session.a.stats.zhi
+			local totalsB = session.b.stats.li + session.b.stats.su + session.b.stats.zhi
+			stallWinner = Resolver.breakStall(totalsA, totalsB)
+			session.tieStreak = 0
+		else
+			replay = true
+		end
+	else
+		session.tieStreak = 0
+	end
+	local roundWinner: ("a" | "b")? = if result.winner ~= "tie"
+		then result.winner :: any
+		else stallWinner
+	if roundWinner == "a" then
+		session.scoreA += 1
+	elseif roundWinner == "b" then
+		session.scoreB += 1
+	end
+
+	local target = Config.Battle.ROUNDS_TO_WIN
+	local matchOver = session.scoreA >= target or session.scoreB >= target
+	local matchPayloads: { [number]: any } = {}
+	if matchOver then
+		session.phase = "done"
+		local winnerSide = if session.scoreA > session.scoreB then session.a else session.b
+		local loserSide = if winnerSide == session.a then session.b else session.a
+		for _, entry in { { side = winnerSide, won = true }, { side = loserSide, won = false } } do
+			local profile = self._profiles:get(entry.side.userId) :: Profile?
+			if profile then
+				ProfileSchema.rollDaily(profile, now)
+				local record = profile.battleRecord
+				if entry.won then
+					record.wins += 1
+				else
+					record.losses += 1
+				end
+				local code: Types.FaucetCode = if entry.won
+					then "live_win"
+					else "live_participation"
+				local coin = Ledger.faucet(profile, code, {}, now)
+				self._analytics:track(entry.side.userId, "faucet", code :: string, coin.delta, {})
+				matchPayloads[entry.side.userId] = {
+					playerWon = entry.won,
+					bountyMath = if coin.delta > 0 then coin.mathString else nil,
+					capNote = if coin.capped
+						then "今天的对战奖励拿满啦! (live coins capped)"
+						else nil,
+					newCoins = profile.coins,
+					record = record,
+				}
+			end
+		end
+		self._live[session.a.userId] = nil
+		self._live[session.b.userId] = nil
+	else
+		if not replay then
+			session.round += 1
+		end
+		session.phase = "picking"
+		session.a.pick = nil
+		session.a.charged = nil
+		session.b.pick = nil
+		session.b.charged = nil
+		session.flashDeadline = nil
+	end
+
+	for _, side in { session.a, session.b } do
+		local isA = side == session.a
+		local mineReveal = if isA then result.a else result.b
+		local theirsReveal = if isA then result.b else result.a
+		local winnerForMe = if roundWinner == nil
+			then "tie"
+			elseif (roundWinner == "a") == isA then "a"
+			else "b"
+		self._push(side.userId, "RoundResult", {
+			battleId = session.battleId,
+			round = session.round,
+			you = mineReveal,
+			them = theirsReveal,
+			winner = winnerForMe,
+			replay = replay,
+			score = {
+				you = if isA then session.scoreA else session.scoreB,
+				them = if isA then session.scoreB else session.scoreA,
+			},
+			match = matchPayloads[side.userId],
+		})
+	end
+	return { ok = true, pushed = true }
 end
 
 return BattleService

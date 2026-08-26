@@ -8,6 +8,9 @@ local RunService = game:GetService("RunService")
 local Net = require("./Net")
 local Analytics = require("./Services/Analytics")
 local BattleService = require("./Services/BattleService")
+local Cheers = require("../shared/Data/Cheers")
+local GhostService = require("./Services/GhostService")
+local GhostStores = require("./Services/GhostStores")
 local ProfileBackend = require("./Services/ProfileBackend")
 local Profiles = require("./Services/Profiles")
 local PlotService = require("./Services/PlotService")
@@ -36,7 +39,46 @@ local profiles = Profiles.new(ProfileBackend.new(not canPersist))
 local analytics = Analytics.new()
 local quiz = QuizService.new({ profiles = profiles, analytics = analytics })
 local plots = PlotService.new()
-local battle = BattleService.new({ profiles = profiles, quiz = quiz, analytics = analytics })
+
+-- live-battle server pushes ride one RemoteEvent per player
+local battleEvents = Net.event("Battle", "Events")
+local PAD_RANGE = 15
+
+local function nearPad(userIdA: number, userIdB: number): boolean
+	local pad = workspace:FindFirstChild("FusionZooWorld")
+		and workspace.FusionZooWorld:FindFirstChild("BattleArena") :: Model?
+	local padPart = pad and pad:FindFirstChild("ChallengePad") :: BasePart?
+	if not padPart then
+		return false
+	end
+	for _, userId in { userIdA, userIdB } do
+		local player = Players:GetPlayerByUserId(userId)
+		local character = player and player.Character
+		local root = character and character.PrimaryPart
+		if not root or (root.Position - padPart.Position).Magnitude > PAD_RANGE then
+			return false
+		end
+	end
+	return true
+end
+
+local battle = BattleService.new({
+	profiles = profiles,
+	quiz = quiz,
+	analytics = analytics,
+	push = function(userId, event, payload)
+		local player = Players:GetPlayerByUserId(userId)
+		if player then
+			battleEvents:FireClient(player, event, payload)
+		end
+	end,
+	nearPad = nearPad,
+	displayName = function(userId)
+		local player = Players:GetPlayerByUserId(userId)
+		return if player then player.DisplayName else `Player{userId}`
+	end,
+})
+local ghosts = GhostService.new({ profiles = profiles, stores = GhostStores.new() })
 local zoo = ZooService.new({
 	profiles = profiles,
 	analytics = analytics,
@@ -44,6 +86,10 @@ local zoo = ZooService.new({
 		local player = Players:GetPlayerByUserId(userId)
 		if player then
 			plots:refresh(userId, profile, player.DisplayName)
+			-- the active beast auto-publishes to the ghost pool on change (spec)
+			task.spawn(function()
+				ghosts:publish(userId, player.DisplayName)
+			end)
 		end
 	end,
 })
@@ -211,6 +257,56 @@ Net.handle(
 		return battle:resolveRound(player.UserId, payload)
 	end
 )
+Net.handle("Battle", "StartGhost", nil, function(player)
+	local snapshot = ghosts:fetch(player.UserId)
+	if not snapshot then
+		return { ok = false, err = "no_ghosts" }
+	end
+	return battle:startGhost(player.UserId, snapshot)
+end)
+Net.handle(
+	"Battle",
+	"Challenge",
+	Guard.shape({ targetUserId = Guard.integer(0, 2 ^ 52) }),
+	function(player, payload)
+		return battle:challenge(player.UserId, payload.targetUserId)
+	end
+)
+Net.handle(
+	"Battle",
+	"RespondChallenge",
+	Guard.shape({ accept = Guard.isBoolean }),
+	function(player, payload)
+		return battle:respondChallenge(player.UserId, payload.accept)
+	end
+)
+Net.handle("Battle", "ListOpponents", nil, function(player)
+	local list = {}
+	for _, other in Players:GetPlayers() do
+		if other ~= player then
+			table.insert(list, { userId = other.UserId, name = other.DisplayName })
+		end
+	end
+	return { ok = true, players = list }
+end)
+
+-- cheer wheel: fixed catalog only, rebroadcast to everyone (small servers)
+local cheerCatalog: { [string]: boolean } = {}
+for _, cheer in Cheers :: { any } do
+	cheerCatalog[cheer.id] = true
+end
+local cheerEvent: RemoteEvent
+cheerEvent = Net.listen(
+	"Battle",
+	"Cheer",
+	Guard.shape({ cheerId = Guard.stringOf(24) }),
+	function(player, payload)
+		if not cheerCatalog[payload.cheerId] then
+			return
+		end
+		cheerEvent:FireAllClients({ fromName = player.DisplayName, cheerId = payload.cheerId })
+	end
+)
 
 -- ── player lifecycle ────────────────────────────────────────────────────────
 local TUTORIAL_ANIMALS = { "猫", "鸟" } -- user-approved onboarding exemption
@@ -255,6 +351,9 @@ local function onJoin(player: Player)
 	end)
 	plots:claim(player.UserId, player.DisplayName)
 	plots:refresh(player.UserId, profile, player.DisplayName)
+	task.spawn(function()
+		ghosts:publish(player.UserId, player.DisplayName)
+	end)
 	pushReady(player, profile)
 end
 
@@ -264,6 +363,8 @@ end
 Players.PlayerAdded:Connect(onJoin)
 
 Players.PlayerRemoving:Connect(function(player)
+	ghosts:publish(player.UserId, player.DisplayName, true) -- final snapshot
+	battle:dropPlayer(player.UserId)
 	plots:release(player.UserId)
 	profiles:release(player.UserId)
 end)
@@ -273,4 +374,4 @@ if RunService:IsStudio() then
 		"[FusionZoo] Studio session — remember Game Settings → Security → API Services for saves"
 	)
 end
-print("[FusionZoo] server booted (M4: battle ladder live)")
+print("[FusionZoo] server booted (M5: ghosts + live battles + cheers)")

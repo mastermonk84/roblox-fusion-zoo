@@ -40,6 +40,7 @@ function ProfileSchema.template(seed: number, now: number): Profile
 		slotsUnlocked = { legs = false, tail = false },
 		ladderRung = 0,
 		battleRecord = { wins = 0, losses = 0 },
+		pickHistogram = { li = 0, su = 0, zhi = 0 },
 		realWordsFound = {},
 		decorations = {},
 		plotPlacements = {},

@@ -226,6 +226,7 @@ emit("IconManifest", iconManifest)
 emit("HomophoneIndex", pinyinIndex)
 emit("Conflicts", conflicts)
 emit("Rigs", rigs)
+emit("StarterGhosts", readJson("data-src/starter_ghosts.json"))
 
 print(
 	`OK: {#curriculum} items (700 curriculum in 14 bands x 50, {#curriculum - 700} bonus), {#animals} animals, {#opponents} rungs, {#words} words`

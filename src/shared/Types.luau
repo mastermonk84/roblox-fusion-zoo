@@ -93,6 +93,7 @@ export type Profile = {
 	slotsUnlocked: { legs: boolean, tail: boolean },
 	ladderRung: number, -- highest NPC rung beaten, 0 = none
 	battleRecord: { wins: number, losses: number },
+	pickHistogram: { li: number, su: number, zhi: number }, -- feeds ghost pattern weighting
 	realWordsFound: { [string]: boolean },
 	decorations: { [string]: number },
 	plotPlacements: { [string]: string }, -- grid index (as string key) -> itemId

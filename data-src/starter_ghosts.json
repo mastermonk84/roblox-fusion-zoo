@@ -1,0 +1,5 @@
+[
+ { "ownerUserId": 0, "ownerDisplayName": "小明", "slots": { "head": "猫", "body": "鸟" }, "feed": { "head": 1, "body": 0, "legs": 0, "tail": 0 }, "golden": false, "stats": { "li": 1, "su": 3, "zhi": 3 }, "pickHistogram": { "li": 1, "su": 3, "zhi": 2 }, "accuracy": 0.5, "publishedAt": 0 },
+ { "ownerUserId": 0, "ownerDisplayName": "花花", "slots": { "head": "狗", "body": "羊" }, "feed": { "head": 0, "body": 2, "legs": 0, "tail": 0 }, "golden": false, "stats": { "li": 4, "su": 2, "zhi": 2 }, "pickHistogram": { "li": 3, "su": 1, "zhi": 1 }, "accuracy": 0.45, "publishedAt": 0 },
+ { "ownerUserId": 0, "ownerDisplayName": "阿宝", "slots": { "head": "熊", "body": "猫" }, "feed": { "head": 0, "body": 1, "legs": 0, "tail": 0 }, "golden": true, "stats": { "li": 2, "su": 3, "zhi": 2 }, "pickHistogram": { "li": 2, "su": 2, "zhi": 2 }, "accuracy": 0.6, "publishedAt": 0 }
+]

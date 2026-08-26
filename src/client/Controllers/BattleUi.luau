@@ -6,16 +6,48 @@
 local Players = game:GetService("Players")
 
 local Audio = require("./Audio")
+local Cheers = require("../../shared/Data/Cheers")
 local Ui = require("./Ui")
+
+-- lightweight toast used by battle flows
+local Hint = {}
+function Hint.flash(text: string)
+	local screenGui = game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
+	if not screenGui then
+		return
+	end
+	local hud = screenGui:FindFirstChild("FusionZooHud")
+	if not hud then
+		return
+	end
+	local label = Instance.new("TextLabel")
+	label.Size = UDim2.new(0, 420, 0, 40)
+	label.Position = UDim2.new(0.5, -210, 0, 120)
+	label.BackgroundColor3 = Color3.fromRGB(240, 236, 228)
+	label.TextColor3 = Color3.fromRGB(45, 41, 56)
+	label.TextSize = 20
+	label.Font = Enum.Font.SourceSansBold
+	label.Text = text
+	label.Parent = hud
+	task.delay(2.2, function()
+		label:Destroy()
+	end)
+end
 
 local BattleUi = {}
 
 type Remotes = {
 	ladder: RemoteFunction,
 	startNpc: RemoteFunction,
+	startGhost: RemoteFunction,
 	pickStat: RemoteFunction,
 	submitFlash: RemoteFunction,
 	resolveRound: RemoteFunction,
+	challenge: RemoteFunction,
+	respondChallenge: RemoteFunction,
+	listOpponents: RemoteFunction,
+	events: RemoteEvent,
+	cheer: RemoteEvent,
 }
 
 local remotes: Remotes
@@ -39,6 +71,7 @@ local resultOverlay: Frame
 local resultLabel: TextLabel
 
 local battleId: string? = nil
+local isLive = false
 local currentRound = 1
 local currentDeadline = 0
 local currentFlashSound: string? = nil
@@ -97,25 +130,21 @@ function BattleUi.init(
 		TextSize = 24,
 		Parent = ladderPage,
 	})
-	ladderRows = Ui.new(
-		"ScrollingFrame",
-		{
-			Size = UDim2.new(1, 0, 1, -44),
-			Position = UDim2.new(0, 0, 0, 40),
-			BackgroundTransparency = 1,
-			BorderSizePixel = 0,
-			ScrollBarThickness = 6,
-			CanvasSize = UDim2.new(),
-			AutomaticCanvasSize = Enum.AutomaticSize.Y,
-			Parent = ladderPage,
-		},
-		{
-			Ui.new(
-				"UIListLayout",
-				{ Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }
-			),
-		}
-	)
+	ladderRows = Ui.new("ScrollingFrame", {
+		Size = UDim2.new(1, 0, 1, -44),
+		Position = UDim2.new(0, 0, 0, 40),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		ScrollBarThickness = 6,
+		CanvasSize = UDim2.new(),
+		AutomaticCanvasSize = Enum.AutomaticSize.Y,
+		Parent = ladderPage,
+	}, {
+		Ui.new(
+			"UIListLayout",
+			{ Padding = UDim.new(0, 6), SortOrder = Enum.SortOrder.LayoutOrder }
+		),
+	})
 
 	-- fight page
 	fightPage = Ui.new(
@@ -248,6 +277,172 @@ function BattleUi.init(
 		ladderPage.Visible = true
 		BattleUi.renderLadder()
 	end)
+
+	-- cheer wheel: fixed catalog, shown while any battle screen is open
+	local cheerBar = Ui.new("Frame", {
+		Size = UDim2.new(0, 240, 0, 40),
+		Position = UDim2.new(0.5, -120, 1, -46),
+		BackgroundTransparency = 1,
+		Parent = card,
+	}, {
+		Ui.new("UIListLayout", {
+			FillDirection = Enum.FillDirection.Horizontal,
+			HorizontalAlignment = Enum.HorizontalAlignment.Center,
+			Padding = UDim.new(0, 6),
+		}),
+	})
+	for _, cheer in Cheers :: { any } do
+		local button = Ui.button({
+			Text = cheer.emoji,
+			Size = UDim2.new(0, 40, 0, 36),
+			TextSize = 20,
+			BackgroundColor3 = Ui.COLORS.cardDim,
+			Parent = cheerBar,
+		})
+		button.Activated:Connect(function()
+			remotes.cheer:FireServer({ cheerId = cheer.id })
+		end)
+	end
+	remotes.cheer.OnClientEvent:Connect(function(payload)
+		local cheerDef: any = nil
+		for _, c in Cheers :: { any } do
+			if c.id == payload.cheerId then
+				cheerDef = c
+			end
+		end
+		if cheerDef then
+			Hint.flash(`{payload.fromName}: {cheerDef.text} {cheerDef.emoji}`)
+		end
+	end)
+
+	-- live battle server pushes
+	remotes.events.OnClientEvent:Connect(function(event: string, payload: any)
+		if event == "ChallengeIncoming" then
+			BattleUi.showChallenge(payload)
+		elseif event == "ChallengeDeclined" then
+			Hint.flash("对方拒绝了挑战 (declined)")
+		elseif event == "LiveStarted" then
+			gui.Enabled = true
+			battleId = payload.battleId
+			isLive = true
+			currentRound = 1
+			ladderPage.Visible = false
+			resultOverlay.Visible = false
+			fightPage.Visible = true
+			revealLabel.Text = ""
+			opponentLabel.Text =
+				`⚔ 对战 {payload.opponentName}!\n对方: 力{payload.opponentStats.li} 速{payload.opponentStats.su} 智{payload.opponentStats.zhi}`
+			yourLabel.Text =
+				`你的兽: 力{payload.yourStats.li} 速{payload.yourStats.su} 智{payload.yourStats.zhi}`
+			scoreLabel.Text = "0 : 0"
+			BattleUi.setPickEnabled(true)
+		elseif event == "FlashPrompt" then
+			currentDeadline = payload.deadline
+			if payload.flash then
+				BattleUi.showFlashWithId(payload.flash)
+			end
+		elseif event == "RoundResult" then
+			BattleUi.renderLiveRound(payload)
+		elseif event == "LiveEnded" then
+			isLive = false
+			battleId = nil
+			fightPage.Visible = false
+			ladderPage.Visible = true
+			Hint.flash("对方离开了 (opponent left)")
+		end
+	end)
+end
+
+-- incoming challenge dialog
+local challengeFrame: Frame? = nil
+
+function BattleUi.showChallenge(payload: any)
+	gui.Enabled = true
+	if challengeFrame then
+		challengeFrame:Destroy()
+	end
+	local frame = Ui.new("Frame", {
+		Size = UDim2.new(0, 340, 0, 150),
+		Position = UDim2.new(0.5, -170, 0, 20),
+		BackgroundColor3 = Ui.COLORS.accent,
+		ZIndex = 10,
+		Parent = gui,
+	}, { Ui.corner(14), Ui.padding(10) })
+	challengeFrame = frame
+	Ui.text({
+		Text = `⚔ {payload.fromName} 想跟你对战!`,
+		Size = UDim2.new(1, 0, 0, 50),
+		TextSize = 22,
+		Parent = frame,
+	})
+	local accept = Ui.button({
+		Text = "来! Accept",
+		Size = UDim2.new(0.46, 0, 0, 44),
+		Position = UDim2.new(0, 0, 1, -48),
+		TextSize = 20,
+		BackgroundColor3 = Ui.COLORS.good,
+		Parent = frame,
+	})
+	local decline = Ui.button({
+		Text = "不了 No",
+		Size = UDim2.new(0.46, 0, 0, 44),
+		Position = UDim2.new(0.54, 0, 1, -48),
+		TextSize = 20,
+		BackgroundColor3 = Ui.COLORS.cardDim,
+		Parent = frame,
+	})
+	accept.Activated:Connect(function()
+		frame:Destroy()
+		challengeFrame = nil
+		remotes.respondChallenge:InvokeServer({ accept = true })
+	end)
+	decline.Activated:Connect(function()
+		frame:Destroy()
+		challengeFrame = nil
+		remotes.respondChallenge:InvokeServer({ accept = false })
+	end)
+end
+
+function BattleUi.renderLiveRound(payload: any)
+	flashOverlay.Visible = false
+	local you, them = payload.you, payload.them
+	local verdict = if payload.winner == "a"
+		then "你赢了这局! 🎉"
+		elseif payload.winner == "b" then "对方赢了这局"
+		else "平局! 再来!"
+	revealLabel.Text =
+		`你: {you.mathString}{if you.charged then " ⚡" else ""}\n对方: {them.mathString}{if them.charged
+			then " ⚡"
+			else ""}\n{verdict}`
+	scoreLabel.Text = `{payload.score.you} : {payload.score.them}`
+	if payload.match then
+		local match = payload.match
+		isLive = false
+		battleId = nil
+		task.delay(1.6, function()
+			resultOverlay.Visible = true
+			local lines = if match.playerWon
+				then "🏆 胜利! VICTORY!"
+				else "输了… 再练练!"
+			if match.bountyMath then
+				lines ..= `\n{match.bountyMath}`
+				onCoins(match.newCoins, nil)
+			end
+			if match.capNote then
+				lines ..= `\n{match.capNote}`
+			end
+			lines ..= `\n战绩: {match.record.wins}胜 {match.record.losses}负`
+			resultLabel.Text = lines
+			if match.playerWon then
+				Audio.fanfare()
+			end
+		end)
+	else
+		currentRound = payload.round
+		task.delay(1.4, function()
+			BattleUi.setPickEnabled(true)
+		end)
+	end
 end
 
 function BattleUi.renderLadder()
@@ -303,6 +498,56 @@ function BattleUi.renderLadder()
 			end)
 		end
 	end
+	-- ghost battle + live challenge entry points
+	if ladder.hasBeast then
+		local ghostRow = Ui.new("Frame", {
+			Size = UDim2.new(1, -8, 0, 52),
+			BackgroundColor3 = Ui.COLORS.cardDim,
+			LayoutOrder = 100,
+			Parent = ladderRows,
+		}, { Ui.corner(10) })
+		Ui.text({
+			Text = "👻 幽灵兽 · 别的小朋友的兽 (他们睡觉时也在变强!)",
+			Size = UDim2.new(1, -110, 1, 0),
+			TextSize = 15,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			Parent = ghostRow,
+		}, { Ui.padding(8) })
+		local ghostFight = Ui.button({
+			Text = "打! Fight",
+			Size = UDim2.new(0, 90, 0, 38),
+			Position = UDim2.new(1, -98, 0.5, -19),
+			TextSize = 17,
+			Parent = ghostRow,
+		})
+		ghostFight.Activated:Connect(function()
+			BattleUi.startGhostBattle()
+		end)
+
+		local pvpRow = Ui.new("Frame", {
+			Size = UDim2.new(1, -8, 0, 52),
+			BackgroundColor3 = Ui.COLORS.cardDim,
+			LayoutOrder = 101,
+			Parent = ladderRows,
+		}, { Ui.corner(10) })
+		Ui.text({
+			Text = "⚔ 挑战朋友 · 两人都站上挑战台!",
+			Size = UDim2.new(1, -110, 1, 0),
+			TextSize = 15,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			Parent = pvpRow,
+		}, { Ui.padding(8) })
+		local pvpButton = Ui.button({
+			Text = "挑战!",
+			Size = UDim2.new(0, 90, 0, 38),
+			Position = UDim2.new(1, -98, 0.5, -19),
+			TextSize = 17,
+			Parent = pvpRow,
+		})
+		pvpButton.Activated:Connect(function()
+			BattleUi.openChallengeList()
+		end)
+	end
 	if not ladder.hasBeast then
 		local note = Ui.new("Frame", {
 			Size = UDim2.new(1, -8, 0, 44),
@@ -326,6 +571,7 @@ function BattleUi.startNpc(rung: number)
 		return
 	end
 	battleId = started.battleId
+	isLive = false
 	currentRound = 1
 	ladderPage.Visible = false
 	fightPage.Visible = true
@@ -360,6 +606,12 @@ function BattleUi.pick(stat: string)
 		return
 	end
 	BattleUi.setPickEnabled(false)
+	if isLive then
+		if picked.waiting then
+			revealLabel.Text = "等对方出卡… (waiting for opponent)"
+		end
+		return -- flashes and results arrive as server pushes
+	end
 	currentDeadline = picked.deadline
 	if picked.flash then
 		BattleUi.showFlashWithId(picked.flash)
@@ -397,7 +649,16 @@ function BattleUi.showFlash(flash: any)
 			flashBar.Size = UDim2.new(fraction, 0, 0, 10)
 			if os.time() >= currentDeadline then
 				flashOverlay.Visible = false
-				BattleUi.resolve()
+				if not isLive then
+					BattleUi.resolve()
+				else
+					-- nudge the server in case both flashes lapsed
+					task.delay(0.4, function()
+						if isLive and battleId then
+							remotes.resolveRound:InvokeServer({ battleId = battleId })
+						end
+					end)
+				end
 				break
 			end
 			task.wait(0.1)
@@ -430,9 +691,11 @@ function BattleUi.answerFlashIndexed(index: number)
 		Audio.wobble()
 		revealLabel.Text = "没充上… uncharged"
 	end
-	task.delay(0.4, function()
-		BattleUi.resolve()
-	end)
+	if not isLive then
+		task.delay(0.4, function()
+			BattleUi.resolve()
+		end)
+	end
 end
 
 function BattleUi.resolve()
@@ -496,6 +759,72 @@ function BattleUi.resolve()
 		end
 		task.delay(1.4, function()
 			BattleUi.setPickEnabled(true)
+		end)
+	end
+end
+
+function BattleUi.startGhostBattle()
+	local started = remotes.startGhost:InvokeServer()
+	if not started.ok then
+		Audio.wobble()
+		return
+	end
+	battleId = started.battleId
+	isLive = false
+	currentRound = 1
+	ladderPage.Visible = false
+	fightPage.Visible = true
+	revealLabel.Text = ""
+	local ghost = started.ghost
+	local stars = string.rep("⚡", math.ceil(ghost.chargeRate * 5))
+	opponentLabel.Text = `👻 {ghost.ownerDisplayName} 的幽灵兽{if ghost.golden
+		then " 🌟"
+		else ""}\n力{ghost.stats.li} 速{ghost.stats.su} 智{ghost.stats.zhi} · 充能{stars}\n(他学习越多, 兽越强!)`
+	yourLabel.Text =
+		`你的兽: 力{started.yourStats.li} 速{started.yourStats.su} 智{started.yourStats.zhi}`
+	scoreLabel.Text = "0 : 0"
+	BattleUi.setPickEnabled(true)
+end
+
+function BattleUi.openChallengeList()
+	local list = remotes.listOpponents:InvokeServer()
+	if not list.ok or #list.players == 0 then
+		Hint.flash("没有别的玩家在线 (nobody else here)")
+		return
+	end
+	for index, other in list.players :: { any } do
+		if index > 4 then
+			break
+		end
+		local row = Ui.new("Frame", {
+			Size = UDim2.new(1, -8, 0, 44),
+			BackgroundColor3 = Ui.COLORS.accent,
+			LayoutOrder = 102 + index,
+			Parent = ladderRows,
+		}, { Ui.corner(10) })
+		Ui.text({
+			Text = other.name,
+			Size = UDim2.new(1, -110, 1, 0),
+			TextSize = 17,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			Parent = row,
+		}, { Ui.padding(8) })
+		local send = Ui.button({
+			Text = "挑战!",
+			Size = UDim2.new(0, 90, 0, 32),
+			Position = UDim2.new(1, -98, 0.5, -16),
+			TextSize = 15,
+			BackgroundColor3 = Ui.COLORS.good,
+			Parent = row,
+		})
+		send.Activated:Connect(function()
+			local result = remotes.challenge:InvokeServer({ targetUserId = other.userId })
+			if result.ok then
+				Hint.flash("挑战已发出! (challenge sent — both stand on the pad)")
+			else
+				Hint.flash(`不行: {result.err}`)
+				Audio.wobble()
+			end
 		end)
 	end
 end

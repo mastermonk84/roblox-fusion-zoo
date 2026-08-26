@@ -128,9 +128,15 @@ end)
 BattleUi.init({
 	ladder = battleFolder:WaitForChild("GetLadder") :: RemoteFunction,
 	startNpc = battleFolder:WaitForChild("StartNpc") :: RemoteFunction,
+	startGhost = battleFolder:WaitForChild("StartGhost") :: RemoteFunction,
 	pickStat = battleFolder:WaitForChild("PickStat") :: RemoteFunction,
 	submitFlash = battleFolder:WaitForChild("SubmitFlash") :: RemoteFunction,
 	resolveRound = battleFolder:WaitForChild("ResolveRound") :: RemoteFunction,
+	challenge = battleFolder:WaitForChild("Challenge") :: RemoteFunction,
+	respondChallenge = battleFolder:WaitForChild("RespondChallenge") :: RemoteFunction,
+	listOpponents = battleFolder:WaitForChild("ListOpponents") :: RemoteFunction,
+	events = battleFolder:WaitForChild("Events") :: RemoteEvent,
+	cheer = battleFolder:WaitForChild("Cheer") :: RemoteEvent,
 }, function(coins, mathString)
 	Hud.setCoins(coins)
 	if mathString then
