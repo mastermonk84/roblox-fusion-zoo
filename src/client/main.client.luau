@@ -17,6 +17,7 @@ local ZooUi = require("./Controllers/ZooUi")
 local remotes = ReplicatedStorage:WaitForChild("Remotes")
 local quizFolder = remotes:WaitForChild("Quiz")
 local requestQuestion = quizFolder:WaitForChild("RequestQuestion") :: RemoteFunction
+local setPinyinMode = quizFolder:WaitForChild("SetPinyinMode") :: RemoteFunction
 local submitAnswer = quizFolder:WaitForChild("SubmitAnswer") :: RemoteFunction
 local getSummary = remotes:WaitForChild("Progress"):WaitForChild("GetSummary") :: RemoteFunction
 local readyEvent = remotes:WaitForChild("Profile"):WaitForChild("Ready") :: RemoteEvent
@@ -103,6 +104,9 @@ local function onChoiceTap(index: number)
 end
 
 Hud.init()
+Hud.initSettings(setPinyinMode, function()
+	return Hud.pinyinOn
+end)
 QuizUi.init(onChoiceTap, function()
 	QuizUi.close()
 end)
@@ -168,6 +172,7 @@ readyEvent.OnClientEvent:Connect(function(state)
 	Hud.setCoins(state.coins)
 	Hud.setLevel(state.level)
 	Hud.setStreak(state.cleanStreak, 3)
+	Hud.pinyinOn = state.pinyinMode == true
 end)
 
 local player = Players.LocalPlayer

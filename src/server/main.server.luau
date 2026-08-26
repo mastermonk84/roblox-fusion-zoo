@@ -7,6 +7,7 @@ local RunService = game:GetService("RunService")
 
 local Net = require("./Net")
 local Analytics = require("./Services/Analytics")
+local AnalyticsFlush = require("./Services/AnalyticsFlush")
 local BattleService = require("./Services/BattleService")
 local Cheers = require("../shared/Data/Cheers")
 local GhostService = require("./Services/GhostService")
@@ -79,6 +80,7 @@ local battle = BattleService.new({
 	end,
 })
 local ghosts = GhostService.new({ profiles = profiles, stores = GhostStores.new() })
+AnalyticsFlush.start(analytics)
 local zoo = ZooService.new({
 	profiles = profiles,
 	analytics = analytics,
@@ -374,4 +376,4 @@ if RunService:IsStudio() then
 		"[FusionZoo] Studio session — remember Game Settings → Security → API Services for saves"
 	)
 end
-print("[FusionZoo] server booted (M5: ghosts + live battles + cheers)")
+print("[FusionZoo] server booted — v1 complete")
