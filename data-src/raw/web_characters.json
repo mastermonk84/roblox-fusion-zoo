@@ -1,0 +1,2249 @@
+[
+  {
+    "char": "一",
+    "pinyin": "yī",
+    "english": "one",
+    "emoji": "🍎",
+    "value": 1,
+    "band": 1,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "二",
+    "pinyin": "èr",
+    "english": "two",
+    "emoji": "🍎",
+    "value": 2,
+    "band": 1,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "三",
+    "pinyin": "sān",
+    "english": "three",
+    "emoji": "🍎",
+    "value": 3,
+    "band": 1,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "四",
+    "pinyin": "sì",
+    "english": "four",
+    "emoji": "🍎",
+    "value": 4,
+    "band": 1,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "五",
+    "pinyin": "wǔ",
+    "english": "five",
+    "emoji": "🍎",
+    "value": 5,
+    "band": 1,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "六",
+    "pinyin": "liù",
+    "english": "six",
+    "emoji": "🍎",
+    "value": 6,
+    "band": 2,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "七",
+    "pinyin": "qī",
+    "english": "seven",
+    "emoji": "🍎",
+    "value": 7,
+    "band": 2,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "八",
+    "pinyin": "bā",
+    "english": "eight",
+    "emoji": "🍎",
+    "value": 8,
+    "band": 2,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "九",
+    "pinyin": "jiǔ",
+    "english": "nine",
+    "emoji": "🍎",
+    "value": 9,
+    "band": 2,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "十",
+    "pinyin": "shí",
+    "english": "ten",
+    "emoji": "🍎",
+    "value": 10,
+    "band": 2,
+    "category": "number",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "日",
+    "pinyin": "rì",
+    "english": "sun",
+    "emoji": "☀️",
+    "band": 1,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "月",
+    "pinyin": "yuè",
+    "english": "moon",
+    "emoji": "🌙",
+    "band": 1,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "山",
+    "pinyin": "shān",
+    "english": "mountain",
+    "emoji": "⛰️",
+    "band": 1,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "水",
+    "pinyin": "shuǐ",
+    "english": "water",
+    "emoji": "💧",
+    "band": 1,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "火",
+    "pinyin": "huǒ",
+    "english": "fire",
+    "emoji": "🔥",
+    "band": 1,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "口",
+    "pinyin": "kǒu",
+    "english": "mouth",
+    "emoji": "👄",
+    "band": 1,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "耳",
+    "pinyin": "ěr",
+    "english": "ear",
+    "emoji": "👂",
+    "band": 1,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "目",
+    "pinyin": "mù",
+    "english": "eye",
+    "emoji": "👁️",
+    "band": 1,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "手",
+    "pinyin": "shǒu",
+    "english": "hand",
+    "emoji": "✋",
+    "band": 1,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "人",
+    "pinyin": "rén",
+    "english": "person",
+    "emoji": "🧑",
+    "band": 1,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "大",
+    "pinyin": "dà",
+    "english": "big",
+    "band": 1,
+    "category": "modifier",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "小",
+    "pinyin": "xiǎo",
+    "english": "small",
+    "band": 1,
+    "category": "modifier",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "天",
+    "pinyin": "tiān",
+    "english": "sky",
+    "emoji": "🌤️",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "地",
+    "pinyin": "dì",
+    "english": "ground",
+    "band": 2,
+    "category": "nature",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "田",
+    "pinyin": "tián",
+    "english": "field",
+    "band": 2,
+    "category": "nature",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "禾",
+    "pinyin": "hé",
+    "english": "grain seedling",
+    "emoji": "🌾",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "川",
+    "pinyin": "chuān",
+    "english": "river",
+    "emoji": "🏞️",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "江",
+    "pinyin": "jiāng",
+    "english": "big river",
+    "band": 2,
+    "category": "nature",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "土",
+    "pinyin": "tǔ",
+    "english": "soil",
+    "band": 2,
+    "category": "nature",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "云",
+    "pinyin": "yún",
+    "english": "cloud",
+    "emoji": "☁️",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "雨",
+    "pinyin": "yǔ",
+    "english": "rain",
+    "emoji": "🌧️",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "风",
+    "pinyin": "fēng",
+    "english": "wind",
+    "emoji": "💨",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "雪",
+    "pinyin": "xuě",
+    "english": "snow",
+    "emoji": "❄️",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "冰",
+    "pinyin": "bīng",
+    "english": "ice",
+    "emoji": "🧊",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "星",
+    "pinyin": "xīng",
+    "english": "star",
+    "emoji": "⭐",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "木",
+    "pinyin": "mù",
+    "english": "wood",
+    "emoji": "🪵",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "树",
+    "pinyin": "shù",
+    "english": "tree",
+    "emoji": "🌳",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "林",
+    "pinyin": "lín",
+    "english": "woods",
+    "emoji": "🌲🌲",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "森",
+    "pinyin": "sēn",
+    "english": "forest",
+    "emoji": "🌲🌲🌲",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "花",
+    "pinyin": "huā",
+    "english": "flower",
+    "emoji": "🌸",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "草",
+    "pinyin": "cǎo",
+    "english": "grass",
+    "emoji": "🌱",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "叶",
+    "pinyin": "yè",
+    "english": "leaf",
+    "emoji": "🍃",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "竹",
+    "pinyin": "zhú",
+    "english": "bamboo",
+    "emoji": "🎋",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "柳",
+    "pinyin": "liǔ",
+    "english": "willow",
+    "band": 2,
+    "category": "nature",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "莲",
+    "pinyin": "lián",
+    "english": "lotus",
+    "emoji": "🪷",
+    "band": 2,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "马",
+    "pinyin": "mǎ",
+    "english": "horse",
+    "emoji": "🐴",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "鱼",
+    "pinyin": "yú",
+    "english": "fish",
+    "emoji": "🐟",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "鸟",
+    "pinyin": "niǎo",
+    "english": "bird",
+    "emoji": "🐦",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "鸡",
+    "pinyin": "jī",
+    "english": "chicken",
+    "emoji": "🐔",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "鸭",
+    "pinyin": "yā",
+    "english": "duck",
+    "emoji": "🦆",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "蛙",
+    "pinyin": "wā",
+    "english": "frog",
+    "emoji": "🐸",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "虫",
+    "pinyin": "chóng",
+    "english": "insect",
+    "emoji": "🐛",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "狗",
+    "pinyin": "gǒu",
+    "english": "dog",
+    "emoji": "🐶",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "鸦",
+    "pinyin": "yā",
+    "english": "crow",
+    "emoji": "🐦‍⬛",
+    "band": 2,
+    "category": "animal",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "爸",
+    "pinyin": "bà",
+    "english": "dad",
+    "emoji": "👨",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "妈",
+    "pinyin": "mā",
+    "english": "mom",
+    "emoji": "👩",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "哥",
+    "pinyin": "gē",
+    "english": "older brother",
+    "band": 3,
+    "category": "person",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "弟",
+    "pinyin": "dì",
+    "english": "younger brother",
+    "band": 3,
+    "category": "person",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "你",
+    "pinyin": "nǐ",
+    "english": "you",
+    "band": 3,
+    "category": "person",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "我",
+    "pinyin": "wǒ",
+    "english": "I, me",
+    "band": 3,
+    "category": "person",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "他",
+    "pinyin": "tā",
+    "english": "he",
+    "band": 3,
+    "category": "person",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "王",
+    "pinyin": "wáng",
+    "english": "king",
+    "emoji": "🤴",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "男",
+    "pinyin": "nán",
+    "english": "boy, male",
+    "emoji": "👦",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "女",
+    "pinyin": "nǚ",
+    "english": "girl, female",
+    "emoji": "👧",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "老",
+    "pinyin": "lǎo",
+    "english": "old",
+    "band": 3,
+    "category": "person",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "师",
+    "pinyin": "shī",
+    "english": "teacher",
+    "emoji": "🧑‍🏫",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "儿",
+    "pinyin": "ér",
+    "english": "child",
+    "emoji": "👶",
+    "band": 3,
+    "category": "person",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "足",
+    "pinyin": "zú",
+    "english": "foot",
+    "emoji": "🦶",
+    "band": 3,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "牙",
+    "pinyin": "yá",
+    "english": "tooth",
+    "emoji": "🦷",
+    "band": 3,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "心",
+    "pinyin": "xīn",
+    "english": "heart",
+    "emoji": "❤️",
+    "band": 3,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "头",
+    "pinyin": "tóu",
+    "english": "head",
+    "emoji": "👤",
+    "band": 3,
+    "category": "body",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "皮",
+    "pinyin": "pí",
+    "english": "skin",
+    "band": 3,
+    "category": "body",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "白",
+    "pinyin": "bái",
+    "english": "white",
+    "emoji": "⚪",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "红",
+    "pinyin": "hóng",
+    "english": "red",
+    "emoji": "🔴",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "黄",
+    "pinyin": "huáng",
+    "english": "yellow",
+    "emoji": "🟡",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "蓝",
+    "pinyin": "lán",
+    "english": "blue",
+    "emoji": "🔵",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "绿",
+    "pinyin": "lǜ",
+    "english": "green",
+    "emoji": "🟢",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "黑",
+    "pinyin": "hēi",
+    "english": "black",
+    "emoji": "⚫",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "金",
+    "pinyin": "jīn",
+    "english": "gold",
+    "emoji": "🥇",
+    "band": 3,
+    "category": "color",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "青",
+    "pinyin": "qīng",
+    "english": "blue-green",
+    "band": 3,
+    "category": "color",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "车",
+    "pinyin": "chē",
+    "english": "car",
+    "emoji": "🚗",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "船",
+    "pinyin": "chuán",
+    "english": "boat",
+    "emoji": "⛵",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "门",
+    "pinyin": "mén",
+    "english": "door",
+    "emoji": "🚪",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "桌",
+    "pinyin": "zhuō",
+    "english": "table",
+    "band": 4,
+    "category": "object",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "纸",
+    "pinyin": "zhǐ",
+    "english": "paper",
+    "emoji": "📄",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "笔",
+    "pinyin": "bǐ",
+    "english": "pen",
+    "emoji": "✏️",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "书",
+    "pinyin": "shū",
+    "english": "book",
+    "emoji": "📖",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "刀",
+    "pinyin": "dāo",
+    "english": "knife",
+    "emoji": "🔪",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "尺",
+    "pinyin": "chǐ",
+    "english": "ruler",
+    "emoji": "📏",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "包",
+    "pinyin": "bāo",
+    "english": "bag",
+    "emoji": "🎒",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "旗",
+    "pinyin": "qí",
+    "english": "flag",
+    "emoji": "🚩",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "棋",
+    "pinyin": "qí",
+    "english": "chess",
+    "emoji": "♟️",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "桥",
+    "pinyin": "qiáo",
+    "english": "bridge",
+    "emoji": "🌉",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "路",
+    "pinyin": "lù",
+    "english": "road",
+    "emoji": "🛣️",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "家",
+    "pinyin": "jiā",
+    "english": "home",
+    "emoji": "🏠",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "校",
+    "pinyin": "xiào",
+    "english": "school",
+    "emoji": "🏫",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "厂",
+    "pinyin": "chǎng",
+    "english": "factory",
+    "emoji": "🏭",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "医",
+    "pinyin": "yī",
+    "english": "doctor, medical",
+    "emoji": "🏥",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "国",
+    "pinyin": "guó",
+    "english": "country",
+    "emoji": "🇨🇳",
+    "band": 4,
+    "category": "place",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "菜",
+    "pinyin": "cài",
+    "english": "vegetable",
+    "emoji": "🥬",
+    "band": 4,
+    "category": "food",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "瓜",
+    "pinyin": "guā",
+    "english": "melon",
+    "emoji": "🍉",
+    "band": 4,
+    "category": "food",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "果",
+    "pinyin": "guǒ",
+    "english": "fruit",
+    "emoji": "🍇",
+    "band": 4,
+    "category": "food",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "桃",
+    "pinyin": "táo",
+    "english": "peach",
+    "emoji": "🍑",
+    "band": 4,
+    "category": "food",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "宝",
+    "pinyin": "bǎo",
+    "english": "treasure",
+    "emoji": "💎",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "贝",
+    "pinyin": "bèi",
+    "english": "shell",
+    "emoji": "🐚",
+    "band": 4,
+    "category": "object",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "学",
+    "pinyin": "xué",
+    "english": "study",
+    "band": 4,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "戏",
+    "pinyin": "xì",
+    "english": "play, show",
+    "band": 4,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "站",
+    "pinyin": "zhàn",
+    "english": "stand",
+    "emoji": "🧍",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "坐",
+    "pinyin": "zuò",
+    "english": "sit",
+    "emoji": "🧘",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "写",
+    "pinyin": "xiě",
+    "english": "write",
+    "emoji": "✍️",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "画",
+    "pinyin": "huà",
+    "english": "draw",
+    "emoji": "🎨",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "说",
+    "pinyin": "shuō",
+    "english": "speak",
+    "emoji": "🗣️",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "看",
+    "pinyin": "kàn",
+    "english": "look",
+    "emoji": "👀",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "歌",
+    "pinyin": "gē",
+    "english": "song",
+    "emoji": "🎤",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "飞",
+    "pinyin": "fēi",
+    "english": "fly",
+    "emoji": "✈️",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "步",
+    "pinyin": "bù",
+    "english": "step",
+    "emoji": "👣",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "加",
+    "pinyin": "jiā",
+    "english": "add",
+    "emoji": "➕",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "力",
+    "pinyin": "lì",
+    "english": "strength",
+    "emoji": "💪",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "好",
+    "pinyin": "hǎo",
+    "english": "good",
+    "emoji": "👍",
+    "band": 5,
+    "category": "action",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "闪",
+    "pinyin": "shǎn",
+    "english": "flash",
+    "emoji": "⚡",
+    "band": 5,
+    "category": "nature",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "打",
+    "pinyin": "dǎ",
+    "english": "hit, play",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "读",
+    "pinyin": "dú",
+    "english": "read",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "采",
+    "pinyin": "cǎi",
+    "english": "pick",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "开",
+    "pinyin": "kāi",
+    "english": "open",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "关",
+    "pinyin": "guān",
+    "english": "close",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "来",
+    "pinyin": "lái",
+    "english": "come",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "去",
+    "pinyin": "qù",
+    "english": "go",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "做",
+    "pinyin": "zuò",
+    "english": "do",
+    "band": 5,
+    "category": "action",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "上",
+    "pinyin": "shàng",
+    "english": "up",
+    "emoji": "⬆️",
+    "band": 5,
+    "category": "direction",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "下",
+    "pinyin": "xià",
+    "english": "down",
+    "emoji": "⬇️",
+    "band": 5,
+    "category": "direction",
+    "quizzable": true,
+    "source": "poster1"
+  },
+  {
+    "char": "左",
+    "pinyin": "zuǒ",
+    "english": "left",
+    "emoji": "⬅️",
+    "band": 5,
+    "category": "direction",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "右",
+    "pinyin": "yòu",
+    "english": "right",
+    "emoji": "➡️",
+    "band": 5,
+    "category": "direction",
+    "quizzable": true,
+    "source": "poster4"
+  },
+  {
+    "char": "东",
+    "pinyin": "dōng",
+    "english": "east",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "南",
+    "pinyin": "nán",
+    "english": "south",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "西",
+    "pinyin": "xī",
+    "english": "west",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "北",
+    "pinyin": "běi",
+    "english": "north",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "中",
+    "pinyin": "zhōng",
+    "english": "middle",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "前",
+    "pinyin": "qián",
+    "english": "front",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "后",
+    "pinyin": "hòu",
+    "english": "behind",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "内",
+    "pinyin": "nèi",
+    "english": "inside",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "外",
+    "pinyin": "wài",
+    "english": "outside",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "里",
+    "pinyin": "lǐ",
+    "english": "inside",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "间",
+    "pinyin": "jiān",
+    "english": "between, room",
+    "band": 5,
+    "category": "direction",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "春",
+    "pinyin": "chūn",
+    "english": "spring",
+    "emoji": "🌷",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "夏",
+    "pinyin": "xià",
+    "english": "summer",
+    "emoji": "🏖️",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "秋",
+    "pinyin": "qiū",
+    "english": "autumn",
+    "emoji": "🍂",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "冬",
+    "pinyin": "dōng",
+    "english": "winter",
+    "emoji": "⛄",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "早",
+    "pinyin": "zǎo",
+    "english": "morning",
+    "emoji": "🌅",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster3"
+  },
+  {
+    "char": "午",
+    "pinyin": "wǔ",
+    "english": "noon",
+    "emoji": "🕛",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "夜",
+    "pinyin": "yè",
+    "english": "night",
+    "emoji": "🌃",
+    "band": 5,
+    "category": "time",
+    "quizzable": true,
+    "source": "poster2"
+  },
+  {
+    "char": "晚",
+    "pinyin": "wǎn",
+    "english": "evening",
+    "band": 5,
+    "category": "time",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "今",
+    "pinyin": "jīn",
+    "english": "today",
+    "band": 5,
+    "category": "time",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "明",
+    "pinyin": "míng",
+    "english": "tomorrow, bright",
+    "band": 5,
+    "category": "time",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "昨",
+    "pinyin": "zuó",
+    "english": "yesterday",
+    "band": 5,
+    "category": "time",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "年",
+    "pinyin": "nián",
+    "english": "year",
+    "band": 5,
+    "category": "time",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "期",
+    "pinyin": "qī",
+    "english": "period of time",
+    "band": 5,
+    "category": "time",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "的",
+    "pinyin": "de",
+    "english": "(of)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "了",
+    "pinyin": "le",
+    "english": "(done)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "是",
+    "pinyin": "shì",
+    "english": "is",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "会",
+    "pinyin": "huì",
+    "english": "can",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "就",
+    "pinyin": "jiù",
+    "english": "then",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "着",
+    "pinyin": "zhe",
+    "english": "(-ing)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "这",
+    "pinyin": "zhè",
+    "english": "this",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "个",
+    "pinyin": "gè",
+    "english": "(one of)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "们",
+    "pinyin": "men",
+    "english": "(plural)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "么",
+    "pinyin": "me",
+    "english": "(what)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "和",
+    "pinyin": "hé",
+    "english": "and",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "也",
+    "pinyin": "yě",
+    "english": "also",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "又",
+    "pinyin": "yòu",
+    "english": "again",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "才",
+    "pinyin": "cái",
+    "english": "only then",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "在",
+    "pinyin": "zài",
+    "english": "at",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "有",
+    "pinyin": "yǒu",
+    "english": "have",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "多",
+    "pinyin": "duō",
+    "english": "many",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "少",
+    "pinyin": "shǎo",
+    "english": "few",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "不",
+    "pinyin": "bù",
+    "english": "not",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "没",
+    "pinyin": "méi",
+    "english": "not have",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "几",
+    "pinyin": "jǐ",
+    "english": "how many",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "用",
+    "pinyin": "yòng",
+    "english": "use",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "它",
+    "pinyin": "tā",
+    "english": "it",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "向",
+    "pinyin": "xiàng",
+    "english": "toward",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "立",
+    "pinyin": "lì",
+    "english": "stand up",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "常",
+    "pinyin": "cháng",
+    "english": "often",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "影",
+    "pinyin": "yǐng",
+    "english": "shadow",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "双",
+    "pinyin": "shuāng",
+    "english": "pair",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "众",
+    "pinyin": "zhòng",
+    "english": "crowd",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "条",
+    "pinyin": "tiáo",
+    "english": "(strip of)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "正",
+    "pinyin": "zhèng",
+    "english": "correct, upright",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "反",
+    "pinyin": "fǎn",
+    "english": "opposite",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "对",
+    "pinyin": "duì",
+    "english": "correct",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "先",
+    "pinyin": "xiān",
+    "english": "first",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "从",
+    "pinyin": "cóng",
+    "english": "from",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "可",
+    "pinyin": "kě",
+    "english": "can, may",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "自",
+    "pinyin": "zì",
+    "english": "self",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "行",
+    "pinyin": "xíng",
+    "english": "go, OK",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "本",
+    "pinyin": "běn",
+    "english": "(book of), root",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "名",
+    "pinyin": "míng",
+    "english": "name",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "姓",
+    "pinyin": "xìng",
+    "english": "family name",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "班",
+    "pinyin": "bān",
+    "english": "class",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "级",
+    "pinyin": "jí",
+    "english": "grade",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "语",
+    "pinyin": "yǔ",
+    "english": "language",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "文",
+    "pinyin": "wén",
+    "english": "writing",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "数",
+    "pinyin": "shù",
+    "english": "number, math",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "字",
+    "pinyin": "zì",
+    "english": "character",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "词",
+    "pinyin": "cí",
+    "english": "word",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "句",
+    "pinyin": "jù",
+    "english": "sentence",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "子",
+    "pinyin": "zǐ",
+    "english": "child, (suffix)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "积",
+    "pinyin": "jī",
+    "english": "pile up",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster1"
+  },
+  {
+    "char": "参",
+    "pinyin": "cān",
+    "english": "join",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "气",
+    "pinyin": "qì",
+    "english": "air",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "色",
+    "pinyin": "sè",
+    "english": "color",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "美",
+    "pinyin": "měi",
+    "english": "beautiful",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "原",
+    "pinyin": "yuán",
+    "english": "plain, original",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "片",
+    "pinyin": "piàn",
+    "english": "slice",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "流",
+    "pinyin": "liú",
+    "english": "flow",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "清",
+    "pinyin": "qīng",
+    "english": "clear",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "尖",
+    "pinyin": "jiān",
+    "english": "sharp point",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "尘",
+    "pinyin": "chén",
+    "english": "dust",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "作",
+    "pinyin": "zuò",
+    "english": "do, work",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "业",
+    "pinyin": "yè",
+    "english": "work, homework",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "课",
+    "pinyin": "kè",
+    "english": "lesson",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "升",
+    "pinyin": "shēng",
+    "english": "rise",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster3"
+  },
+  {
+    "char": "乌",
+    "pinyin": "wū",
+    "english": "dark, crow",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster2"
+  },
+  {
+    "char": "声",
+    "pinyin": "shēng",
+    "english": "sound",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "起",
+    "pinyin": "qǐ",
+    "english": "get up",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "工",
+    "pinyin": "gōng",
+    "english": "work",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "院",
+    "pinyin": "yuàn",
+    "english": "courtyard, institute",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "生",
+    "pinyin": "shēng",
+    "english": "born, student",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "卫",
+    "pinyin": "wèi",
+    "english": "guard",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "弯",
+    "pinyin": "wān",
+    "english": "curved",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "两",
+    "pinyin": "liǎng",
+    "english": "two (of)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "见",
+    "pinyin": "jiàn",
+    "english": "see",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "朋",
+    "pinyin": "péng",
+    "english": "friend",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "友",
+    "pinyin": "yǒu",
+    "english": "friend",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "件",
+    "pinyin": "jiàn",
+    "english": "(item of)",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "办",
+    "pinyin": "bàn",
+    "english": "handle",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  },
+  {
+    "char": "到",
+    "pinyin": "dào",
+    "english": "arrive",
+    "band": 6,
+    "category": "abstract",
+    "quizzable": false,
+    "source": "poster4"
+  }
+]

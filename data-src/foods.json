@@ -1,0 +1,6 @@
+[
+ { "id": "meat", "char": "肉", "pinyin": "ròu", "english": "meat", "slot": "body", "statLabel": "力" },
+ { "id": "fruit", "char": "果", "pinyin": "guǒ", "english": "fruit", "slot": "legs", "statLabel": "速" },
+ { "id": "fish", "char": "鱼", "pinyin": "yú", "english": "fish", "slot": "head", "statLabel": "智" },
+ { "id": "egg", "char": "蛋", "pinyin": "dàn", "english": "egg", "slot": "tail", "statLabel": "尾" }
+]

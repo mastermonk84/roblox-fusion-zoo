@@ -1,0 +1,6 @@
+[
+ { "id": "jiayou", "text": "加油!", "pinyin": "jiā yóu", "emoji": "💪" },
+ { "id": "haobang", "text": "好棒!", "pinyin": "hǎo bàng", "emoji": "👏" },
+ { "id": "wa", "text": "哇!", "pinyin": "wā", "emoji": "😮" },
+ { "id": "zailai", "text": "再来!", "pinyin": "zài lái", "emoji": "🎉" }
+]

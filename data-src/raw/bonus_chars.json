@@ -1,0 +1,10 @@
+{
+  "note": "Off-curriculum characters needed by game content (zoo animals whose chars are not in the Grade-1 识字表). Quizzable and masterable like any item, but excluded from the /700 progress claim. Future animal drips with off-curriculum chars go here.",
+  "chars": [
+    { "char": "鼠", "pinyin": "shǔ", "english": "mouse", "band": 5 },
+    { "char": "蛇", "pinyin": "shé", "english": "snake", "band": 6 },
+    { "char": "虾", "pinyin": "xiā", "english": "shrimp", "band": 8 },
+    { "char": "龙", "pinyin": "lóng", "english": "dragon", "band": 10 },
+    { "char": "鹰", "pinyin": "yīng", "english": "eagle", "band": 11 }
+  ]
+}

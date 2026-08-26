@@ -1,0 +1,10 @@
+[
+  { "name": "石头怪", "pinyin": "shí tou guài", "emoji": "🗿", "li": 2, "su": 1, "zhi": 1 },
+  { "name": "蘑菇怪", "pinyin": "mó gu guài", "emoji": "🍄", "li": 3, "su": 3, "zhi": 2 },
+  { "name": "大蜘蛛", "pinyin": "dà zhī zhū", "emoji": "🕷️", "li": 5, "su": 5, "zhi": 3 },
+  { "name": "火焰鸡", "pinyin": "huǒ yàn jī", "emoji": "🐔🔥", "li": 6, "su": 7, "zhi": 4 },
+  { "name": "大雪怪", "pinyin": "dà xuě guài", "emoji": "☃️", "li": 8, "su": 6, "zhi": 5 },
+  { "name": "大恐龙", "pinyin": "dà kǒng lóng", "emoji": "🦖", "li": 9, "su": 8, "zhi": 6 },
+  { "name": "闪电龙", "pinyin": "shǎn diàn lóng", "emoji": "🐉⚡", "li": 10, "su": 10, "zhi": 9 },
+  { "name": "怪兽大王", "pinyin": "guài shòu dà wáng", "emoji": "👾", "li": 11, "su": 11, "zhi": 11 }
+]

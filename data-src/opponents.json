@@ -1,0 +1,86 @@
+[
+ {
+  "name": "石头怪",
+  "pinyin": "shí tou guài",
+  "li": 2,
+  "su": 1,
+  "zhi": 1
+ },
+ {
+  "name": "蘑菇怪",
+  "pinyin": "mó gu guài",
+  "li": 3,
+  "su": 3,
+  "zhi": 2
+ },
+ {
+  "name": "泥巴怪",
+  "pinyin": "ní bā guài",
+  "li": 4,
+  "su": 4,
+  "zhi": 3
+ },
+ {
+  "name": "大蜘蛛",
+  "pinyin": "dà zhī zhū",
+  "li": 5,
+  "su": 5,
+  "zhi": 3
+ },
+ {
+  "name": "铁甲龟",
+  "pinyin": "tiě jiǎ guī",
+  "li": 6,
+  "su": 5,
+  "zhi": 4
+ },
+ {
+  "name": "火焰鸡",
+  "pinyin": "huǒ yàn jī",
+  "li": 6,
+  "su": 7,
+  "zhi": 4
+ },
+ {
+  "name": "大雪怪",
+  "pinyin": "dà xuě guài",
+  "li": 8,
+  "su": 6,
+  "zhi": 5
+ },
+ {
+  "name": "刺猬王",
+  "pinyin": "cì wei wáng",
+  "li": 8,
+  "su": 7,
+  "zhi": 6
+ },
+ {
+  "name": "大恐龙",
+  "pinyin": "dà kǒng lóng",
+  "li": 9,
+  "su": 8,
+  "zhi": 6
+ },
+ {
+  "name": "影子猫",
+  "pinyin": "yǐng zi māo",
+  "li": 10,
+  "su": 9,
+  "zhi": 8
+ },
+ {
+  "name": "闪电龙",
+  "pinyin": "shǎn diàn lóng",
+  "li": 10,
+  "su": 10,
+  "zhi": 9
+ },
+ {
+  "name": "怪兽大王",
+  "pinyin": "guài shòu dà wáng",
+  "li": 11,
+  "su": 11,
+  "zhi": 11
+ }
+]

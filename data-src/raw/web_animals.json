@@ -1,0 +1,20 @@
+[
+  { "char": "猫", "pinyin": "māo", "english": "cat", "emoji": "🐱", "li": 1, "su": 3, "zhi": 2 },
+  { "char": "狗", "pinyin": "gǒu", "english": "dog", "emoji": "🐶", "li": 2, "su": 2, "zhi": 2 },
+  { "char": "鸟", "pinyin": "niǎo", "english": "bird", "emoji": "🐦", "li": 1, "su": 3, "zhi": 1 },
+  { "char": "鱼", "pinyin": "yú", "english": "fish", "emoji": "🐟", "li": 1, "su": 2, "zhi": 1 },
+  { "char": "马", "pinyin": "mǎ", "english": "horse", "emoji": "🐴", "li": 2, "su": 4, "zhi": 1 },
+  { "char": "牛", "pinyin": "niú", "english": "ox", "emoji": "🐮", "li": 4, "su": 1, "zhi": 1 },
+  { "char": "羊", "pinyin": "yáng", "english": "sheep", "emoji": "🐑", "li": 2, "su": 2, "zhi": 1 },
+  { "char": "虎", "pinyin": "hǔ", "english": "tiger", "emoji": "🐯", "li": 4, "su": 2, "zhi": 1 },
+  { "char": "兔", "pinyin": "tù", "english": "rabbit", "emoji": "🐰", "li": 1, "su": 4, "zhi": 1 },
+  { "char": "龙", "pinyin": "lóng", "english": "dragon", "emoji": "🐲", "li": 3, "su": 3, "zhi": 3 },
+  { "char": "蛇", "pinyin": "shé", "english": "snake", "emoji": "🐍", "li": 2, "su": 2, "zhi": 2 },
+  { "char": "鼠", "pinyin": "shǔ", "english": "mouse", "emoji": "🐭", "li": 1, "su": 3, "zhi": 3 },
+  { "char": "鸡", "pinyin": "jī", "english": "chicken", "emoji": "🐔", "li": 2, "su": 2, "zhi": 1 },
+  { "char": "熊", "pinyin": "xióng", "english": "bear", "emoji": "🐻", "li": 4, "su": 1, "zhi": 2 },
+  { "char": "鹰", "pinyin": "yīng", "english": "eagle", "emoji": "🦅", "li": 2, "su": 4, "zhi": 2 },
+  { "char": "虾", "pinyin": "xiā", "english": "shrimp", "emoji": "🦐", "li": 1, "su": 2, "zhi": 1 },
+  { "char": "象", "pinyin": "xiàng", "english": "elephant", "emoji": "🐘", "li": 4, "su": 1, "zhi": 3 },
+  { "char": "蛙", "pinyin": "wā", "english": "frog", "emoji": "🐸", "li": 1, "su": 3, "zhi": 1 }
+]

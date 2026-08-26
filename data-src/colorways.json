@@ -1,0 +1,7 @@
+[
+ { "id": "sky", "name": "天蓝", "pinyin": "tiān lán", "cost": 5, "color": [120, 180, 240] },
+ { "id": "peach", "name": "桃粉", "pinyin": "táo fěn", "cost": 5, "color": [245, 160, 190] },
+ { "id": "grass", "name": "草绿", "pinyin": "cǎo lǜ", "cost": 5, "color": [140, 210, 130] },
+ { "id": "grape", "name": "紫", "pinyin": "zǐ", "cost": 5, "color": [180, 140, 220] },
+ { "id": "sunset", "name": "橙", "pinyin": "chéng", "cost": 5, "color": [250, 170, 90] }
+]

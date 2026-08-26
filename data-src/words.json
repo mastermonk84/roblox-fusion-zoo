@@ -1,0 +1,10 @@
+[
+ { "word": "熊猫", "pinyin": "xióng māo", "english": "panda", "pair": ["熊", "猫"] },
+ { "word": "龙虾", "pinyin": "lóng xiā", "english": "lobster", "pair": ["龙", "虾"] },
+ { "word": "牛蛙", "pinyin": "niú wā", "english": "bullfrog", "pair": ["牛", "蛙"] },
+ { "word": "马虎", "pinyin": "mǎ hu", "english": "careless (horse-tiger!)", "pair": ["马", "虎"] },
+ { "word": "龙猫", "pinyin": "lóng māo", "english": "chinchilla", "pair": ["龙", "猫"] },
+ { "word": "鱼鹰", "pinyin": "yú yīng", "english": "osprey", "pair": ["鱼", "鹰"] },
+ { "word": "狗熊", "pinyin": "gǒu xióng", "english": "black bear", "pair": ["狗", "熊"] },
+ { "word": "鼠兔", "pinyin": "shǔ tù", "english": "pika", "pair": ["鼠", "兔"] }
+]

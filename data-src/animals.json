@@ -1,0 +1,182 @@
+[
+ {
+  "char": "猫",
+  "pinyin": "māo",
+  "english": "cat",
+  "li": 1,
+  "su": 3,
+  "zhi": 2,
+  "tier": 2,
+  "rig": "cat"
+ },
+ {
+  "char": "狗",
+  "pinyin": "gǒu",
+  "english": "dog",
+  "li": 2,
+  "su": 2,
+  "zhi": 2,
+  "tier": 2,
+  "rig": "dog"
+ },
+ {
+  "char": "鸟",
+  "pinyin": "niǎo",
+  "english": "bird",
+  "li": 1,
+  "su": 3,
+  "zhi": 1,
+  "tier": 1,
+  "rig": "bird"
+ },
+ {
+  "char": "鱼",
+  "pinyin": "yú",
+  "english": "fish",
+  "li": 1,
+  "su": 2,
+  "zhi": 1,
+  "tier": 1,
+  "rig": "fish"
+ },
+ {
+  "char": "马",
+  "pinyin": "mǎ",
+  "english": "horse",
+  "li": 2,
+  "su": 4,
+  "zhi": 1,
+  "tier": 3,
+  "rig": "horse"
+ },
+ {
+  "char": "牛",
+  "pinyin": "niú",
+  "english": "ox",
+  "li": 4,
+  "su": 1,
+  "zhi": 1,
+  "tier": 3,
+  "rig": "ox"
+ },
+ {
+  "char": "羊",
+  "pinyin": "yáng",
+  "english": "sheep",
+  "li": 2,
+  "su": 2,
+  "zhi": 1,
+  "tier": 2,
+  "rig": "sheep"
+ },
+ {
+  "char": "虎",
+  "pinyin": "hǔ",
+  "english": "tiger",
+  "li": 4,
+  "su": 2,
+  "zhi": 1,
+  "tier": 4,
+  "rig": "tiger"
+ },
+ {
+  "char": "兔",
+  "pinyin": "tù",
+  "english": "rabbit",
+  "li": 1,
+  "su": 4,
+  "zhi": 1,
+  "tier": 3,
+  "rig": "rabbit"
+ },
+ {
+  "char": "龙",
+  "pinyin": "lóng",
+  "english": "dragon",
+  "li": 3,
+  "su": 3,
+  "zhi": 3,
+  "tier": 5,
+  "rig": "dragon"
+ },
+ {
+  "char": "蛇",
+  "pinyin": "shé",
+  "english": "snake",
+  "li": 2,
+  "su": 2,
+  "zhi": 2,
+  "tier": 3,
+  "rig": "snake"
+ },
+ {
+  "char": "鼠",
+  "pinyin": "shǔ",
+  "english": "mouse",
+  "li": 1,
+  "su": 3,
+  "zhi": 3,
+  "tier": 4,
+  "rig": "mouse"
+ },
+ {
+  "char": "鸡",
+  "pinyin": "jī",
+  "english": "chicken",
+  "li": 2,
+  "su": 2,
+  "zhi": 1,
+  "tier": 2,
+  "rig": "chicken"
+ },
+ {
+  "char": "熊",
+  "pinyin": "xióng",
+  "english": "bear",
+  "li": 4,
+  "su": 1,
+  "zhi": 2,
+  "tier": 4,
+  "rig": "bear"
+ },
+ {
+  "char": "鹰",
+  "pinyin": "yīng",
+  "english": "eagle",
+  "li": 2,
+  "su": 4,
+  "zhi": 2,
+  "tier": 4,
+  "rig": "eagle"
+ },
+ {
+  "char": "虾",
+  "pinyin": "xiā",
+  "english": "shrimp",
+  "li": 1,
+  "su": 2,
+  "zhi": 1,
+  "tier": 1,
+  "rig": "shrimp"
+ },
+ {
+  "char": "象",
+  "pinyin": "xiàng",
+  "english": "elephant",
+  "li": 4,
+  "su": 1,
+  "zhi": 3,
+  "tier": 5,
+  "rig": "elephant"
+ },
+ {
+  "char": "蛙",
+  "pinyin": "wā",
+  "english": "frog",
+  "li": 1,
+  "su": 3,
+  "zhi": 1,
+  "tier": 2,
+  "rig": "frog"
+ }
+]

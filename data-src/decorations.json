@@ -1,0 +1,8 @@
+[
+ { "id": "flower_pot", "name": "花", "pinyin": "huā", "english": "flower", "cost": 2 },
+ { "id": "rock", "name": "石头", "pinyin": "shí tou", "english": "rock", "cost": 2 },
+ { "id": "fence", "name": "篱笆", "pinyin": "lí ba", "english": "fence", "cost": 3 },
+ { "id": "sign", "name": "牌子", "pinyin": "pái zi", "english": "sign", "cost": 3 },
+ { "id": "tree", "name": "树", "pinyin": "shù", "english": "tree", "cost": 4 },
+ { "id": "lamp", "name": "灯", "pinyin": "dēng", "english": "lamp", "cost": 5 }
+]

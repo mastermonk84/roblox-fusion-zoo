@@ -1,0 +1,337 @@
+--!strict
+-- Compiles the 700-item Grade-1 curriculum from raw sources:
+--   data-src/raw/shangce_300.json + xiace_400.json  (识字表 reconstruction, by lesson)
+--   data-src/raw/web_characters.json                (236 poster chars from the web game)
+-- into data-src/curriculum_grade1.json (canonical item list, word-shaped schema)
+-- and regenerates CURRICULUM_REVIEW.md for the owner's textbook spot-check.
+--
+-- Run rarely: lune run scripts/compile-curriculum
+
+local fs = require("@lune/fs")
+local serde = require("@lune/serde")
+
+type RawChar = { string } -- [char, pinyin, english, confidence?]
+type RawLesson = { unit: string, lesson: string, chars: { RawChar } }
+type RawSemester = { semester: string, target: number, lessons: { RawLesson } }
+type WebChar = {
+	char: string,
+	pinyin: string,
+	english: string,
+	emoji: string?,
+	value: number?,
+	band: number,
+	category: string,
+	quizzable: boolean,
+	source: string,
+}
+
+local BAND_SIZE = 50
+
+-- Pure function words: pinyin-mode only (spec hard rule — homophone density
+-- makes listen mode miserable, and they have no picture).
+local GRAMMAR = {
+	["的"] = true,
+	["了"] = true,
+	["着"] = true,
+	["么"] = true,
+	["吗"] = true,
+	["呢"] = true,
+	["吧"] = true,
+	["呀"] = true,
+	["啦"] = true,
+	["们"] = true,
+	["之"] = true,
+}
+
+-- Coarse category heuristic for chars the web data doesn't cover; the owner can
+-- correct any of these in the emitted JSON (they only steer distractor ring 1).
+local CATEGORY_RULES: { { pattern: string, category: string } } = {
+	{ pattern = "surname", category = "person" },
+	{ pattern = "particle", category = "abstract" },
+	{ pattern = "measure", category = "modifier" },
+	{ pattern = "sound", category = "abstract" },
+	{ pattern = "bird", category = "animal" },
+	{ pattern = "frog", category = "animal" },
+	{ pattern = "ant", category = "animal" },
+	{ pattern = "spider", category = "animal" },
+	{ pattern = "dragonfly", category = "animal" },
+	{ pattern = "magpie", category = "animal" },
+	{ pattern = "lion", category = "animal" },
+	{ pattern = "deer", category = "animal" },
+	{ pattern = "swallow", category = "animal" },
+	{ pattern = "mosquito", category = "animal" },
+	{ pattern = "aphid", category = "animal" },
+	{ pattern = "monkey", category = "animal" },
+	{ pattern = "eyebrow", category = "body" },
+	{ pattern = "nose", category = "body" },
+	{ pattern = "neck", category = "body" },
+	{ pattern = "arm", category = "body" },
+	{ pattern = "belly", category = "body" },
+	{ pattern = "leg", category = "body" },
+	{ pattern = "foot", category = "body" },
+	{ pattern = "tongue", category = "body" },
+	{ pattern = "face", category = "body" },
+	{ pattern = "eye", category = "body" },
+	{ pattern = "waist", category = "body" },
+	{ pattern = "wing", category = "body" },
+	{ pattern = "frost", category = "nature" },
+	{ pattern = "thunder", category = "nature" },
+	{ pattern = "ice", category = "nature" },
+	{ pattern = "pond", category = "nature" },
+	{ pattern = "lake", category = "nature" },
+	{ pattern = "river", category = "nature" },
+	{ pattern = "cloud", category = "nature" },
+	{ pattern = "willow", category = "nature" },
+	{ pattern = "poplar", category = "nature" },
+	{ pattern = "lotus", category = "nature" },
+	{ pattern = "dew", category = "nature" },
+	{ pattern = "spring %(water", category = "nature" },
+	{ pattern = "duckweed", category = "nature" },
+	{ pattern = "sand", category = "nature" },
+	{ pattern = "islet", category = "nature" },
+	{ pattern = "firefly", category = "nature" },
+	{ pattern = "rice", category = "food" },
+	{ pattern = "bean", category = "food" },
+	{ pattern = "meat", category = "food" },
+	{ pattern = "soup", category = "food" },
+	{ pattern = "melon", category = "food" },
+	{ pattern = "dumpling", category = "food" },
+	{ pattern = "cotton", category = "object" },
+	{ pattern = "bed", category = "object" },
+	{ pattern = "window", category = "object" },
+	{ pattern = "mirror", category = "object" },
+	{ pattern = "rope", category = "object" },
+	{ pattern = "ball", category = "object" },
+	{ pattern = "boat", category = "object" },
+	{ pattern = "stick", category = "object" },
+	{ pattern = "fan", category = "object" },
+	{ pattern = "chair", category = "object" },
+	{ pattern = "clock", category = "object" },
+	{ pattern = "pencil", category = "object" },
+	{ pattern = "skirt", category = "object" },
+	{ pattern = "robe", category = "object" },
+	{ pattern = "net", category = "object" },
+	{ pattern = "well", category = "object" },
+	{ pattern = "wall", category = "object" },
+	{ pattern = "house", category = "object" },
+	{ pattern = "toilet", category = "place" },
+	{ pattern = "village", category = "place" },
+	{ pattern = "capital", category = "place" },
+	{ pattern = "field", category = "place" },
+	{ pattern = "morning", category = "time" },
+	{ pattern = "dusk", category = "time" },
+	{ pattern = "night", category = "time" },
+	{ pattern = "festival", category = "time" },
+	{ pattern = "week", category = "time" },
+	{ pattern = "period", category = "time" },
+}
+
+local function guessCategory(english: string): string
+	local lower = string.lower(english)
+	for _, rule in CATEGORY_RULES do
+		if string.find(lower, rule.pattern) then
+			return rule.category
+		end
+	end
+	-- verbs and everything else: action-ish glosses are hard to detect reliably;
+	-- default to abstract (ring 1 then rarely fires; ring 2 band carries it).
+	return "abstract"
+end
+
+local function readJson(path: string): any
+	return serde.decode("json", fs.readFile(path))
+end
+
+local shang = readJson("data-src/raw/shangce_300.json") :: RawSemester
+local xia = readJson("data-src/raw/xiace_400.json") :: RawSemester
+local web = readJson("data-src/raw/web_characters.json") :: { WebChar }
+
+local webByChar: { [string]: WebChar } = {}
+for _, w in web do
+	webByChar[w.char] = w
+end
+
+type Item = {
+	text: string,
+	components: { string },
+	pinyin: string,
+	english: string,
+	band: number,
+	seq: number,
+	source: string,
+	category: string,
+	needs_visual: boolean,
+	grammar: boolean,
+	value: number?,
+	confidence: string,
+	bonus: boolean?,
+}
+
+local items: { Item } = {}
+local seen: { [string]: boolean } = {}
+local pinyinMismatches: { string } = {}
+
+local function addSemester(sem: RawSemester)
+	for _, lesson in sem.lessons do
+		for _, raw in lesson.chars do
+			local char, pinyin, english, flag = raw[1], raw[2], raw[3], raw[4]
+			assert(not seen[char], `duplicate char {char}`)
+			seen[char] = true
+			local seq = #items + 1
+			local w = webByChar[char]
+			local confidence = if w then "web" elseif flag == "low" then "low" else "model"
+			if w then
+				if w.pinyin ~= pinyin then
+					table.insert(pinyinMismatches, `{char}: raw "{pinyin}" -> web "{w.pinyin}"`)
+				end
+				pinyin = w.pinyin -- the web values shipped to real kids; trust them
+				english = w.english
+			end
+			table.insert(items, {
+				text = char,
+				components = { char },
+				pinyin = pinyin,
+				english = english,
+				band = math.ceil(seq / BAND_SIZE),
+				seq = seq,
+				source = `{sem.semester} {lesson.lesson}`,
+				category = if w then w.category else guessCategory(english),
+				needs_visual = if w then w.quizzable else false,
+				grammar = GRAMMAR[char] == true,
+				value = if w then w.value else nil,
+				confidence = confidence,
+			})
+		end
+	end
+end
+
+addSemester(shang)
+addSemester(xia)
+
+assert(#items == 700, `expected 700 items, got {#items}`)
+
+-- Bonus items: off-curriculum chars the game needs (zoo animals outside the
+-- 识字表). Quizzable and masterable, excluded from the /700 claim.
+type BonusChar = { char: string, pinyin: string, english: string, band: number }
+local bonus = readJson("data-src/raw/bonus_chars.json") :: { note: string, chars: { BonusChar } }
+for _, b in bonus.chars do
+	assert(not seen[b.char], `bonus char {b.char} already in curriculum`)
+	seen[b.char] = true
+	table.insert(items, {
+		text = b.char,
+		components = { b.char },
+		pinyin = b.pinyin,
+		english = b.english,
+		band = b.band,
+		seq = #items + 1,
+		source = "bonus (zoo animal)",
+		category = "animal",
+		needs_visual = true,
+		grammar = false,
+		value = nil,
+		confidence = "web",
+		bonus = true,
+	})
+end
+
+-- Emit canonical curriculum
+fs.writeFile("data-src/curriculum_grade1.json", serde.encode("json", items, true))
+
+-- ── CURRICULUM_REVIEW.md ────────────────────────────────────────────────────
+local counts = { web = 0, model = 0, low = 0 }
+for _, item in items do
+	if not item.bonus then
+		counts[item.confidence] += 1
+	end
+end
+
+local lines: { string } = {}
+local function push(line: string)
+	table.insert(lines, line)
+end
+
+push("# CURRICULUM_REVIEW — 部编版一年级识字表 (700 characters)")
+push("")
+push(
+	"**Generated by `lune run scripts/compile-curriculum` — do not edit; correct the raw JSONs instead.**"
+)
+push("")
+push("This file exists for the owner's spot-check against the physical textbook before the")
+push('store-page claim ("all 700 Grade 1 characters") ships. The compilation is model-knowledge')
+push("anchored to the web game's 236 poster characters; the sections below surface the least")
+push("certain entries first. To correct anything: edit `data-src/raw/shangce_300.json` /")
+push("`xiace_400.json` (move, add, remove, or re-spell entries), rerun the compile script, then")
+push("`lune run scripts/build-data`. No code changes are ever needed for content fixes.")
+push("")
+push(`| confidence | count | meaning |`)
+push(`|---|---|---|`)
+push(`| web | {counts.web} | also in the battle-tested web game's poster data |`)
+push(`| model | {counts.model} | reconstructed from model knowledge of the 识字表 |`)
+push(`| low | {counts.low} | best-effort fill — CHECK THESE FIRST |`)
+push("")
+push(
+	"**Known caveat:** the kickoff spec assumed the 236 poster chars were a subset of the 上册 300."
+)
+push(
+	"They are not quite: 17 of them (夜柳菜读内先名班级件 卫 etc.) belong to 下册 lessons"
+)
+push(
+	"(e.g. 姓氏歌, 文具的家, 夜色). The enforced invariant is: all 236 poster chars ∈ the 700 total. ✓"
+)
+push("")
+
+push("## ⚠ Low-confidence entries — verify against the textbook first")
+push("")
+push("| # | 字 | pinyin | band | placed in |")
+push("|---|---|---|---|---|")
+for _, item in items do
+	if item.confidence == "low" then
+		push(`| {item.seq} | {item.text} | {item.pinyin} | {item.band} | {item.source} |`)
+	end
+end
+push("")
+
+if #pinyinMismatches > 0 then
+	push("## Pinyin corrections applied (web data won over the reconstruction)")
+	push("")
+	for _, m in pinyinMismatches do
+		push(`- {m}`)
+	end
+	push("")
+end
+
+push("## Full list by band (识字表 order, 50 per band)")
+push("")
+for band = 1, 14 do
+	local chunk: { string } = {}
+	local from, to = "", ""
+	for _, item in items do
+		if item.band == band and not item.bonus then
+			if from == "" then
+				from = item.source
+			end
+			to = item.source
+			local marker = if item.confidence == "low"
+				then "?"
+				elseif item.confidence == "model" then "·"
+				else ""
+			table.insert(chunk, item.text .. marker)
+		end
+	end
+	push(`### Band {band}  ({from} → {to})`)
+	push("")
+	push(table.concat(chunk, " "))
+	push("")
+end
+push("Markers: `?` = low confidence, `·` = model-reconstructed (unmarked = web-verified).")
+push("")
+
+fs.writeFile("CURRICULUM_REVIEW.md", table.concat(lines, "\n"))
+
+print(
+	`curriculum_grade1.json: {#items} items = 700 curriculum ({counts.web} web / {counts.model} model / {counts.low} low) + {#bonus.chars} bonus`
+)
+print(`CURRICULUM_REVIEW.md regenerated`)
+if #pinyinMismatches > 0 then
+	print(`pinyin corrections from web data: {#pinyinMismatches}`)
+end

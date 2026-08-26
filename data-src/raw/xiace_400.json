@@ -1,0 +1,2247 @@
+{
+  "semester": "下册",
+  "target": 400,
+  "note": "部编版一年级下册识字表, reconstructed by lesson in 识字表 order. Entries: [char, pinyin, english].",
+  "lessons": [
+    {
+      "unit": "识字一",
+      "lesson": "1 春夏秋冬",
+      "chars": [
+        [
+          "霜",
+          "shuāng",
+          "frost"
+        ],
+        [
+          "吹",
+          "chuī",
+          "blow"
+        ],
+        [
+          "落",
+          "luò",
+          "fall (down)"
+        ],
+        [
+          "降",
+          "jiàng",
+          "descend"
+        ],
+        [
+          "飘",
+          "piāo",
+          "float (in air)"
+        ],
+        [
+          "游",
+          "yóu",
+          "swim"
+        ],
+        [
+          "池",
+          "chí",
+          "pond"
+        ],
+        [
+          "入",
+          "rù",
+          "enter"
+        ]
+      ]
+    },
+    {
+      "unit": "识字一",
+      "lesson": "2 姓氏歌",
+      "chars": [
+        [
+          "姓",
+          "xìng",
+          "surname"
+        ],
+        [
+          "氏",
+          "shì",
+          "clan"
+        ],
+        [
+          "李",
+          "lǐ",
+          "plum; Li"
+        ],
+        [
+          "张",
+          "zhāng",
+          "Zhang; spread"
+        ],
+        [
+          "古",
+          "gǔ",
+          "ancient"
+        ],
+        [
+          "吴",
+          "wú",
+          "Wu (surname)"
+        ],
+        [
+          "赵",
+          "zhào",
+          "Zhao (surname)"
+        ],
+        [
+          "钱",
+          "qián",
+          "money"
+        ],
+        [
+          "孙",
+          "sūn",
+          "grandson; Sun"
+        ],
+        [
+          "周",
+          "zhōu",
+          "Zhou; week"
+        ],
+        [
+          "王",
+          "wáng",
+          "king"
+        ],
+        [
+          "官",
+          "guān",
+          "official"
+        ]
+      ]
+    },
+    {
+      "unit": "识字一",
+      "lesson": "3 小青蛙",
+      "chars": [
+        [
+          "清",
+          "qīng",
+          "clear"
+        ],
+        [
+          "晴",
+          "qíng",
+          "sunny"
+        ],
+        [
+          "眼",
+          "yǎn",
+          "eye"
+        ],
+        [
+          "睛",
+          "jīng",
+          "eyeball"
+        ],
+        [
+          "保",
+          "bǎo",
+          "protect"
+        ],
+        [
+          "护",
+          "hù",
+          "guard"
+        ],
+        [
+          "害",
+          "hài",
+          "harm"
+        ],
+        [
+          "事",
+          "shì",
+          "matter"
+        ],
+        [
+          "情",
+          "qíng",
+          "feeling"
+        ],
+        [
+          "请",
+          "qǐng",
+          "please; invite"
+        ],
+        [
+          "让",
+          "ràng",
+          "let"
+        ],
+        [
+          "病",
+          "bìng",
+          "illness"
+        ]
+      ]
+    },
+    {
+      "unit": "识字一",
+      "lesson": "4 猜字谜",
+      "chars": [
+        [
+          "相",
+          "xiāng",
+          "mutual"
+        ],
+        [
+          "遇",
+          "yù",
+          "meet"
+        ],
+        [
+          "喜",
+          "xǐ",
+          "happy"
+        ],
+        [
+          "欢",
+          "huān",
+          "joyful"
+        ],
+        [
+          "怕",
+          "pà",
+          "fear"
+        ],
+        [
+          "言",
+          "yán",
+          "speech"
+        ],
+        [
+          "互",
+          "hù",
+          "mutual"
+        ],
+        [
+          "令",
+          "lìng",
+          "order"
+        ],
+        [
+          "动",
+          "dòng",
+          "move"
+        ],
+        [
+          "万",
+          "wàn",
+          "ten thousand"
+        ],
+        [
+          "纯",
+          "chún",
+          "pure"
+        ],
+        [
+          "净",
+          "jìng",
+          "clean"
+        ]
+      ]
+    },
+    {
+      "unit": "补遗",
+      "lesson": "快乐读书吧",
+      "chars": [
+        [
+          "读",
+          "dú",
+          "read"
+        ]
+      ]
+    },
+    {
+      "unit": "识字一",
+      "lesson": "语文园地一",
+      "chars": [
+        [
+          "阴",
+          "yīn",
+          "overcast"
+        ],
+        [
+          "雷",
+          "léi",
+          "thunder"
+        ],
+        [
+          "电",
+          "diàn",
+          "electricity"
+        ],
+        [
+          "阵",
+          "zhèn",
+          "burst; (measure)"
+        ],
+        [
+          "冰",
+          "bīng",
+          "ice"
+        ],
+        [
+          "冻",
+          "dòng",
+          "freeze"
+        ],
+        [
+          "夹",
+          "jiā",
+          "clip; squeeze"
+        ],
+        [
+          "柳",
+          "liǔ",
+          "willow"
+        ]
+      ]
+    },
+    {
+      "unit": "课文一",
+      "lesson": "1 吃水不忘挖井人",
+      "chars": [
+        [
+          "吃",
+          "chī",
+          "eat"
+        ],
+        [
+          "忘",
+          "wàng",
+          "forget"
+        ],
+        [
+          "井",
+          "jǐng",
+          "well"
+        ],
+        [
+          "村",
+          "cūn",
+          "village"
+        ],
+        [
+          "叫",
+          "jiào",
+          "call"
+        ],
+        [
+          "毛",
+          "máo",
+          "fur; hair"
+        ],
+        [
+          "主",
+          "zhǔ",
+          "main; host"
+        ],
+        [
+          "席",
+          "xí",
+          "seat"
+        ],
+        [
+          "乡",
+          "xiāng",
+          "countryside"
+        ],
+        [
+          "亲",
+          "qīn",
+          "dear; kin"
+        ],
+        [
+          "战",
+          "zhàn",
+          "war"
+        ],
+        [
+          "士",
+          "shì",
+          "soldier"
+        ],
+        [
+          "面",
+          "miàn",
+          "face; noodle"
+        ],
+        [
+          "挖",
+          "wā",
+          "dig"
+        ],
+        [
+          "沙",
+          "shā",
+          "sand",
+          "low"
+        ],
+        [
+          "洲",
+          "zhōu",
+          "islet; continent",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文一",
+      "lesson": "2 我多想去看看",
+      "chars": [
+        [
+          "想",
+          "xiǎng",
+          "think; want"
+        ],
+        [
+          "告",
+          "gào",
+          "tell"
+        ],
+        [
+          "诉",
+          "sù",
+          "tell"
+        ],
+        [
+          "路",
+          "lù",
+          "road"
+        ],
+        [
+          "京",
+          "jīng",
+          "capital"
+        ],
+        [
+          "安",
+          "ān",
+          "peace"
+        ],
+        [
+          "门",
+          "mén",
+          "door"
+        ],
+        [
+          "广",
+          "guǎng",
+          "wide"
+        ],
+        [
+          "非",
+          "fēi",
+          "not; wrong"
+        ],
+        [
+          "常",
+          "cháng",
+          "often"
+        ],
+        [
+          "壮",
+          "zhuàng",
+          "strong"
+        ],
+        [
+          "观",
+          "guān",
+          "view"
+        ]
+      ]
+    },
+    {
+      "unit": "课文一",
+      "lesson": "3 一个接一个",
+      "chars": [
+        [
+          "接",
+          "jiē",
+          "connect; catch"
+        ],
+        [
+          "再",
+          "zài",
+          "again"
+        ],
+        [
+          "做",
+          "zuò",
+          "do; make"
+        ],
+        [
+          "各",
+          "gè",
+          "each"
+        ],
+        [
+          "种",
+          "zhǒng",
+          "kind; plant"
+        ],
+        [
+          "样",
+          "yàng",
+          "appearance"
+        ],
+        [
+          "伙",
+          "huǒ",
+          "partner"
+        ],
+        [
+          "伴",
+          "bàn",
+          "companion"
+        ],
+        [
+          "却",
+          "què",
+          "however"
+        ],
+        [
+          "趣",
+          "qù",
+          "interest"
+        ],
+        [
+          "这",
+          "zhè",
+          "this"
+        ]
+      ]
+    },
+    {
+      "unit": "课文一",
+      "lesson": "4 四个太阳",
+      "chars": [
+        [
+          "太",
+          "tài",
+          "too (much)"
+        ],
+        [
+          "阳",
+          "yáng",
+          "sun"
+        ],
+        [
+          "道",
+          "dào",
+          "road; say"
+        ],
+        [
+          "送",
+          "sòng",
+          "deliver; give"
+        ],
+        [
+          "忙",
+          "máng",
+          "busy"
+        ],
+        [
+          "尝",
+          "cháng",
+          "taste"
+        ],
+        [
+          "香",
+          "xiāng",
+          "fragrant"
+        ],
+        [
+          "甜",
+          "tián",
+          "sweet"
+        ],
+        [
+          "温",
+          "wēn",
+          "warm"
+        ],
+        [
+          "暖",
+          "nuǎn",
+          "warm"
+        ],
+        [
+          "该",
+          "gāi",
+          "should"
+        ],
+        [
+          "颜",
+          "yán",
+          "color; face"
+        ],
+        [
+          "因",
+          "yīn",
+          "because"
+        ]
+      ]
+    },
+    {
+      "unit": "课文二",
+      "lesson": "5 小公鸡和小鸭子",
+      "chars": [
+        [
+          "块",
+          "kuài",
+          "piece; (measure)"
+        ],
+        [
+          "捉",
+          "zhuō",
+          "catch"
+        ],
+        [
+          "急",
+          "jí",
+          "urgent; anxious"
+        ],
+        [
+          "直",
+          "zhí",
+          "straight"
+        ],
+        [
+          "河",
+          "hé",
+          "river"
+        ],
+        [
+          "行",
+          "xíng",
+          "walk; OK"
+        ],
+        [
+          "死",
+          "sǐ",
+          "die"
+        ],
+        [
+          "信",
+          "xìn",
+          "letter; believe"
+        ],
+        [
+          "跟",
+          "gēn",
+          "follow; with"
+        ],
+        [
+          "忽",
+          "hū",
+          "suddenly"
+        ],
+        [
+          "喊",
+          "hǎn",
+          "shout"
+        ],
+        [
+          "身",
+          "shēn",
+          "body"
+        ],
+        [
+          "先",
+          "xiān",
+          "first"
+        ],
+        [
+          "偷",
+          "tōu",
+          "steal; stealthily",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文二",
+      "lesson": "6 树和喜鹊",
+      "chars": [
+        [
+          "窝",
+          "wō",
+          "nest"
+        ],
+        [
+          "孤",
+          "gū",
+          "lonely"
+        ],
+        [
+          "单",
+          "dān",
+          "single"
+        ],
+        [
+          "都",
+          "dōu",
+          "all"
+        ],
+        [
+          "邻",
+          "lín",
+          "neighbor"
+        ],
+        [
+          "居",
+          "jū",
+          "reside"
+        ],
+        [
+          "招",
+          "zhāo",
+          "beckon"
+        ],
+        [
+          "呼",
+          "hū",
+          "call; breathe"
+        ],
+        [
+          "静",
+          "jìng",
+          "quiet"
+        ],
+        [
+          "乐",
+          "lè",
+          "happy"
+        ],
+        [
+          "鹊",
+          "què",
+          "magpie"
+        ]
+      ]
+    },
+    {
+      "unit": "课文二",
+      "lesson": "7 怎么都快乐",
+      "chars": [
+        [
+          "怎",
+          "zěn",
+          "how"
+        ],
+        [
+          "独",
+          "dú",
+          "alone"
+        ],
+        [
+          "跳",
+          "tiào",
+          "jump"
+        ],
+        [
+          "绳",
+          "shéng",
+          "rope"
+        ],
+        [
+          "讲",
+          "jiǎng",
+          "speak; tell"
+        ],
+        [
+          "羽",
+          "yǔ",
+          "feather"
+        ],
+        [
+          "球",
+          "qiú",
+          "ball"
+        ],
+        [
+          "戏",
+          "xì",
+          "play; drama"
+        ],
+        [
+          "排",
+          "pái",
+          "row; arrange"
+        ],
+        [
+          "篮",
+          "lán",
+          "basket"
+        ],
+        [
+          "连",
+          "lián",
+          "connect"
+        ],
+        [
+          "运",
+          "yùn",
+          "transport; luck"
+        ]
+      ]
+    },
+    {
+      "unit": "补遗",
+      "lesson": "语文园地二",
+      "chars": [
+        [
+          "名",
+          "míng",
+          "name",
+          "low"
+        ],
+        [
+          "班",
+          "bān",
+          "class",
+          "low"
+        ],
+        [
+          "级",
+          "jí",
+          "grade; level",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "补遗",
+      "lesson": "语文园地三",
+      "chars": [
+        [
+          "菜",
+          "cài",
+          "vegetable",
+          "low"
+        ],
+        [
+          "内",
+          "nèi",
+          "inside",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文三",
+      "lesson": "8 静夜思",
+      "chars": [
+        [
+          "思",
+          "sī",
+          "think; miss"
+        ],
+        [
+          "床",
+          "chuáng",
+          "bed"
+        ],
+        [
+          "光",
+          "guāng",
+          "light"
+        ],
+        [
+          "疑",
+          "yí",
+          "doubt"
+        ],
+        [
+          "举",
+          "jǔ",
+          "raise"
+        ],
+        [
+          "望",
+          "wàng",
+          "gaze"
+        ],
+        [
+          "低",
+          "dī",
+          "low"
+        ],
+        [
+          "故",
+          "gù",
+          "former; reason"
+        ]
+      ]
+    },
+    {
+      "unit": "课文三",
+      "lesson": "9 夜色",
+      "chars": [
+        [
+          "胆",
+          "dǎn",
+          "courage"
+        ],
+        [
+          "敢",
+          "gǎn",
+          "dare"
+        ],
+        [
+          "往",
+          "wǎng",
+          "toward"
+        ],
+        [
+          "外",
+          "wài",
+          "outside"
+        ],
+        [
+          "勇",
+          "yǒng",
+          "brave"
+        ],
+        [
+          "窗",
+          "chuāng",
+          "window"
+        ],
+        [
+          "乱",
+          "luàn",
+          "messy"
+        ],
+        [
+          "偏",
+          "piān",
+          "contrary; slanted"
+        ],
+        [
+          "散",
+          "sàn",
+          "scatter; stroll"
+        ],
+        [
+          "原",
+          "yuán",
+          "original"
+        ],
+        [
+          "像",
+          "xiàng",
+          "resemble"
+        ],
+        [
+          "微",
+          "wēi",
+          "tiny"
+        ],
+        [
+          "夜",
+          "yè",
+          "night"
+        ]
+      ]
+    },
+    {
+      "unit": "课文三",
+      "lesson": "10 端午粽",
+      "chars": [
+        [
+          "端",
+          "duān",
+          "upright; end"
+        ],
+        [
+          "粽",
+          "zòng",
+          "rice dumpling"
+        ],
+        [
+          "节",
+          "jié",
+          "festival"
+        ],
+        [
+          "总",
+          "zǒng",
+          "always; total"
+        ],
+        [
+          "米",
+          "mǐ",
+          "rice"
+        ],
+        [
+          "间",
+          "jiān",
+          "between; room"
+        ],
+        [
+          "分",
+          "fēn",
+          "divide; minute"
+        ],
+        [
+          "豆",
+          "dòu",
+          "bean"
+        ],
+        [
+          "肉",
+          "ròu",
+          "meat"
+        ],
+        [
+          "带",
+          "dài",
+          "bring; belt"
+        ],
+        [
+          "知",
+          "zhī",
+          "know"
+        ],
+        [
+          "据",
+          "jù",
+          "according to"
+        ],
+        [
+          "念",
+          "niàn",
+          "read aloud; miss"
+        ],
+        [
+          "剥",
+          "bāo",
+          "peel; shell",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文三",
+      "lesson": "11 彩虹",
+      "chars": [
+        [
+          "虹",
+          "hóng",
+          "rainbow"
+        ],
+        [
+          "座",
+          "zuò",
+          "(measure); seat"
+        ],
+        [
+          "浇",
+          "jiāo",
+          "water (plants)"
+        ],
+        [
+          "提",
+          "tí",
+          "carry; raise"
+        ],
+        [
+          "洒",
+          "sǎ",
+          "sprinkle"
+        ],
+        [
+          "挑",
+          "tiāo",
+          "carry on pole; choose"
+        ],
+        [
+          "兴",
+          "xìng",
+          "interest; mood"
+        ],
+        [
+          "镜",
+          "jìng",
+          "mirror"
+        ],
+        [
+          "拿",
+          "ná",
+          "hold; take"
+        ],
+        [
+          "照",
+          "zhào",
+          "shine; photo"
+        ],
+        [
+          "千",
+          "qiān",
+          "thousand"
+        ],
+        [
+          "裙",
+          "qún",
+          "skirt"
+        ],
+        [
+          "荡",
+          "dàng",
+          "swing; sway",
+          "low"
+        ],
+        [
+          "眨",
+          "zhǎ",
+          "blink",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文三",
+      "lesson": "语文园地四",
+      "chars": [
+        [
+          "眉",
+          "méi",
+          "eyebrow"
+        ],
+        [
+          "鼻",
+          "bí",
+          "nose"
+        ],
+        [
+          "嘴",
+          "zuǐ",
+          "mouth"
+        ],
+        [
+          "脖",
+          "bó",
+          "neck"
+        ],
+        [
+          "臂",
+          "bì",
+          "arm"
+        ],
+        [
+          "肚",
+          "dù",
+          "belly"
+        ],
+        [
+          "腿",
+          "tuǐ",
+          "leg"
+        ],
+        [
+          "脚",
+          "jiǎo",
+          "foot"
+        ]
+      ]
+    },
+    {
+      "unit": "识字二",
+      "lesson": "5 动物儿歌",
+      "chars": [
+        [
+          "蜻",
+          "qīng",
+          "dragonfly"
+        ],
+        [
+          "蜓",
+          "tíng",
+          "dragonfly"
+        ],
+        [
+          "迷",
+          "mí",
+          "lost; fan"
+        ],
+        [
+          "藏",
+          "cáng",
+          "hide"
+        ],
+        [
+          "造",
+          "zào",
+          "build; make"
+        ],
+        [
+          "蚂",
+          "mǎ",
+          "ant"
+        ],
+        [
+          "蚁",
+          "yǐ",
+          "ant"
+        ],
+        [
+          "食",
+          "shí",
+          "food"
+        ],
+        [
+          "粮",
+          "liáng",
+          "grain"
+        ],
+        [
+          "蜘",
+          "zhī",
+          "spider"
+        ],
+        [
+          "蛛",
+          "zhū",
+          "spider"
+        ],
+        [
+          "网",
+          "wǎng",
+          "net"
+        ]
+      ]
+    },
+    {
+      "unit": "识字二",
+      "lesson": "6 古对今",
+      "chars": [
+        [
+          "圆",
+          "yuán",
+          "round"
+        ],
+        [
+          "严",
+          "yán",
+          "strict"
+        ],
+        [
+          "寒",
+          "hán",
+          "cold"
+        ],
+        [
+          "酷",
+          "kù",
+          "severe; cool"
+        ],
+        [
+          "凉",
+          "liáng",
+          "cool"
+        ],
+        [
+          "晨",
+          "chén",
+          "morning"
+        ],
+        [
+          "细",
+          "xì",
+          "thin; fine"
+        ],
+        [
+          "朝",
+          "zhāo",
+          "morning"
+        ],
+        [
+          "霞",
+          "xiá",
+          "rosy clouds"
+        ],
+        [
+          "夕",
+          "xī",
+          "dusk"
+        ],
+        [
+          "杨",
+          "yáng",
+          "poplar"
+        ]
+      ]
+    },
+    {
+      "unit": "识字二",
+      "lesson": "7 操场上",
+      "chars": [
+        [
+          "操",
+          "cāo",
+          "exercise"
+        ],
+        [
+          "场",
+          "chǎng",
+          "field"
+        ],
+        [
+          "拔",
+          "bá",
+          "pull (up)"
+        ],
+        [
+          "拍",
+          "pāi",
+          "pat; clap"
+        ],
+        [
+          "跑",
+          "pǎo",
+          "run"
+        ],
+        [
+          "踢",
+          "tī",
+          "kick"
+        ],
+        [
+          "铃",
+          "líng",
+          "bell"
+        ],
+        [
+          "热",
+          "rè",
+          "hot"
+        ],
+        [
+          "闹",
+          "nào",
+          "noisy"
+        ],
+        [
+          "锻",
+          "duàn",
+          "forge"
+        ],
+        [
+          "炼",
+          "liàn",
+          "refine; train"
+        ],
+        [
+          "体",
+          "tǐ",
+          "body"
+        ]
+      ]
+    },
+    {
+      "unit": "识字二",
+      "lesson": "8 人之初",
+      "chars": [
+        [
+          "之",
+          "zhī",
+          "(classical particle)"
+        ],
+        [
+          "初",
+          "chū",
+          "beginning"
+        ],
+        [
+          "性",
+          "xìng",
+          "nature"
+        ],
+        [
+          "善",
+          "shàn",
+          "kind; good"
+        ],
+        [
+          "习",
+          "xí",
+          "practice"
+        ],
+        [
+          "教",
+          "jiào",
+          "teach"
+        ],
+        [
+          "迁",
+          "qiān",
+          "move; shift"
+        ],
+        [
+          "贵",
+          "guì",
+          "precious"
+        ],
+        [
+          "专",
+          "zhuān",
+          "focused; special"
+        ],
+        [
+          "幼",
+          "yòu",
+          "young"
+        ],
+        [
+          "玉",
+          "yù",
+          "jade"
+        ],
+        [
+          "义",
+          "yì",
+          "righteousness"
+        ],
+        [
+          "器",
+          "qì",
+          "utensil; instrument",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "识字二",
+      "lesson": "语文园地五",
+      "chars": [
+        [
+          "饱",
+          "bǎo",
+          "full (from eating)"
+        ],
+        [
+          "泡",
+          "pào",
+          "bubble; soak"
+        ],
+        [
+          "炮",
+          "pào",
+          "cannon"
+        ],
+        [
+          "苞",
+          "bāo",
+          "bud"
+        ],
+        [
+          "袍",
+          "páo",
+          "robe"
+        ],
+        [
+          "刨",
+          "páo",
+          "dig; plane"
+        ]
+      ]
+    },
+    {
+      "unit": "课文四",
+      "lesson": "12 古诗二首",
+      "chars": [
+        [
+          "首",
+          "shǒu",
+          "(measure for poems); head"
+        ],
+        [
+          "踪",
+          "zōng",
+          "trace"
+        ],
+        [
+          "迹",
+          "jì",
+          "trace; mark"
+        ],
+        [
+          "浮",
+          "fú",
+          "float"
+        ],
+        [
+          "萍",
+          "píng",
+          "duckweed"
+        ],
+        [
+          "泉",
+          "quán",
+          "spring (water)"
+        ],
+        [
+          "流",
+          "liú",
+          "flow"
+        ],
+        [
+          "爱",
+          "ài",
+          "love"
+        ],
+        [
+          "柔",
+          "róu",
+          "soft"
+        ],
+        [
+          "荷",
+          "hé",
+          "lotus"
+        ],
+        [
+          "露",
+          "lù",
+          "dew"
+        ],
+        [
+          "角",
+          "jiǎo",
+          "corner; horn"
+        ],
+        [
+          "撑",
+          "chēng",
+          "pole (a boat); prop up",
+          "low"
+        ],
+        [
+          "艇",
+          "tǐng",
+          "small boat",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文四",
+      "lesson": "13 荷叶圆圆",
+      "chars": [
+        [
+          "珠",
+          "zhū",
+          "pearl"
+        ],
+        [
+          "摇",
+          "yáo",
+          "shake"
+        ],
+        [
+          "躺",
+          "tǎng",
+          "lie down"
+        ],
+        [
+          "晶",
+          "jīng",
+          "crystal"
+        ],
+        [
+          "停",
+          "tíng",
+          "stop"
+        ],
+        [
+          "机",
+          "jī",
+          "machine"
+        ],
+        [
+          "展",
+          "zhǎn",
+          "unfold"
+        ],
+        [
+          "透",
+          "tòu",
+          "penetrate"
+        ],
+        [
+          "翅",
+          "chì",
+          "wing"
+        ],
+        [
+          "膀",
+          "bǎng",
+          "wing; shoulder"
+        ],
+        [
+          "唱",
+          "chàng",
+          "sing"
+        ],
+        [
+          "朵",
+          "duǒ",
+          "(measure for flowers)"
+        ]
+      ]
+    },
+    {
+      "unit": "课文四",
+      "lesson": "14 要下雨了",
+      "chars": [
+        [
+          "腰",
+          "yāo",
+          "waist"
+        ],
+        [
+          "坡",
+          "pō",
+          "slope"
+        ],
+        [
+          "沉",
+          "chén",
+          "sink; heavy"
+        ],
+        [
+          "伸",
+          "shēn",
+          "stretch"
+        ],
+        [
+          "潮",
+          "cháo",
+          "damp; tide"
+        ],
+        [
+          "湿",
+          "shī",
+          "wet"
+        ],
+        [
+          "呢",
+          "ne",
+          "(particle)"
+        ],
+        [
+          "闷",
+          "mēn",
+          "stuffy"
+        ],
+        [
+          "消",
+          "xiāo",
+          "disappear"
+        ],
+        [
+          "息",
+          "xī",
+          "rest; news"
+        ],
+        [
+          "搬",
+          "bān",
+          "move (things)"
+        ],
+        [
+          "响",
+          "xiǎng",
+          "sound; loud"
+        ]
+      ]
+    },
+    {
+      "unit": "课文四",
+      "lesson": "语文园地六",
+      "chars": [
+        [
+          "棍",
+          "gùn",
+          "stick"
+        ],
+        [
+          "汤",
+          "tāng",
+          "soup"
+        ],
+        [
+          "扇",
+          "shàn",
+          "fan"
+        ],
+        [
+          "椅",
+          "yǐ",
+          "chair"
+        ],
+        [
+          "萤",
+          "yíng",
+          "firefly"
+        ],
+        [
+          "牵",
+          "qiān",
+          "lead (by hand)"
+        ],
+        [
+          "织",
+          "zhī",
+          "weave"
+        ],
+        [
+          "斗",
+          "dǒu",
+          "dipper"
+        ]
+      ]
+    },
+    {
+      "unit": "课文五",
+      "lesson": "15 文具的家",
+      "chars": [
+        [
+          "具",
+          "jù",
+          "tool"
+        ],
+        [
+          "次",
+          "cì",
+          "time (occurrence)"
+        ],
+        [
+          "丢",
+          "diū",
+          "lose"
+        ],
+        [
+          "哪",
+          "nǎ",
+          "which"
+        ],
+        [
+          "新",
+          "xīn",
+          "new"
+        ],
+        [
+          "每",
+          "měi",
+          "every"
+        ],
+        [
+          "平",
+          "píng",
+          "flat"
+        ],
+        [
+          "些",
+          "xiē",
+          "some"
+        ],
+        [
+          "仔",
+          "zǐ",
+          "careful"
+        ],
+        [
+          "检",
+          "jiǎn",
+          "inspect"
+        ],
+        [
+          "查",
+          "chá",
+          "check"
+        ],
+        [
+          "所",
+          "suǒ",
+          "place; (particle)"
+        ],
+        [
+          "件",
+          "jiàn",
+          "(measure for items)"
+        ],
+        [
+          "铅",
+          "qiān",
+          "lead (铅笔 pencil)"
+        ]
+      ]
+    },
+    {
+      "unit": "课文五",
+      "lesson": "16 一分钟",
+      "chars": [
+        [
+          "钟",
+          "zhōng",
+          "clock"
+        ],
+        [
+          "元",
+          "yuán",
+          "yuan; first"
+        ],
+        [
+          "洗",
+          "xǐ",
+          "wash"
+        ],
+        [
+          "共",
+          "gòng",
+          "together"
+        ],
+        [
+          "已",
+          "yǐ",
+          "already"
+        ],
+        [
+          "经",
+          "jīng",
+          "pass through"
+        ],
+        [
+          "迟",
+          "chí",
+          "late"
+        ],
+        [
+          "叹",
+          "tàn",
+          "sigh"
+        ],
+        [
+          "决",
+          "jué",
+          "decide"
+        ],
+        [
+          "定",
+          "dìng",
+          "fix; decide"
+        ],
+        [
+          "哈",
+          "hā",
+          "(sound of yawn/laugh)"
+        ],
+        [
+          "欠",
+          "qiàn",
+          "yawn; owe"
+        ],
+        [
+          "悔",
+          "huǐ",
+          "regret",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文五",
+      "lesson": "17 动物王国开大会",
+      "chars": [
+        [
+          "物",
+          "wù",
+          "thing"
+        ],
+        [
+          "虎",
+          "hǔ",
+          "tiger"
+        ],
+        [
+          "熊",
+          "xióng",
+          "bear"
+        ],
+        [
+          "通",
+          "tōng",
+          "through"
+        ],
+        [
+          "注",
+          "zhù",
+          "pour; note"
+        ],
+        [
+          "意",
+          "yì",
+          "meaning; intent"
+        ],
+        [
+          "遍",
+          "biàn",
+          "(times); all over"
+        ],
+        [
+          "百",
+          "bǎi",
+          "hundred"
+        ],
+        [
+          "舌",
+          "shé",
+          "tongue"
+        ],
+        [
+          "鬼",
+          "guǐ",
+          "ghost"
+        ],
+        [
+          "脸",
+          "liǎn",
+          "face"
+        ],
+        [
+          "准",
+          "zhǔn",
+          "accurate; allow"
+        ],
+        [
+          "第",
+          "dì",
+          "(ordinal prefix)"
+        ],
+        [
+          "狮",
+          "shī",
+          "lion"
+        ]
+      ]
+    },
+    {
+      "unit": "课文五",
+      "lesson": "18 小猴子下山",
+      "chars": [
+        [
+          "猴",
+          "hóu",
+          "monkey"
+        ],
+        [
+          "结",
+          "jiē",
+          "bear (fruit)"
+        ],
+        [
+          "掰",
+          "bāi",
+          "break off"
+        ],
+        [
+          "扛",
+          "káng",
+          "carry on shoulder"
+        ],
+        [
+          "满",
+          "mǎn",
+          "full"
+        ],
+        [
+          "扔",
+          "rēng",
+          "throw"
+        ],
+        [
+          "摘",
+          "zhāi",
+          "pick (fruit)"
+        ],
+        [
+          "捧",
+          "pěng",
+          "hold in both hands"
+        ],
+        [
+          "瓜",
+          "guā",
+          "melon"
+        ],
+        [
+          "抱",
+          "bào",
+          "hug"
+        ],
+        [
+          "蹦",
+          "bèng",
+          "hop"
+        ],
+        [
+          "追",
+          "zhuī",
+          "chase"
+        ]
+      ]
+    },
+    {
+      "unit": "课文六",
+      "lesson": "19 棉花姑娘",
+      "chars": [
+        [
+          "棉",
+          "mián",
+          "cotton"
+        ],
+        [
+          "娘",
+          "niáng",
+          "lady; mother"
+        ],
+        [
+          "治",
+          "zhì",
+          "cure; govern"
+        ],
+        [
+          "燕",
+          "yàn",
+          "swallow (bird)"
+        ],
+        [
+          "别",
+          "bié",
+          "other; don't"
+        ],
+        [
+          "干",
+          "gàn",
+          "do; dry"
+        ],
+        [
+          "然",
+          "rán",
+          "so; -ly"
+        ],
+        [
+          "奇",
+          "qí",
+          "strange"
+        ],
+        [
+          "颗",
+          "kē",
+          "(measure for small round things)"
+        ],
+        [
+          "瓢",
+          "piáo",
+          "gourd ladle"
+        ],
+        [
+          "碧",
+          "bì",
+          "jade green"
+        ],
+        [
+          "吐",
+          "tǔ",
+          "spit"
+        ],
+        [
+          "啦",
+          "la",
+          "(particle)"
+        ],
+        [
+          "蚜",
+          "yá",
+          "aphid"
+        ],
+        [
+          "盼",
+          "pàn",
+          "hope for",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文六",
+      "lesson": "20 咕咚",
+      "chars": [
+        [
+          "咕",
+          "gū",
+          "(gurgle sound)"
+        ],
+        [
+          "咚",
+          "dōng",
+          "(thud sound)"
+        ],
+        [
+          "熟",
+          "shú",
+          "ripe; familiar"
+        ],
+        [
+          "掉",
+          "diào",
+          "fall; drop"
+        ],
+        [
+          "吓",
+          "xià",
+          "scare"
+        ],
+        [
+          "鹿",
+          "lù",
+          "deer"
+        ],
+        [
+          "逃",
+          "táo",
+          "flee"
+        ],
+        [
+          "命",
+          "mìng",
+          "life"
+        ],
+        [
+          "象",
+          "xiàng",
+          "elephant"
+        ],
+        [
+          "野",
+          "yě",
+          "wild"
+        ],
+        [
+          "拦",
+          "lán",
+          "block"
+        ],
+        [
+          "领",
+          "lǐng",
+          "lead; collar"
+        ],
+        [
+          "湖",
+          "hú",
+          "lake"
+        ]
+      ]
+    },
+    {
+      "unit": "课文六",
+      "lesson": "21 小壁虎借尾巴",
+      "chars": [
+        [
+          "壁",
+          "bì",
+          "wall"
+        ],
+        [
+          "借",
+          "jiè",
+          "borrow"
+        ],
+        [
+          "墙",
+          "qiáng",
+          "wall"
+        ],
+        [
+          "蚊",
+          "wén",
+          "mosquito"
+        ],
+        [
+          "咬",
+          "yǎo",
+          "bite"
+        ],
+        [
+          "断",
+          "duàn",
+          "break"
+        ],
+        [
+          "您",
+          "nín",
+          "you (polite)"
+        ],
+        [
+          "拨",
+          "bō",
+          "paddle; dial"
+        ],
+        [
+          "甩",
+          "shuǎi",
+          "swing; fling"
+        ],
+        [
+          "赶",
+          "gǎn",
+          "drive away; hurry"
+        ],
+        [
+          "房",
+          "fáng",
+          "house"
+        ],
+        [
+          "傻",
+          "shǎ",
+          "silly"
+        ],
+        [
+          "难",
+          "nán",
+          "difficult",
+          "low"
+        ]
+      ]
+    },
+    {
+      "unit": "课文六",
+      "lesson": "语文园地八",
+      "chars": [
+        [
+          "卫",
+          "wèi",
+          "guard (卫生 hygiene)"
+        ],
+        [
+          "厕",
+          "cè",
+          "toilet",
+          "low"
+        ]
+      ]
+    }
+  ]
+}

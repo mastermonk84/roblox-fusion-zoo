@@ -1,14 +1,14 @@
-# Roblox place files — built artifacts, never source
+# Built artifacts
 *.rbxl
 *.rbxlx
-*.rbxl.lock
-*.rbxlx.lock
 /build/
+sourcemap.json
+/.darklua-build/
 
 # Tooling
 /.rokit/
-sourcemap.json
+roblox.yml
 
-# Editor
+# Editor / OS
 .DS_Store
 .vscode/

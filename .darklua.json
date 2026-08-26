@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "rule": "convert_require",
+      "current": { "name": "path", "sources": { "@self": "." } },
+      "target": { "name": "roblox", "rojo_sourcemap": "sourcemap.json" }
+    }
+  ]
+}
