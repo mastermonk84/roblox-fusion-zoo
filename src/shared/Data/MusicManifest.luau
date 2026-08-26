@@ -6,26 +6,26 @@ return {
 	battle = {
 		file = "assets/music/toy_monster_showdown.mp3",
 		loop = true,
-		soundId = "",
+		soundId = "rbxassetid://103206755157811",
 		volume = 0.4,
 	},
 	hub = {
 		file = "assets/music/sunny_zoo_garden.mp3",
 		loop = true,
-		soundId = "",
+		soundId = "rbxassetid://138854637680285",
 		volume = 0.35,
 	},
 	kiosk = {
 		file = "assets/music/quiet_curiosity.mp3",
 		loop = true,
-		soundId = "",
+		soundId = "rbxassetid://111750244299235",
 		volume = 0.25,
 	},
 	victory = {
 		file = "assets/music/victory_bell.mp3",
 		loop = false,
 		maxSeconds = 10,
-		soundId = "",
+		soundId = "rbxassetid://121745587073310",
 		volume = 0.5,
 	},
 }
