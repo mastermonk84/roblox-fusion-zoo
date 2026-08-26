@@ -42,7 +42,7 @@ The 4 Suno tracks live in `assets/music/`. Until their SoundIds are filled the g
 
 ## Device checks
 - [ ] 汉字 render on iPhone/iPad + at least one Android device (SourceSans fallback) — kiosk, hover cards, progress board, coin math flashes.
-- [ ] Audio: fill band-1 entries in `data-src/audio_manifest.json` with uploaded SoundIds, rebuild data, verify listen mode plays on device (iOS needs the first user tap).
+- [ ] Audio: record band 1 using `AUDIO_RECORDING_GUIDE.md` (band-batched sheet with every character, pinyin, and upload steps), fill the entries in `data-src/audio_manifest.json`, rebuild data, verify listen mode plays on device (iOS needs the first user tap).
 - [ ] ProximityPrompts reachable on touch (they render as tap buttons).
 
 ## Compliance spot-checks
