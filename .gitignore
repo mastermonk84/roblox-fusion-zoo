@@ -1,0 +1,14 @@
+# Roblox place files — built artifacts, never source
+*.rbxl
+*.rbxlx
+*.rbxl.lock
+*.rbxlx.lock
+/build/
+
+# Tooling
+/.rokit/
+sourcemap.json
+
+# Editor
+.DS_Store
+.vscode/
