@@ -155,6 +155,11 @@ function BattleService.startNpc(self: any, userId: number, rung: number): any
 		return fail("no_profile")
 	end
 	if self._sessions[userId] then
+		-- a brain battle abandoned mid-match (client closed the UI) is voided;
+		-- only a LIVE battle blocks starting a new one
+		self._sessions[userId] = nil
+	end
+	if self._live[userId] then
 		return fail("battle_in_progress")
 	end
 	if rung < 1 or rung > #OPPONENTS or rung > profile.ladderRung + 1 then
@@ -213,6 +218,9 @@ function BattleService.startGhost(self: any, userId: number, snapshot: Types.Gho
 		return fail("no_profile")
 	end
 	if self._sessions[userId] then
+		self._sessions[userId] = nil -- abandoned brain battle: void it
+	end
+	if self._live[userId] then
 		return fail("battle_in_progress")
 	end
 	local stats = activeStats(profile)
@@ -301,9 +309,19 @@ function BattleService.pickStat(self: any, userId: number, payload: any): any
 		-- No servable flash content (all deferred): the card simply stays
 		-- uncharged — never an error, never a penalty.
 		session.playerCharged = false
-		return { ok = true, flash = nil, deadline = session.flashDeadline }
+		return {
+			ok = true,
+			flash = nil,
+			deadline = session.flashDeadline,
+			window = Config.Quiz.FLASH_SECONDS,
+		}
 	end
-	return { ok = true, flash = flashPayload, deadline = session.flashDeadline }
+	return {
+		ok = true,
+		flash = flashPayload,
+		deadline = session.flashDeadline,
+		window = Config.Quiz.FLASH_SECONDS,
+	}
 end
 
 function BattleService.submitFlash(self: any, userId: number, payload: any): any
@@ -481,6 +499,15 @@ function BattleService.resolveRound(self: any, userId: number, payload: any): an
 	return response
 end
 
+-- Voluntary abandon (client closed the battle UI): voids a brain battle, and
+-- ends a live match exactly like a disconnect (opponent freed, no coins move).
+function BattleService.forfeit(self: any, userId: number): any
+	if self._sessions[userId] or self._live[userId] then
+		BattleService.dropPlayer(self, userId)
+	end
+	return { ok = true }
+end
+
 -- ── Live battles (two players, same server, challenge pad) ─────────────────
 
 type LiveSide = {
@@ -509,10 +536,13 @@ function BattleService.challenge(self: any, userId: number, targetUserId: number
 	if userId == targetUserId then
 		return fail("bad_request")
 	end
-	if self._sessions[userId] or self._live[userId] then
+	if self._sessions[userId] then
+		self._sessions[userId] = nil -- abandoned brain battle: void it
+	end
+	if self._live[userId] then
 		return fail("battle_in_progress")
 	end
-	if self._sessions[targetUserId] or self._live[targetUserId] then
+	if self._live[targetUserId] then
 		return fail("target_busy")
 	end
 	local profile = self._profiles:get(userId) :: Profile?
@@ -646,7 +676,13 @@ function BattleService.livePick(self: any, userId: number, payload: any): any
 				battleId = session.battleId,
 				flash = flash,
 				deadline = session.flashDeadline,
+				window = Config.Quiz.FLASH_SECONDS,
 			})
+		end
+		if session.a.charged ~= nil and session.b.charged ~= nil then
+			-- neither side has a servable flash (all content deferred): resolve
+			-- now instead of dead-ending the match in the flash phase
+			BattleService.liveResolve(self, userId, { battleId = session.battleId })
 		end
 		return { ok = true, waiting = false, deadline = session.flashDeadline }
 	end

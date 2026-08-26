@@ -99,6 +99,31 @@ local zoo = ZooService.new({
 -- ── remote surface ──────────────────────────────────────────────────────────
 local readyEvent = Net.event("Profile", "Ready")
 
+local function stateFor(profile: Profile): any
+	return {
+		coins = profile.coins,
+		level = profile.level,
+		cleanStreak = profile.cleanStreak,
+		pinyinMode = profile.pinyinMode,
+		animals = profile.animals,
+		beasts = profile.beasts,
+		slotsUnlocked = profile.slotsUnlocked,
+		ladderRung = profile.ladderRung,
+	}
+end
+
+-- The Ready push races the client's boot on real joins (RemoteEvents are not
+-- queued for scripts that haven't connected); the client pulls this once.
+Net.handle("Profile", "GetState", nil, function(player)
+	local profile = profiles:get(player.UserId)
+	if not profile then
+		return { ok = false, err = "no_profile" }
+	end
+	local state = stateFor(profile)
+	state.ok = true
+	return state
+end)
+
 Net.handle("Quiz", "RequestQuestion", nil, function(player)
 	return quiz:requestQuestion(player.UserId)
 end)
@@ -282,6 +307,9 @@ Net.handle(
 		return battle:respondChallenge(player.UserId, payload.accept)
 	end
 )
+Net.handle("Battle", "Forfeit", nil, function(player)
+	return battle:forfeit(player.UserId)
+end)
 Net.handle("Battle", "ListOpponents", nil, function(player)
 	local list = {}
 	for _, other in Players:GetPlayers() do
@@ -314,21 +342,17 @@ cheerEvent = Net.listen(
 local TUTORIAL_ANIMALS = { "猫", "鸟" } -- user-approved onboarding exemption
 
 local function pushReady(player: Player, profile: Profile)
-	readyEvent:FireClient(player, {
-		coins = profile.coins,
-		level = profile.level,
-		cleanStreak = profile.cleanStreak,
-		pinyinMode = profile.pinyinMode,
-		animals = profile.animals,
-		beasts = profile.beasts,
-		slotsUnlocked = profile.slotsUnlocked,
-		ladderRung = profile.ladderRung,
-	})
+	readyEvent:FireClient(player, stateFor(profile))
 end
 
 local function onJoin(player: Player)
 	local seed = player.UserId % 1000000007 -- deterministic, stable across sessions
 	local profile = profiles:load(player.UserId, seed, os.time())
+	if not player.Parent then
+		-- the player left while the profile was loading: release the lock now
+		profiles:release(player.UserId)
+		return
+	end
 	if not profile then
 		player:Kick(
 			"你的存档还在另一台服务器上，请稍后再进入。 (Save is loading elsewhere — try again shortly.)"
@@ -365,7 +389,18 @@ end
 Players.PlayerAdded:Connect(onJoin)
 
 Players.PlayerRemoving:Connect(function(player)
-	ghosts:publish(player.UserId, player.DisplayName, true) -- final snapshot
+	-- capture the final ghost snapshot synchronously, write it async, and
+	-- release the profile without waiting on DataStore latency
+	local profile = profiles:get(player.UserId)
+	if profile then
+		local snapshot =
+			GhostService.snapshotOf(profile, player.UserId, player.DisplayName, os.time())
+		if snapshot then
+			task.spawn(function()
+				ghosts:publishSnapshot(player.UserId, snapshot)
+			end)
+		end
+	end
 	battle:dropPlayer(player.UserId)
 	plots:release(player.UserId)
 	profiles:release(player.UserId)

@@ -44,7 +44,13 @@ function Profiles.new(backend: Backend): Profiles
 end
 
 function Profiles.load(self: any, userId: number, seed: number, now: number): Profile?
-	assert(self._loaded[userId] == nil, `profile {userId} already loaded`)
+	local stale = self._loaded[userId]
+	if stale then
+		-- rejoin raced ahead of the previous session's release: let the old
+		-- lock go first, then load fresh
+		stale:Release()
+		self._loaded[userId] = nil
+	end
 	local loaded = self._backend.load(`player_{userId}`)
 	if not loaded then
 		return nil

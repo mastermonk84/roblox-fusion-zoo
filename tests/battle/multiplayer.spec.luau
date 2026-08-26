@@ -330,7 +330,7 @@ return function()
 			local world = setup();
 			(world.battle :: any):challenge(ALICE, BOB)
 			local accepted = (world.battle :: any):respondChallenge(BOB, true)
-			assert(accepted.ok)
+			assert(accepted.ok, "accept failed")
 			local aliceCoins, bobCoins = world.alice.coins, world.bob.coins;
 			(world.battle :: any):dropPlayer(ALICE)
 			expect((world.battle :: any)._live[BOB]).to.equal(nil)

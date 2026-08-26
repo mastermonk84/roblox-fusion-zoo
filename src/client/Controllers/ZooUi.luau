@@ -333,7 +333,7 @@ local function renderRescue(snapshot: any, list: any)
 				Parent = row,
 			})
 			buy.Activated:Connect(function()
-				local result = remotes.rescue:InvokeServer(animal.char)
+				local result = remotes.rescue:InvokeServer({ char = animal.char })
 				if result.ok then
 					onCoins(result.newCoins, result.coinMath)
 					Audio.happy()
@@ -483,8 +483,11 @@ renderBeastDetail = function(snapshot: any)
 		Parent = beastDetail,
 	})
 	setActive.Activated:Connect(function()
-		remotes.setActive:InvokeServer(beast.id)
-		ZooUi.refresh()
+		local result = remotes.setActive:InvokeServer({ beastId = beast.id })
+		if result.ok then
+			Audio.happy()
+			ZooUi.refresh()
+		end
 	end)
 
 	local nameButton = Ui.button({

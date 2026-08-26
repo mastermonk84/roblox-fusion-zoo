@@ -139,6 +139,7 @@ BattleUi.init({
 	challenge = battleFolder:WaitForChild("Challenge") :: RemoteFunction,
 	respondChallenge = battleFolder:WaitForChild("RespondChallenge") :: RemoteFunction,
 	listOpponents = battleFolder:WaitForChild("ListOpponents") :: RemoteFunction,
+	forfeit = battleFolder:WaitForChild("Forfeit") :: RemoteFunction,
 	events = battleFolder:WaitForChild("Events") :: RemoteEvent,
 	cheer = battleFolder:WaitForChild("Cheer") :: RemoteEvent,
 }, function(coins, mathString)
@@ -168,11 +169,23 @@ ProximityPromptService.PromptTriggered:Connect(function(prompt)
 	end
 end)
 
-readyEvent.OnClientEvent:Connect(function(state)
+local function applyState(state: any)
 	Hud.setCoins(state.coins)
 	Hud.setLevel(state.level)
 	Hud.setStreak(state.cleanStreak, 3)
 	Hud.pinyinOn = state.pinyinMode == true
+end
+
+readyEvent.OnClientEvent:Connect(applyState)
+
+-- The Ready push can race this script's boot on a real join (RemoteEvents are
+-- not queued for unconnected scripts), so pull the state once explicitly.
+local getState = remotes:WaitForChild("Profile"):WaitForChild("GetState") :: RemoteFunction
+task.spawn(function()
+	local state = getState:InvokeServer()
+	if state and state.ok then
+		applyState(state)
+	end
 end)
 
 local player = Players.LocalPlayer

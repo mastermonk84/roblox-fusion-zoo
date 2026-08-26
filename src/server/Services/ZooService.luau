@@ -105,6 +105,7 @@ function ZooService.rescue(self: any, userId: number, char: string): any
 	end
 	profile.animals[char] = true
 	self._analytics:track(userId, "sink", "rescue", paid.delta, { char = char })
+	self._onBeastChanged(userId, profile) -- the rescued animal appears in the plot
 	return { ok = true, char = char, coinMath = paid.mathString, newCoins = profile.coins }
 end
 
@@ -430,6 +431,7 @@ function ZooService.placeDecoration(self: any, userId: number, payload: any): an
 		return fail("not_owned")
 	end
 	profile.plotPlacements[slotKey] = itemId
+	self._onBeastChanged(userId, profile) -- decorations render on the plot immediately
 	return { ok = true, gridIndex = gridIndex, itemId = itemId }
 end
 

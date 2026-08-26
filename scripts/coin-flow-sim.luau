@@ -8,8 +8,6 @@
 --      income — a dedicated player always has something to save for
 -- Run: lune run scripts/coin-flow-sim
 
-local process = require("@lune/process")
-
 local Profiles = require("../src/server/Services/Profiles")
 local QuizService = require("../src/server/Services/QuizService")
 local ZooService = require("../src/server/Services/ZooService")

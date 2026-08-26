@@ -110,6 +110,14 @@ function GhostService.publish(
 	return true
 end
 
+-- Write a pre-built snapshot (used on PlayerRemoving: the snapshot is captured
+-- synchronously before the profile releases; the store writes may yield).
+function GhostService.publishSnapshot(self: any, userId: number, snapshot: GhostSnapshot)
+	self._lastPublish[userId] = snapshot.publishedAt
+	self._stores.set(`g{userId}`, snapshot)
+	self._stores.indexSet(userId, snapshot.publishedAt)
+end
+
 -- Pick an opponent ghost for this player. Never the player's own; prefers
 -- builds within ±30% total stats; starter ghosts when the pool is thin.
 function GhostService.fetch(self: any, userId: number): GhostSnapshot?

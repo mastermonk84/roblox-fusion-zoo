@@ -46,6 +46,7 @@ type Remotes = {
 	challenge: RemoteFunction,
 	respondChallenge: RemoteFunction,
 	listOpponents: RemoteFunction,
+	forfeit: RemoteFunction,
 	events: RemoteEvent,
 	cheer: RemoteEvent,
 }
@@ -64,7 +65,9 @@ local statButtons: { [string]: TextButton } = {}
 local flashOverlay: Frame
 local flashPrompt: TextLabel
 local flashListen: TextButton
+local flashIcon: ImageLabel
 local flashButtons: { TextButton } = {}
+local flashButtonIcons: { ImageLabel } = {}
 local flashBar: Frame
 local revealLabel: TextLabel
 local resultOverlay: Frame
@@ -73,8 +76,9 @@ local resultLabel: TextLabel
 local battleId: string? = nil
 local isLive = false
 local currentRound = 1
-local currentDeadline = 0
+local flashEndsAt = 0 -- os.clock() based: immune to device clock skew
 local currentFlashSound: string? = nil
+local currentQuestionId: string? = nil
 local resolving = false
 
 local STAT_ORDER = { "li", "su", "zhi" }
@@ -236,6 +240,13 @@ function BattleUi.init(
 	flashListen.Activated:Connect(function()
 		Audio.play(currentFlashSound)
 	end)
+	flashIcon = Ui.new("ImageLabel", {
+		Size = UDim2.new(0, 130, 0, 130),
+		Position = UDim2.new(0.5, -65, 0, 60),
+		BackgroundTransparency = 1,
+		Visible = false,
+		Parent = flashOverlay,
+	})
 	for index = 1, 3 do
 		local button = Ui.button({
 			Text = "",
@@ -244,10 +255,18 @@ function BattleUi.init(
 			TextSize = 40,
 			Parent = flashOverlay,
 		})
+		local buttonIcon = Ui.new("ImageLabel", {
+			Size = UDim2.new(0, 56, 0, 56),
+			Position = UDim2.new(0.5, -28, 0.5, -28),
+			BackgroundTransparency = 1,
+			Visible = false,
+			Parent = button,
+		})
 		button.Activated:Connect(function()
 			BattleUi.answerFlashIndexed(index)
 		end)
 		flashButtons[index] = button
+		flashButtonIcons[index] = buttonIcon
 	end
 
 	-- match result overlay
@@ -337,15 +356,21 @@ function BattleUi.init(
 			scoreLabel.Text = "0 : 0"
 			BattleUi.setPickEnabled(true)
 		elseif event == "FlashPrompt" then
-			currentDeadline = payload.deadline
+			flashEndsAt = os.clock() + (payload.window or 4)
 			if payload.flash then
 				BattleUi.showFlashWithId(payload.flash)
+			else
+				-- no servable flash for us: still nudge the server after the
+				-- window so a both-lapsed round can't stall the match
+				task.delay((payload.window or 4) + 0.5, BattleUi.nudgeResolve)
 			end
 		elseif event == "RoundResult" then
 			BattleUi.renderLiveRound(payload)
 		elseif event == "LiveEnded" then
 			isLive = false
 			battleId = nil
+			flashOverlay.Visible = false
+			currentQuestionId = nil
 			fightPage.Visible = false
 			ladderPage.Visible = true
 			Hint.flash("对方离开了 (opponent left)")
@@ -612,7 +637,7 @@ function BattleUi.pick(stat: string)
 		end
 		return -- flashes and results arrive as server pushes
 	end
-	currentDeadline = picked.deadline
+	flashEndsAt = os.clock() + (picked.window or 4)
 	if picked.flash then
 		BattleUi.showFlashWithId(picked.flash)
 	else
@@ -625,40 +650,49 @@ end
 function BattleUi.showFlash(flash: any)
 	flashOverlay.Visible = true
 	currentFlashSound = flash.prompt.soundId
-	flashPrompt.Visible = flash.mode ~= "listen-char"
-	flashListen.Visible = flash.mode == "listen-char"
-	flashPrompt.Text = flash.prompt.char or ""
-	if flash.mode == "listen-char" or flash.prompt.soundId then
-		Audio.play(flash.prompt.soundId)
+	flashPrompt.Visible = false
+	flashListen.Visible = false
+	flashIcon.Visible = false
+	if flash.mode == "listen-char" then
+		flashListen.Visible = true
+		Audio.play(currentFlashSound)
+	elseif flash.mode == "picture-char" then
+		flashIcon.Visible = true
+		flashIcon.Image = flash.prompt.icon or ""
+	else
+		flashPrompt.Visible = true
+		flashPrompt.Text = flash.prompt.char or ""
+		Audio.play(currentFlashSound)
 	end
 	for index, button in flashButtons do
 		local choice = flash.choices[index]
 		button.Visible = choice ~= nil
 		button.BackgroundColor3 = Ui.COLORS.accent
+		flashButtonIcons[index].Visible = false
 		if choice then
-			button.Text = choice.display
-			button.TextSize = if choice.kind == "pinyin" then 30 else 40
+			if choice.kind == "icon" then
+				button.Text = ""
+				flashButtonIcons[index].Visible = true
+				flashButtonIcons[index].Image = choice.display
+			else
+				button.Text = choice.display
+				button.TextSize = if choice.kind == "pinyin" then 30 else 40
+			end
 		end
 	end
-	-- countdown bar → auto-resolve at the deadline (client clock approximates
-	-- the server's unix deadline; the server enforces the real one)
+	-- countdown on the LOCAL monotonic clock (window from the server), so a
+	-- skewed device clock can't instantly close the flash; the server still
+	-- enforces the real deadline
 	local myBattle = battleId
+	local windowSeconds = math.max(1, flashEndsAt - os.clock())
 	task.spawn(function()
 		while flashOverlay.Visible and battleId == myBattle do
-			local fraction = math.clamp((currentDeadline - os.time()) / 4, 0, 1)
-			flashBar.Size = UDim2.new(fraction, 0, 0, 10)
-			if os.time() >= currentDeadline then
+			local remaining = flashEndsAt - os.clock()
+			flashBar.Size =
+				UDim2.new(math.clamp(remaining / math.max(1, windowSeconds), 0, 1), 0, 0, 10)
+			if remaining <= 0 then
 				flashOverlay.Visible = false
-				if not isLive then
-					BattleUi.resolve()
-				else
-					-- nudge the server in case both flashes lapsed
-					task.delay(0.4, function()
-						if isLive and battleId then
-							remotes.resolveRound:InvokeServer({ battleId = battleId })
-						end
-					end)
-				end
+				BattleUi.nudgeResolve()
 				break
 			end
 			task.wait(0.1)
@@ -666,7 +700,22 @@ function BattleUi.showFlash(flash: any)
 	end)
 end
 
-local currentQuestionId: string? = nil
+-- Ask the server to resolve once the window is over (NPC path resolves
+-- directly; live path nudges the shared session in case both flashes lapsed).
+function BattleUi.nudgeResolve()
+	if not battleId then
+		return
+	end
+	if isLive then
+		task.delay(0.4, function()
+			if isLive and battleId then
+				remotes.resolveRound:InvokeServer({ battleId = battleId })
+			end
+		end)
+	else
+		BattleUi.resolve()
+	end
+end
 
 function BattleUi.showFlashWithId(flash: any)
 	currentQuestionId = flash.questionId

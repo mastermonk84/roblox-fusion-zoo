@@ -147,7 +147,7 @@ function RigMath.resolve(build: Build): RigSpec
 			table.insert(legSockets, socket)
 			table.insert(parts, {
 				module = "legs",
-				shape = "Cylinder",
+				shape = "Block",
 				size = vec(legThickness, legLength, legThickness),
 				offset = vec(socket.x, legLength / 2, socket.z),
 				color = legsRig.primary,
@@ -279,7 +279,7 @@ function RigMath.resolve(build: Build): RigSpec
 		elseif feature == "trunk" then
 			table.insert(parts, {
 				module = "head",
-				shape = "Cylinder",
+				shape = "Block",
 				size = vec(0.7, 2.2, 0.7),
 				offset = vec(0, headCenter.y - headSize.y / 2 - 0.9, headCenter.z - headSize.z / 2),
 				color = headRig.primary,
@@ -304,7 +304,7 @@ function RigMath.resolve(build: Build): RigSpec
 			for _, side in { -1, 1 } do
 				table.insert(parts, {
 					module = "head",
-					shape = "Cylinder",
+					shape = "Block",
 					size = vec(0.1, 1.2, 0.1),
 					offset = vec(
 						side * headSize.x * 0.5,
