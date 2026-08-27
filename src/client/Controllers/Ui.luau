@@ -16,6 +16,13 @@ Ui.COLORS = {
 	bad = Color3.fromRGB(238, 130, 130),
 	scrim = Color3.fromRGB(20, 18, 28),
 	coin = Color3.fromRGB(250, 204, 78),
+	-- press-depth edges + accents for the tactile kiosk redesign (additive)
+	accentEdge = Color3.fromRGB(216, 137, 34),
+	goodEdge = Color3.fromRGB(79, 183, 126),
+	badEdge = Color3.fromRGB(214, 92, 92),
+	teal = Color3.fromRGB(30, 122, 114),
+	grid = Color3.fromRGB(231, 211, 174),
+	tileEdge = Color3.fromRGB(230, 211, 171),
 }
 
 Ui.FONT = Enum.Font.SourceSansBold
