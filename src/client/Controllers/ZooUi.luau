@@ -186,11 +186,14 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 	fuseHeadList = slotList(0)
 	fuseBodyList = slotList(1)
 	fuseLegsList = slotList(2)
-	fuseButton = Ui.button({
-		Text = "融合! Fuse (🪙10)",
-		Size = UDim2.new(1, 0, 0, 48),
-		Position = UDim2.new(0, 0, 1, -84),
-		TextSize = 26,
+	fuseButton = Ui.tactile({
+		Text = "🧬 融合! Fuse 🪙10",
+		Size = UDim2.new(1, 0, 0, 52),
+		Position = UDim2.new(0, 0, 1, -88),
+		TextSize = 24,
+		TextColor3 = Color3.fromRGB(74, 45, 6),
+		BackgroundColor3 = Ui.COLORS.accent,
+		radius = 16,
 		Parent = pages.fuse,
 	})
 	fuseResult = Ui.text({
@@ -318,11 +321,14 @@ local function renderRescue(snapshot: any, list: any)
 				Parent = row,
 			})
 		elseif state == "ready" then
-			local buy = Ui.button({
+			local buy = Ui.tactile({
 				Text = `救! 🪙{animal.cost}`,
-				Size = UDim2.new(0, 116, 0, 40),
-				Position = UDim2.new(1, -124, 0.5, -20),
+				Size = UDim2.new(0, 116, 0, 42),
+				Position = UDim2.new(1, -124, 0.5, -21),
 				TextSize = 20,
+				TextColor3 = Color3.fromRGB(12, 81, 50),
+				BackgroundColor3 = Ui.COLORS.good,
+				radius = 12,
 				Parent = row,
 			})
 			buy.Activated:Connect(function()
@@ -349,11 +355,22 @@ local function renderRescue(snapshot: any, list: any)
 end
 
 local function animalCell(parent: Frame, char: string, picked: boolean, onPick: () -> ())
-	local cell = Ui.button({
+	local cell = Ui.new("TextButton", {
 		Text = char,
-		TextSize = 34,
-		BackgroundColor3 = if picked then Ui.COLORS.good else Ui.COLORS.card,
+		Font = Ui.FONT,
+		TextSize = 30,
+		TextColor3 = Ui.COLORS.ink,
+		BackgroundColor3 = if picked then Ui.COLORS.accent else Ui.COLORS.card,
+		AutoButtonColor = true,
+		BorderSizePixel = 0,
 		Parent = parent,
+	}, {
+		Ui.corner(12),
+		Ui.new("UIStroke", {
+			Color = if picked then Ui.COLORS.accentEdge else Color3.fromRGB(226, 216, 196),
+			Thickness = if picked then 3 else 1,
+			Transparency = if picked then 0 else 0.35,
+		}),
 	})
 	cell.Activated:Connect(onPick)
 end
@@ -472,12 +489,14 @@ renderBeastDetail = function(snapshot: any)
 		y += 38
 	end
 
-	local setActive = Ui.button({
-		Text = "出战! Battle beast",
-		Size = UDim2.new(1, 0, 0, 34),
+	local setActive = Ui.tactile({
+		Text = "⚔ 出战! Battle beast",
+		Size = UDim2.new(1, 0, 0, 38),
 		Position = UDim2.new(0, 0, 0, y + 4),
 		TextSize = 18,
+		TextColor3 = Color3.fromRGB(12, 81, 50),
 		BackgroundColor3 = Ui.COLORS.good,
+		radius = 12,
 		Parent = beastDetail,
 	})
 	setActive.Activated:Connect(function()
@@ -488,11 +507,14 @@ renderBeastDetail = function(snapshot: any)
 		end
 	end)
 
-	local nameButton = Ui.button({
-		Text = "取名字 Name (🪙3)",
-		Size = UDim2.new(1, 0, 0, 34),
-		Position = UDim2.new(0, 0, 0, y + 44),
+	local nameButton = Ui.tactile({
+		Text = "✏ 取名字 Name 🪙3",
+		Size = UDim2.new(1, 0, 0, 38),
+		Position = UDim2.new(0, 0, 0, y + 46),
 		TextSize = 18,
+		TextColor3 = Color3.fromRGB(74, 45, 6),
+		BackgroundColor3 = Ui.COLORS.accent,
+		radius = 12,
 		Parent = beastDetail,
 	})
 	nameButton.Activated:Connect(function()
