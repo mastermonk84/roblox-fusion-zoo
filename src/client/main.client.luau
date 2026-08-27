@@ -59,10 +59,11 @@ local function onChoiceTap(index: number)
 		return
 	end
 
-	-- terminal outcomes update the HUD from server numbers
+	-- terminal outcomes update the HUD and the kiosk rail from server numbers
 	Hud.setCoins(result.newCoins)
 	Hud.setLevel(result.newLevel)
 	Hud.setStreak(result.cleanStreak, result.streakNeeded)
+	QuizUi.setMeta(result.newCoins, result.cleanStreak, result.warmupRemaining)
 
 	if result.outcome == "clean" or result.outcome == "retry" then
 		QuizUi.celebrate(index)
@@ -191,6 +192,7 @@ local function applyState(state: any)
 	Hud.setLevel(state.level)
 	Hud.setStreak(state.cleanStreak, 3)
 	Hud.pinyinOn = state.pinyinMode == true
+	QuizUi.setMeta(state.coins, state.cleanStreak, nil)
 end
 
 readyEvent.OnClientEvent:Connect(applyState)

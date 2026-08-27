@@ -33,6 +33,9 @@ local promptListen: TextButton
 local promptIcons: Frame
 local specimen: Frame
 local modeHint: TextLabel
+local railCoin: TextLabel
+local railStreak: TextLabel
+local railWarm: TextLabel
 local choices: { Choice } = {}
 local feedback: TextLabel
 local waitingCard: Frame
@@ -132,6 +135,31 @@ local function shake(c: Choice)
 	step()
 end
 
+-- reward-rail chip: an auto-width pill with tinted text
+local function makeChip(rail: Instance, textColor: Color3): TextLabel
+	local pill = Ui.new("Frame", {
+		BackgroundColor3 = Ui.COLORS.cardDim,
+		AutomaticSize = Enum.AutomaticSize.X,
+		Size = UDim2.new(0, 0, 0, 26),
+		Parent = rail,
+	}, {
+		Ui.corner(13),
+		Ui.new("UIPadding", {
+			PaddingLeft = UDim.new(0, 10),
+			PaddingRight = UDim.new(0, 10),
+		}),
+	})
+	return Ui.text({
+		Text = "",
+		AutomaticSize = Enum.AutomaticSize.X,
+		Size = UDim2.new(0, 0, 1, 0),
+		TextSize = 15,
+		TextWrapped = false,
+		TextColor3 = textColor,
+		Parent = pill,
+	})
+end
+
 function QuizUi.init(onChoiceTap: (index: number) -> (), onClose: () -> ())
 	onTap = onChoiceTap
 	gui = Ui.new("ScreenGui", {
@@ -160,18 +188,38 @@ function QuizUi.init(onChoiceTap: (index: number) -> (), onClose: () -> ())
 	}, { Ui.corner(24), Ui.padding(PAD) })
 
 	Ui.button({
-		Text = "✕",
+		Text = "×",
 		Size = UDim2.fromOffset(38, 38),
 		Position = UDim2.new(1, -38, 0, 0),
-		TextSize = 20,
+		TextSize = 30,
 		BackgroundColor3 = Ui.COLORS.cardDim,
 		Parent = card,
 	}).Activated
 		:Connect(onClose)
 
+	-- ── reward rail (coins / streak / warm-up) ────────────────────────────────
+	local rail = Ui.new("Frame", {
+		BackgroundTransparency = 1,
+		Size = UDim2.new(1, -46, 0, 26),
+		Position = UDim2.new(0, 0, 0, 2),
+		Parent = card,
+	}, {
+		Ui.new("UIListLayout", {
+			FillDirection = Enum.FillDirection.Horizontal,
+			Padding = UDim.new(0, 6),
+			VerticalAlignment = Enum.VerticalAlignment.Center,
+		}),
+	})
+	railCoin = makeChip(rail, Color3.fromRGB(138, 106, 0))
+	railStreak = makeChip(rail, Color3.fromRGB(181, 80, 47))
+	railWarm = makeChip(rail, Ui.COLORS.ink)
+	railWarm.Parent.BackgroundColor3 = Ui.COLORS.accent
+	railWarm.Parent.Visible = false
+
 	modeHint = Ui.text({
 		Text = "",
 		Size = UDim2.new(1, -46, 0, 24),
+		Position = UDim2.new(0, 0, 0, 34),
 		TextSize = 18,
 		TextColor3 = Ui.COLORS.inkSoft,
 		TextXAlignment = Enum.TextXAlignment.Left,
@@ -181,7 +229,7 @@ function QuizUi.init(onChoiceTap: (index: number) -> (), onClose: () -> ())
 	-- ── specimen card ───────────────────────────────────────────────────────
 	specimen = Ui.new("Frame", {
 		Size = UDim2.new(1, 0, 0, 196),
-		Position = UDim2.new(0, 0, 0, 34),
+		Position = UDim2.new(0, 0, 0, 64),
 		BackgroundColor3 = Ui.COLORS.cardDim,
 		BorderSizePixel = 0,
 		ClipsDescendants = true,
@@ -216,12 +264,12 @@ function QuizUi.init(onChoiceTap: (index: number) -> (), onClose: () -> ())
 
 	promptChar = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 150),
-		Position = UDim2.new(0, 0, 0.5, -80),
-		TextSize = 118,
+		Size = UDim2.fromOffset(150, 150),
+		Position = UDim2.new(0.5, -75, 0.5, -80),
+		TextScaled = true,
 		Visible = false,
 		Parent = specimen,
-	})
+	}, { Ui.new("UITextSizeConstraint", { MaxTextSize = 140 }) })
 	promptPinyin = Ui.text({
 		Text = "",
 		Size = UDim2.new(1, 0, 0, 26),
@@ -308,11 +356,25 @@ function QuizUi.showWaiting()
 	waitingCard.Visible = true
 end
 
+-- Reward rail: coins / streak / warm-up ×2 (nil leaves a chip unchanged).
+function QuizUi.setMeta(coins: number?, streak: number?, warmup: number?)
+	if railCoin and coins then
+		railCoin.Text = `🪙 {coins}`
+	end
+	if railStreak and streak then
+		railStreak.Text = `🔥 {streak}`
+	end
+	if railWarm and warmup ~= nil then
+		railWarm.Parent.Visible = warmup > 0
+		railWarm.Text = `×2 · {warmup}`
+	end
+end
+
 -- Stacked pills for text/pinyin; a row of square tiles for pictures.
 local function layoutChoices(asTiles: boolean, count: number)
 	if asTiles then
 		local size = math.floor((INNER - 8 * (count - 1)) / count)
-		local top = 246 + math.floor((196 - size) / 2)
+		local top = 276 + math.floor((196 - size) / 2)
 		for i = 1, count do
 			local c = choices[i]
 			c.holder.Size = UDim2.fromOffset(size, size + EDGE)
@@ -323,7 +385,7 @@ local function layoutChoices(asTiles: boolean, count: number)
 		for i = 1, count do
 			local c = choices[i]
 			c.holder.Size = UDim2.new(1, 0, 0, h + EDGE)
-			c.holder.Position = UDim2.new(0, 0, 0, 250 + (i - 1) * (h + 12))
+			c.holder.Position = UDim2.new(0, 0, 0, 280 + (i - 1) * (h + 12))
 		end
 	end
 end
@@ -333,6 +395,7 @@ function QuizUi.render(question: any)
 	modeHint.Text = MODE_HINTS[question.mode] or ""
 	feedback.Text = ""
 	currentSoundId = question.prompt.soundId
+	QuizUi.setMeta(nil, nil, question.warmupRemaining)
 
 	promptChar.Visible = false
 	promptPinyin.Visible = false
