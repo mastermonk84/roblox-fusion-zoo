@@ -28,15 +28,54 @@ local battleFolder = remotes:WaitForChild("Battle")
 local currentQuestionId: string? = nil
 local busy = false
 
-local function nextQuestion()
-	local result = requestQuestion:InvokeServer()
-	if not result or not result.ok then
-		return
+-- Some picture icons stay stuck in Roblox moderation and render blank; learn
+-- which actually load, and re-request picture questions that would show a blank.
+local ContentProvider = game:GetService("ContentProvider")
+local IconManifest = require("../shared/Data/IconManifest")
+local goodIcons: { [string]: boolean } = {}
+task.spawn(function()
+	for _, id in IconManifest do
+		local probe = Instance.new("ImageLabel")
+		probe.Image = id
+		pcall(function()
+			-- the fetch-status callback is the reliable signal; IsLoaded on an
+			-- unparented probe stays false even for approved assets.
+			ContentProvider:PreloadAsync({ probe }, function(_, status)
+				goodIcons[id] = status == Enum.AssetFetchStatus.Success
+			end)
+		end)
+		probe:Destroy()
 	end
-	if result.waiting then
-		currentQuestionId = nil
-		QuizUi.showWaiting()
-		return
+end)
+
+local function iconsReady(question: any): boolean
+	if question.mode == "picture-char" then
+		return question.prompt.icon == nil or goodIcons[question.prompt.icon] == true
+	elseif question.mode == "char-picture" then
+		for _, choice in question.choices do
+			if choice.kind == "icon" and not goodIcons[choice.display] then
+				return false
+			end
+		end
+	end
+	return true
+end
+
+local function nextQuestion()
+	local result
+	for attempt = 1, 6 do
+		result = requestQuestion:InvokeServer()
+		if not result or not result.ok then
+			return
+		end
+		if result.waiting then
+			currentQuestionId = nil
+			QuizUi.showWaiting()
+			return
+		end
+		if iconsReady(result.question) or attempt == 6 then
+			break
+		end
 	end
 	currentQuestionId = result.question.questionId
 	QuizUi.render(result.question)

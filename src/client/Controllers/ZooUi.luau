@@ -81,10 +81,10 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 	}, { Ui.corner(18), Ui.padding(12) })
 
 	Ui.button({
-		Text = "✕",
+		Text = "×",
 		Size = UDim2.new(0, 40, 0, 40),
 		Position = UDim2.new(1, -44, 0, 0),
-		TextSize = 22,
+		TextSize = 30,
 		BackgroundColor3 = Ui.COLORS.cardDim,
 		Parent = card,
 	}).Activated
