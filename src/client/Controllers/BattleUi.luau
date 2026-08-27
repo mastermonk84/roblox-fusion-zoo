@@ -825,6 +825,14 @@ function BattleUi.resolve()
 		themScore = response.score.them,
 		matchOver = response.match ~= nil,
 		playerWon = if response.match then response.match.playerWon else nil,
+		winnerStat = if response.winner == "a"
+			then you.stat
+			elseif response.winner == "b" then them.stat
+			else nil,
+		loserStat = if response.winner == "a"
+			then them.stat
+			elseif response.winner == "b" then you.stat
+			else nil,
 	})
 	if response.winner == "a" then
 		Audio.happy()

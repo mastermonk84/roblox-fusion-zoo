@@ -14,6 +14,7 @@ local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 
 local Animals = require("../../shared/Data/Animals")
+local Config = require("../../shared/Config")
 local RigMath = require("../../shared/Rig/RigMath")
 local SlotStats = require("../../shared/Fusion/SlotStats")
 local Types = require("../../shared/Types")
@@ -35,6 +36,12 @@ local SHAPES: { [string]: Enum.PartType } = {
 	Ball = Enum.PartType.Ball,
 	Cylinder = Enum.PartType.Cylinder,
 	Wedge = Enum.PartType.Block,
+}
+
+local STAT_COLOR: { [string]: Color3 } = {
+	li = Color3.fromRGB(255, 107, 61),
+	su = Color3.fromRGB(38, 198, 245),
+	zhi = Color3.fromRGB(178, 107, 255),
 }
 
 local P_SPOT = Vector3.new(-4.2, 0, 0)
@@ -127,6 +134,7 @@ local pPips: { Frame } = {}
 local fPips: { Frame } = {}
 local sparkBall: Part
 local hitFlash: Frame
+local telegraph: TextLabel
 
 local function makePips(panel: Instance, tint: Color3): { Frame }
 	local row = Ui.new("Frame", {
@@ -142,19 +150,15 @@ local function makePips(panel: Instance, tint: Color3): { Frame }
 	})
 	local out = {}
 	for _ = 1, PIPS do
-		out[#out + 1] = Ui.new(
-			"Frame",
-			{
-				Size = UDim2.fromOffset(11, 11),
-				BackgroundColor3 = Color3.fromRGB(70, 62, 86),
-				BorderSizePixel = 0,
-				Parent = row,
-			},
-			{
-				Ui.corner(6),
-				Ui.new("UIStroke", { Color = tint, Thickness = 1, Transparency = 0.4 }),
-			}
-		)
+		out[#out + 1] = Ui.new("Frame", {
+			Size = UDim2.fromOffset(11, 11),
+			BackgroundColor3 = Color3.fromRGB(70, 62, 86),
+			BorderSizePixel = 0,
+			Parent = row,
+		}, {
+			Ui.corner(6),
+			Ui.new("UIStroke", { Color = tint, Thickness = 1, Transparency = 0.4 }),
+		})
 	end
 	return out
 end
@@ -249,6 +253,17 @@ function BattleArena.mount(parent: Instance)
 		Parent = container,
 	}, { Ui.corner(16) })
 
+	-- contextual "速 克 力!" advantage teach, shown on a triangle-advantaged win
+	telegraph = Ui.text({
+		Text = "",
+		Size = UDim2.new(1, -20, 0, 32),
+		Position = UDim2.new(0, 10, 0, 60),
+		TextSize = 26,
+		Visible = false,
+		ZIndex = 4,
+		Parent = container,
+	})
+
 	pName, pPips = panel(container, "p", Ui.COLORS.good)
 	fName, fPips = panel(container, "f", Ui.COLORS.bad)
 end
@@ -331,6 +346,31 @@ local function faint(model: Model, base: CFrame)
 	end
 end
 
+-- Teach the rock-paper-scissors triangle in context: when the winning stat
+-- triangle-beats the losing stat, flash e.g. "速 克 力!" in the winner's colour.
+local function showAdvantage(winnerStat: string, loserStat: string)
+	if not telegraph then
+		return
+	end
+	local wl = Config.STAT_LABELS[winnerStat] or winnerStat
+	local ll = Config.STAT_LABELS[loserStat] or loserStat
+	telegraph.Text = `⚡ {wl} → {ll}` -- RPS-style "beats" arrow (type advantage, not magnitude)
+	telegraph.TextColor3 = STAT_COLOR[winnerStat] or Color3.fromRGB(255, 255, 255)
+	telegraph.Visible = true
+	local s = Ui.new("UIScale", { Scale = 0.6, Parent = telegraph })
+	TweenService
+		:Create(
+			s,
+			TweenInfo.new(0.2, Enum.EasingStyle.Back, Enum.EasingDirection.Out),
+			{ Scale = 1 }
+		)
+		:Play()
+	task.delay(1.3, function()
+		telegraph.Visible = false
+		s:Destroy()
+	end)
+end
+
 -- Play one resolved round. winner "a" = you, "b" = foe, else a tie (no clash).
 function BattleArena.playRound(info: {
 	winner: string,
@@ -338,6 +378,8 @@ function BattleArena.playRound(info: {
 	themScore: number,
 	matchOver: boolean?,
 	playerWon: boolean?,
+	winnerStat: string?,
+	loserStat: string?,
 })
 	if not container or not pModel or not fModel then
 		return
@@ -371,6 +413,13 @@ function BattleArena.playRound(info: {
 		hitFlash.BackgroundTransparency = 0.4
 		TweenService:Create(hitFlash, TweenInfo.new(0.25), { BackgroundTransparency = 1 }):Play()
 		shake()
+		if
+			info.winnerStat
+			and info.loserStat
+			and Config.Battle.TRIANGLE[info.winnerStat] == info.loserStat
+		then
+			showAdvantage(info.winnerStat, info.loserStat)
+		end
 		local newPip = if info.winner == "a" then pPips[info.youScore] else fPips[info.themScore]
 		if newPip then
 			fillPip(newPip, Ui.COLORS.good)
