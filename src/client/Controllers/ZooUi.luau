@@ -32,6 +32,7 @@ local pages: { [string]: Frame } = {}
 local rescueRows: Frame
 local fuseHeadList: Frame
 local fuseBodyList: Frame
+local fuseLegsList: Frame
 local fuseButton: TextButton
 local fuseResult: TextLabel
 local beastList: Frame
@@ -40,6 +41,7 @@ local namePicker: Frame
 
 local pickedHead: string? = nil
 local pickedBody: string? = nil
+local pickedLegs: string? = nil
 local selectedBeastId: string? = nil
 local namePicks: { string } = {}
 
@@ -149,52 +151,41 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 		),
 	})
 
-	-- fuse page: two pickers + button
-	Ui.text({
-		Text = "头 HEAD (智)",
-		Size = UDim2.new(0.5, -6, 0, 24),
-		TextSize = 18,
-		Parent = pages.fuse,
-	})
-	Ui.text({
-		Text = "身 BODY (力)",
-		Size = UDim2.new(0.5, -6, 0, 24),
-		Position = UDim2.new(0.5, 6, 0, 0),
-		TextSize = 18,
-		Parent = pages.fuse,
-	})
-	fuseHeadList = Ui.new("ScrollingFrame", {
-		Size = UDim2.new(0.5, -6, 1, -120),
-		Position = UDim2.new(0, 0, 0, 28),
-		BackgroundColor3 = Ui.COLORS.cardDim,
-		BorderSizePixel = 0,
-		ScrollBarThickness = 6,
-		CanvasSize = UDim2.new(),
-		AutomaticCanvasSize = Enum.AutomaticSize.Y,
-		Parent = pages.fuse,
-	}, {
-		Ui.corner(10),
-		Ui.new(
-			"UIGridLayout",
-			{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
-		),
-	})
-	fuseBodyList = Ui.new("ScrollingFrame", {
-		Size = UDim2.new(0.5, -6, 1, -120),
-		Position = UDim2.new(0.5, 6, 0, 28),
-		BackgroundColor3 = Ui.COLORS.cardDim,
-		BorderSizePixel = 0,
-		ScrollBarThickness = 6,
-		CanvasSize = UDim2.new(),
-		AutomaticCanvasSize = Enum.AutomaticSize.Y,
-		Parent = pages.fuse,
-	}, {
-		Ui.corner(10),
-		Ui.new(
-			"UIGridLayout",
-			{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
-		),
-	})
+	-- fuse page: three pickers (head/body/legs → 智/力/速) + button
+	local COL = 1 / 3
+	local function slotLabel(text: string, i: number)
+		Ui.text({
+			Text = text,
+			Size = UDim2.new(COL, -6, 0, 24),
+			Position = UDim2.new(COL * i, i * 3, 0, 0),
+			TextSize = 16,
+			Parent = pages.fuse,
+		})
+	end
+	local function slotList(i: number): Frame
+		return Ui.new("ScrollingFrame", {
+			Size = UDim2.new(COL, -6, 1, -120),
+			Position = UDim2.new(COL * i, i * 3, 0, 28),
+			BackgroundColor3 = Ui.COLORS.cardDim,
+			BorderSizePixel = 0,
+			ScrollBarThickness = 5,
+			CanvasSize = UDim2.new(),
+			AutomaticCanvasSize = Enum.AutomaticSize.Y,
+			Parent = pages.fuse,
+		}, {
+			Ui.corner(10),
+			Ui.new(
+				"UIGridLayout",
+				{ CellSize = UDim2.new(0, 50, 0, 50), CellPadding = UDim2.new(0, 4, 0, 4) }
+			),
+		})
+	end
+	slotLabel("头 HEAD (智)", 0)
+	slotLabel("身 BODY (力)", 1)
+	slotLabel("腿 LEGS (速)", 2)
+	fuseHeadList = slotList(0)
+	fuseBodyList = slotList(1)
+	fuseLegsList = slotList(2)
 	fuseButton = Ui.button({
 		Text = "融合! Fuse (🪙10)",
 		Size = UDim2.new(1, 0, 0, 48),
@@ -215,7 +206,8 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 			fuseResult.Text = "先选一个头和一个身! Pick a head and a body first."
 			return
 		end
-		local result = remotes.fuse:InvokeServer({ head = pickedHead, body = pickedBody })
+		local result =
+			remotes.fuse:InvokeServer({ head = pickedHead, body = pickedBody, legs = pickedLegs })
 		if not result.ok then
 			fuseResult.Text = `不行: {result.err}`
 			Audio.wobble()
@@ -233,11 +225,12 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 			Audio.fanfare()
 		else
 			fuseResult.Text =
-				`✨ 新怪兽诞生! {beast.slots.head}{beast.slots.body} 力{beast.stats.li} 速{beast.stats.su} 智{beast.stats.zhi}`
+				`✨ 新怪兽诞生! {beast.slots.head}{beast.slots.body}{beast.slots.legs or ""} 力{beast.stats.li} 速{beast.stats.su} 智{beast.stats.zhi}`
 			Audio.happy()
 		end
 		pickedHead = nil
 		pickedBody = nil
+		pickedLegs = nil
 		ZooUi.refresh()
 	end)
 
@@ -368,6 +361,7 @@ end
 local function renderFuse(snapshot: any)
 	clearChildren(fuseHeadList, "TextButton")
 	clearChildren(fuseBodyList, "TextButton")
+	clearChildren(fuseLegsList, "TextButton")
 	for char in snapshot.animals :: { [string]: boolean } do
 		animalCell(fuseHeadList, char, pickedHead == char, function()
 			pickedHead = char
@@ -375,6 +369,10 @@ local function renderFuse(snapshot: any)
 		end)
 		animalCell(fuseBodyList, char, pickedBody == char, function()
 			pickedBody = char
+			renderFuse(snapshot)
+		end)
+		animalCell(fuseLegsList, char, pickedLegs == char, function()
+			pickedLegs = char
 			renderFuse(snapshot)
 		end)
 	end

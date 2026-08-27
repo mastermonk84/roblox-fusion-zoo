@@ -162,7 +162,11 @@ end)
 Net.handle(
 	"Zoo",
 	"Fuse",
-	Guard.shape({ head = Guard.stringOf(8), body = Guard.stringOf(8) }),
+	Guard.shape({
+		head = Guard.stringOf(8),
+		body = Guard.stringOf(8),
+		legs = Guard.optional(Guard.stringOf(8)),
+	}),
 	function(player, payload)
 		return zoo:fuse(player.UserId, payload)
 	end
@@ -346,12 +350,13 @@ for _, animal in Animals :: { any } do
 	table.insert(ANIMAL_CHARS, animal.char)
 end
 
--- Two distinct starter animals — random, but derived from the player's stable
--- seed so a given player always gets the same onboarding pair. Granted once and
--- exempt from the MASTERED gate so session one still flows rescue→fuse→battle.
+-- Three distinct starter animals — random, but derived from the player's stable
+-- seed so a given player always gets the same onboarding trio. Granted once and
+-- exempt from the MASTERED gate; three animals + the legs slot let session one
+-- flow rescue→fuse (head/body/legs)→battle.
 local function starterAnimals(seed: number): { string }
 	local pool = Rng.seededShuffle(ANIMAL_CHARS, Rng.mulberry32(seed % 4294967296))
-	return { pool[1], pool[2] }
+	return { pool[1], pool[2], pool[3] }
 end
 
 local function pushReady(player: Player, profile: Profile)
@@ -373,11 +378,13 @@ local function onJoin(player: Player)
 		return
 	end
 	if not profile.tutorial.grantsGiven then
-		-- Scripted onboarding: two random starter animals arrive as tutorial gifts,
-		-- exempt from the MASTERED gate, so rescue→fuse→battle fits session one.
+		-- Scripted onboarding: three random starter animals arrive as tutorial
+		-- gifts, exempt from the MASTERED gate, and the legs slot opens so the
+		-- first fusion is a full 3-part beast (head/body/legs = 智/力/速).
 		for _, char in starterAnimals(seed) do
 			profile.animals[char] = true
 		end
+		profile.slotsUnlocked.legs = true
 		profile.tutorial.grantsGiven = true
 	end
 	profiles:onRelease(player.UserId, function()
