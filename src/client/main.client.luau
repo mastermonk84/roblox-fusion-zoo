@@ -132,6 +132,24 @@ ZooUi.init({
 		Hud.flash(mathString, "spend")
 	end
 end)
+-- the arena renders the player's active beast; fetch it from the zoo snapshot
+local getSnapshot = zooFolder:WaitForChild("GetSnapshot") :: RemoteFunction
+local function activeBeast(): any
+	local snap = getSnapshot:InvokeServer()
+	if not (snap and snap.ok) then
+		return nil
+	end
+	local beasts = snap.beasts or {}
+	if snap.activeBeastId then
+		for _, b in beasts do
+			if b.id == snap.activeBeastId then
+				return b
+			end
+		end
+	end
+	return beasts[1]
+end
+
 BattleUi.init({
 	ladder = battleFolder:WaitForChild("GetLadder") :: RemoteFunction,
 	startNpc = battleFolder:WaitForChild("StartNpc") :: RemoteFunction,
@@ -150,7 +168,7 @@ BattleUi.init({
 	if mathString then
 		Hud.flash(mathString, "earn")
 	end
-end)
+end, activeBeast)
 Anim.init()
 Music.init()
 
