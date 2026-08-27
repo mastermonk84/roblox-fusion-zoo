@@ -44,10 +44,12 @@ local STAT_COLOR: { [string]: Color3 } = {
 	zhi = Color3.fromRGB(178, 107, 255),
 }
 
-local P_SPOT = Vector3.new(-4.2, 0, 0)
-local F_SPOT = Vector3.new(4.2, 0, 0)
-local P_FACE = CFrame.Angles(0, math.rad(90), 0) -- rig forward -> +X (toward foe)
-local F_FACE = CFrame.Angles(0, math.rad(-90), 0)
+local P_SPOT = Vector3.new(-3.3, 0, 0)
+local F_SPOT = Vector3.new(3.3, 0, 0)
+-- 3/4 stances: each fighter angled toward the camera AND the opponent, so the
+-- eyes read (a full profile would hide the face). Eyes sit on the head's -Z.
+local P_FACE = CFrame.Angles(0, math.rad(-150), 0)
+local F_FACE = CFrame.Angles(0, math.rad(150), 0)
 local PIPS = 3
 
 -- ── model building (client port of CreatureService.instantiate) ──────────────
@@ -68,6 +70,7 @@ local function modelFromSpec(spec: RigMath.RigSpec): Model
 		part.CastShadow = false
 		part.TopSurface = Enum.SurfaceType.Smooth
 		part.BottomSurface = Enum.SurfaceType.Smooth
+		part.Material = Enum.Material.SmoothPlastic
 		part.Size = Vector3.new(ps.size.x, ps.size.y, ps.size.z)
 		part.Color = Color3.fromRGB(ps.color[1], ps.color[2], ps.color[3])
 		part.CFrame = CFrame.new(Vector3.new(ps.offset.x, ps.offset.y, ps.offset.z))
@@ -81,9 +84,38 @@ local function modelFromSpec(spec: RigMath.RigSpec): Model
 	return model
 end
 
+-- Faceless colored blocks read as junk; a pair of eyes turns the rig into a
+-- character. Placed on the head's local -Z (its facing side).
+local function addEyes(model: Model)
+	local head = model:FindFirstChild("head") :: BasePart?
+	if not head then
+		return
+	end
+	local hs = math.max(head.Size.X, head.Size.Y, head.Size.Z)
+	local eyeR = math.clamp(hs * 0.17, 0.2, 0.55)
+	for i = -1, 1, 2 do
+		local eye = Instance.new("Part")
+		eye.Shape = Enum.PartType.Ball
+		eye.Size = Vector3.new(eyeR * 2, eyeR * 2, eyeR * 2)
+		eye.Anchored, eye.CanCollide, eye.CastShadow = true, false, false
+		eye.Color = Color3.fromRGB(255, 255, 255)
+		eye.Material = Enum.Material.SmoothPlastic
+		eye.CFrame = head.CFrame * CFrame.new(i * hs * 0.27, hs * 0.12, -hs * 0.5)
+		eye.Parent = model
+		local pupil = Instance.new("Part")
+		pupil.Shape = Enum.PartType.Ball
+		pupil.Size = Vector3.new(eyeR, eyeR, eyeR)
+		pupil.Anchored, pupil.CanCollide, pupil.CastShadow = true, false, false
+		pupil.Color = Color3.fromRGB(26, 20, 32)
+		pupil.Material = Enum.Material.SmoothPlastic
+		pupil.CFrame = eye.CFrame * CFrame.new(0, 0, -eyeR * 0.7)
+		pupil.Parent = model
+	end
+end
+
 local function beastModel(beast: Beast): Model
 	local totals = SlotStats.slotTotals(beast, ANIMAL_INDEX)
-	return modelFromSpec(RigMath.resolve({
+	local model = modelFromSpec(RigMath.resolve({
 		head = RIG_BY_CHAR[beast.slots.head],
 		body = RIG_BY_CHAR[beast.slots.body],
 		legs = if beast.slots.legs then RIG_BY_CHAR[beast.slots.legs] else nil,
@@ -95,25 +127,28 @@ local function beastModel(beast: Beast): Model
 			tail = totals.tail or 0,
 		},
 	}))
+	addEyes(model)
+	return model
 end
 
 local function opponentModel(tint: Color3): Model
 	local model = Instance.new("Model")
 	local body = Instance.new("Part")
 	body.Shape = Enum.PartType.Ball
-	body.Size = Vector3.new(3.6, 3.6, 3.6)
+	body.Size = Vector3.new(4.4, 4.4, 4.4)
 	body.Anchored, body.CanCollide, body.CastShadow = true, false, false
 	body.Color = tint
 	body.Material = Enum.Material.Slate
-	body.CFrame = CFrame.new(0, 1.8, 0)
+	body.CFrame = CFrame.new(0, 2.2, 0)
 	body.Parent = model
 	for i = -1, 1, 2 do
 		local eye = Instance.new("Part")
 		eye.Shape = Enum.PartType.Ball
-		eye.Size = Vector3.new(0.62, 0.62, 0.25)
+		eye.Size = Vector3.new(0.9, 0.9, 0.35)
 		eye.Anchored, eye.CanCollide, eye.CastShadow = true, false, false
-		eye.Color = Color3.fromRGB(240, 60, 60)
-		eye.CFrame = body.CFrame * CFrame.new(i * 0.7, 0.35, -1.75)
+		eye.Color = Color3.fromRGB(255, 70, 70)
+		eye.Material = Enum.Material.Neon
+		eye.CFrame = body.CFrame * CFrame.new(i * 0.8, 0.5, -2.1)
 		eye.Parent = model
 	end
 	model.PrimaryPart = body
@@ -189,7 +224,7 @@ function BattleArena.mount(parent: Instance)
 		container:Destroy()
 	end
 	container = Ui.new("Frame", {
-		Size = UDim2.new(1, 0, 0, 210),
+		Size = UDim2.fromScale(1, 1), -- fills the region BattleUi reserves for it
 		Position = UDim2.new(0, 0, 0, 0),
 		BackgroundColor3 = Color3.fromRGB(16, 11, 26),
 		BorderSizePixel = 0,
@@ -201,17 +236,17 @@ function BattleArena.mount(parent: Instance)
 		Size = UDim2.fromScale(1, 1),
 		BackgroundColor3 = Color3.fromRGB(126, 200, 234),
 		BorderSizePixel = 0,
-		Ambient = Color3.fromRGB(190, 190, 198),
-		LightColor = Color3.fromRGB(255, 246, 224),
-		LightDirection = Vector3.new(-0.4, -1, -0.35),
+		Ambient = Color3.fromRGB(212, 206, 200),
+		LightColor = Color3.fromRGB(255, 244, 214),
+		LightDirection = Vector3.new(-0.35, -1, -0.5),
 		Parent = container,
 	}, { Ui.corner(16) })
 
 	world = Instance.new("WorldModel")
 	world.Parent = viewport
 	cam = Instance.new("Camera")
-	cam.FieldOfView = 46
-	cam.CFrame = CFrame.lookAt(Vector3.new(0, 3.4, 11), Vector3.new(0, 2.1, 0))
+	cam.FieldOfView = 42
+	cam.CFrame = CFrame.lookAt(Vector3.new(0, 3.0, 9.4), Vector3.new(0, 2.0, 0))
 	viewport.CurrentCamera = cam
 	cam.Parent = viewport
 

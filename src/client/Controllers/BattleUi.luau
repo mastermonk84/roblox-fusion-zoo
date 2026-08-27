@@ -120,18 +120,18 @@ function BattleUi.init(
 		Parent = gui,
 	})
 	local card = Ui.new("Frame", {
-		Size = UDim2.new(0, 540, 0, 664),
-		Position = UDim2.new(0.5, -270, 0.5, -332),
+		Size = UDim2.new(0, 540, 0, 720),
+		Position = UDim2.new(0.5, -270, 0.5, -360),
 		BackgroundColor3 = Ui.COLORS.card,
 		BorderSizePixel = 0,
 		Parent = scrim,
 	}, { Ui.corner(18), Ui.padding(12) })
 
 	Ui.button({
-		Text = "✕",
+		Text = "×",
 		Size = UDim2.new(0, 40, 0, 40),
 		Position = UDim2.new(1, -44, 0, 0),
-		TextSize = 22,
+		TextSize = 30,
 		BackgroundColor3 = Ui.COLORS.cardDim,
 		ZIndex = 8,
 		Parent = card,
@@ -184,43 +184,52 @@ function BattleUi.init(
 		"Frame",
 		{ Size = UDim2.fromScale(1, 1), BackgroundTransparency = 1, Visible = false, Parent = card }
 	)
-	-- the animated arena occupies the top of the fight page
-	BattleArena.mount(fightPage)
+	-- the animated arena gets a tall region at the top of the fight page
+	local arenaHolder = Ui.new("Frame", {
+		Size = UDim2.new(1, 0, 0, 264),
+		Position = UDim2.new(0, 0, 0, 0),
+		BackgroundTransparency = 1,
+		Parent = fightPage,
+	})
+	BattleArena.mount(arenaHolder)
 	opponentLabel = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 44),
-		Position = UDim2.new(0, 0, 0, 216),
+		Size = UDim2.new(1, 0, 0, 40),
+		Position = UDim2.new(0, 0, 0, 272),
 		TextSize = 16,
 		Parent = fightPage,
 	})
 	scoreLabel = Ui.text({
 		Text = "",
 		Size = UDim2.new(1, 0, 0, 30),
-		Position = UDim2.new(0, 0, 0, 260),
+		Position = UDim2.new(0, 0, 0, 314),
 		TextSize = 22,
 		Parent = fightPage,
 	})
 	yourLabel = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 26),
-		Position = UDim2.new(0, 0, 0, 292),
+		Size = UDim2.new(1, 0, 0, 24),
+		Position = UDim2.new(0, 0, 0, 346),
 		TextSize = 16,
 		TextColor3 = Ui.COLORS.inkSoft,
 		Parent = fightPage,
 	})
 	Ui.text({
 		Text = "偷偷选一张卡! Pick your card in secret:",
-		Size = UDim2.new(1, 0, 0, 24),
-		Position = UDim2.new(0, 0, 0, 324),
-		TextSize = 18,
+		Size = UDim2.new(1, 0, 0, 22),
+		Position = UDim2.new(0, 0, 0, 376),
+		TextSize = 17,
 		Parent = fightPage,
 	})
 	for index, stat in STAT_ORDER do
-		local button = Ui.button({
+		local button = Ui.tactile({
 			Text = STAT_TEXT[stat],
-			Size = UDim2.new(0, 150, 0, 104),
-			Position = UDim2.new(0, 10 + (index - 1) * 168, 0, 356),
-			TextSize = 30,
+			Size = UDim2.new(0, 150, 0, 100),
+			Position = UDim2.new(0, 10 + (index - 1) * 168, 0, 406),
+			TextSize = 28,
+			TextColor3 = Color3.fromRGB(255, 255, 255),
+			BackgroundColor3 = Ui.STAT_COLOR[stat],
+			radius = 16,
 			Parent = fightPage,
 		})
 		button.Activated:Connect(function()
@@ -230,9 +239,9 @@ function BattleUi.init(
 	end
 	revealLabel = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 116),
-		Position = UDim2.new(0, 0, 0, 470),
-		TextSize = 24,
+		Size = UDim2.new(1, 0, 0, 100),
+		Position = UDim2.new(0, 0, 0, 516),
+		TextSize = 22,
 		Parent = fightPage,
 	})
 
@@ -660,9 +669,11 @@ function BattleUi.startNpc(rung: number)
 end
 
 function BattleUi.setPickEnabled(enabled: boolean)
-	for _, button in statButtons do
-		button.AutoButtonColor = enabled
-		button.BackgroundColor3 = if enabled then Ui.COLORS.accent else Ui.COLORS.cardDim
+	for stat, button in statButtons do
+		button.Active = enabled
+		button.BackgroundColor3 = if enabled
+			then Ui.STAT_COLOR[stat]
+			else Ui.darken(Ui.STAT_COLOR[stat], 0.45)
 	end
 end
 
