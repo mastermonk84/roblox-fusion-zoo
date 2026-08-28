@@ -32,6 +32,7 @@ local pages: { [string]: Frame } = {}
 local rescueRows: Frame
 local fuseHeadList: Frame
 local fuseBodyList: Frame
+local fuseLegsList: Frame
 local fuseButton: TextButton
 local fuseResult: TextLabel
 local beastList: Frame
@@ -40,6 +41,7 @@ local namePicker: Frame
 
 local pickedHead: string? = nil
 local pickedBody: string? = nil
+local pickedLegs: string? = nil
 local selectedBeastId: string? = nil
 local namePicks: { string } = {}
 
@@ -79,10 +81,10 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 	}, { Ui.corner(18), Ui.padding(12) })
 
 	Ui.button({
-		Text = "✕",
+		Text = "×",
 		Size = UDim2.new(0, 40, 0, 40),
 		Position = UDim2.new(1, -44, 0, 0),
-		TextSize = 22,
+		TextSize = 30,
 		BackgroundColor3 = Ui.COLORS.cardDim,
 		Parent = card,
 	}).Activated
@@ -149,57 +151,49 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 		),
 	})
 
-	-- fuse page: two pickers + button
-	Ui.text({
-		Text = "头 HEAD (智)",
-		Size = UDim2.new(0.5, -6, 0, 24),
-		TextSize = 18,
-		Parent = pages.fuse,
-	})
-	Ui.text({
-		Text = "身 BODY (力)",
-		Size = UDim2.new(0.5, -6, 0, 24),
-		Position = UDim2.new(0.5, 6, 0, 0),
-		TextSize = 18,
-		Parent = pages.fuse,
-	})
-	fuseHeadList = Ui.new("ScrollingFrame", {
-		Size = UDim2.new(0.5, -6, 1, -120),
-		Position = UDim2.new(0, 0, 0, 28),
-		BackgroundColor3 = Ui.COLORS.cardDim,
-		BorderSizePixel = 0,
-		ScrollBarThickness = 6,
-		CanvasSize = UDim2.new(),
-		AutomaticCanvasSize = Enum.AutomaticSize.Y,
-		Parent = pages.fuse,
-	}, {
-		Ui.corner(10),
-		Ui.new(
-			"UIGridLayout",
-			{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
-		),
-	})
-	fuseBodyList = Ui.new("ScrollingFrame", {
-		Size = UDim2.new(0.5, -6, 1, -120),
-		Position = UDim2.new(0.5, 6, 0, 28),
-		BackgroundColor3 = Ui.COLORS.cardDim,
-		BorderSizePixel = 0,
-		ScrollBarThickness = 6,
-		CanvasSize = UDim2.new(),
-		AutomaticCanvasSize = Enum.AutomaticSize.Y,
-		Parent = pages.fuse,
-	}, {
-		Ui.corner(10),
-		Ui.new(
-			"UIGridLayout",
-			{ CellSize = UDim2.new(0, 62, 0, 62), CellPadding = UDim2.new(0, 4, 0, 4) }
-		),
-	})
-	fuseButton = Ui.button({
-		Text = "融合! Fuse (🪙10)",
-		Size = UDim2.new(1, 0, 0, 48),
-		Position = UDim2.new(0, 0, 1, -84),
-		TextSize = 26,
+	-- fuse page: three pickers (head/body/legs → 智/力/速) + button
+	local COL = 1 / 3
+	local function slotLabel(text: string, i: number)
+		Ui.text({
+			Text = text,
+			Size = UDim2.new(COL, -6, 0, 24),
+			Position = UDim2.new(COL * i, i * 3, 0, 0),
+			TextSize = 16,
+			Parent = pages.fuse,
+		})
+	end
+	local function slotList(i: number): Frame
+		return Ui.new("ScrollingFrame", {
+			Size = UDim2.new(COL, -6, 1, -120),
+			Position = UDim2.new(COL * i, i * 3, 0, 28),
+			BackgroundColor3 = Ui.COLORS.cardDim,
+			BorderSizePixel = 0,
+			ScrollBarThickness = 5,
+			CanvasSize = UDim2.new(),
+			AutomaticCanvasSize = Enum.AutomaticSize.Y,
+			Parent = pages.fuse,
+		}, {
+			Ui.corner(10),
+			Ui.new(
+				"UIGridLayout",
+				{ CellSize = UDim2.new(0, 50, 0, 50), CellPadding = UDim2.new(0, 4, 0, 4) }
+			),
+		})
+	end
+	slotLabel("头 HEAD (智)", 0)
+	slotLabel("身 BODY (力)", 1)
+	slotLabel("腿 LEGS (速)", 2)
+	fuseHeadList = slotList(0)
+	fuseBodyList = slotList(1)
+	fuseLegsList = slotList(2)
+	fuseButton = Ui.tactile({
+		Text = "🧬 融合! Fuse 🪙10",
+		Size = UDim2.new(1, 0, 0, 52),
+		Position = UDim2.new(0, 0, 1, -88),
+		TextSize = 24,
+		TextColor3 = Color3.fromRGB(74, 45, 6),
+		BackgroundColor3 = Ui.COLORS.accent,
+		radius = 16,
 		Parent = pages.fuse,
 	})
 	fuseResult = Ui.text({
@@ -215,7 +209,8 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 			fuseResult.Text = "先选一个头和一个身! Pick a head and a body first."
 			return
 		end
-		local result = remotes.fuse:InvokeServer({ head = pickedHead, body = pickedBody })
+		local result =
+			remotes.fuse:InvokeServer({ head = pickedHead, body = pickedBody, legs = pickedLegs })
 		if not result.ok then
 			fuseResult.Text = `不行: {result.err}`
 			Audio.wobble()
@@ -233,11 +228,12 @@ function ZooUi.init(zooRemotes: Remotes, coinCallback: (coins: number, mathStrin
 			Audio.fanfare()
 		else
 			fuseResult.Text =
-				`✨ 新怪兽诞生! {beast.slots.head}{beast.slots.body} 力{beast.stats.li} 速{beast.stats.su} 智{beast.stats.zhi}`
+				`✨ 新怪兽诞生! {beast.slots.head}{beast.slots.body}{beast.slots.legs or ""} 力{beast.stats.li} 速{beast.stats.su} 智{beast.stats.zhi}`
 			Audio.happy()
 		end
 		pickedHead = nil
 		pickedBody = nil
+		pickedLegs = nil
 		ZooUi.refresh()
 	end)
 
@@ -325,11 +321,14 @@ local function renderRescue(snapshot: any, list: any)
 				Parent = row,
 			})
 		elseif state == "ready" then
-			local buy = Ui.button({
+			local buy = Ui.tactile({
 				Text = `救! 🪙{animal.cost}`,
-				Size = UDim2.new(0, 116, 0, 40),
-				Position = UDim2.new(1, -124, 0.5, -20),
+				Size = UDim2.new(0, 116, 0, 42),
+				Position = UDim2.new(1, -124, 0.5, -21),
 				TextSize = 20,
+				TextColor3 = Color3.fromRGB(12, 81, 50),
+				BackgroundColor3 = Ui.COLORS.good,
+				radius = 12,
 				Parent = row,
 			})
 			buy.Activated:Connect(function()
@@ -356,11 +355,22 @@ local function renderRescue(snapshot: any, list: any)
 end
 
 local function animalCell(parent: Frame, char: string, picked: boolean, onPick: () -> ())
-	local cell = Ui.button({
+	local cell = Ui.new("TextButton", {
 		Text = char,
-		TextSize = 34,
-		BackgroundColor3 = if picked then Ui.COLORS.good else Ui.COLORS.card,
+		Font = Ui.FONT,
+		TextSize = 30,
+		TextColor3 = Ui.COLORS.ink,
+		BackgroundColor3 = if picked then Ui.COLORS.accent else Ui.COLORS.card,
+		AutoButtonColor = true,
+		BorderSizePixel = 0,
 		Parent = parent,
+	}, {
+		Ui.corner(12),
+		Ui.new("UIStroke", {
+			Color = if picked then Ui.COLORS.accentEdge else Color3.fromRGB(226, 216, 196),
+			Thickness = if picked then 3 else 1,
+			Transparency = if picked then 0 else 0.35,
+		}),
 	})
 	cell.Activated:Connect(onPick)
 end
@@ -368,6 +378,7 @@ end
 local function renderFuse(snapshot: any)
 	clearChildren(fuseHeadList, "TextButton")
 	clearChildren(fuseBodyList, "TextButton")
+	clearChildren(fuseLegsList, "TextButton")
 	for char in snapshot.animals :: { [string]: boolean } do
 		animalCell(fuseHeadList, char, pickedHead == char, function()
 			pickedHead = char
@@ -375,6 +386,10 @@ local function renderFuse(snapshot: any)
 		end)
 		animalCell(fuseBodyList, char, pickedBody == char, function()
 			pickedBody = char
+			renderFuse(snapshot)
+		end)
+		animalCell(fuseLegsList, char, pickedLegs == char, function()
+			pickedLegs = char
 			renderFuse(snapshot)
 		end)
 	end
@@ -474,12 +489,14 @@ renderBeastDetail = function(snapshot: any)
 		y += 38
 	end
 
-	local setActive = Ui.button({
-		Text = "出战! Battle beast",
-		Size = UDim2.new(1, 0, 0, 34),
+	local setActive = Ui.tactile({
+		Text = "⚔ 出战! Battle beast",
+		Size = UDim2.new(1, 0, 0, 38),
 		Position = UDim2.new(0, 0, 0, y + 4),
 		TextSize = 18,
+		TextColor3 = Color3.fromRGB(12, 81, 50),
 		BackgroundColor3 = Ui.COLORS.good,
+		radius = 12,
 		Parent = beastDetail,
 	})
 	setActive.Activated:Connect(function()
@@ -490,11 +507,14 @@ renderBeastDetail = function(snapshot: any)
 		end
 	end)
 
-	local nameButton = Ui.button({
-		Text = "取名字 Name (🪙3)",
-		Size = UDim2.new(1, 0, 0, 34),
-		Position = UDim2.new(0, 0, 0, y + 44),
+	local nameButton = Ui.tactile({
+		Text = "✏ 取名字 Name 🪙3",
+		Size = UDim2.new(1, 0, 0, 38),
+		Position = UDim2.new(0, 0, 0, y + 46),
 		TextSize = 18,
+		TextColor3 = Color3.fromRGB(74, 45, 6),
+		BackgroundColor3 = Ui.COLORS.accent,
+		radius = 12,
 		Parent = beastDetail,
 	})
 	nameButton.Activated:Connect(function()

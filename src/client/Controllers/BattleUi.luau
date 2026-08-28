@@ -6,6 +6,7 @@
 local Players = game:GetService("Players")
 
 local Audio = require("./Audio")
+local BattleArena = require("./BattleArena")
 local Cheers = require("../../shared/Data/Cheers")
 local Ui = require("./Ui")
 
@@ -53,6 +54,7 @@ type Remotes = {
 
 local remotes: Remotes
 local onCoins: (coins: number, mathString: string?) -> ()
+local getActiveBeast: (() -> any)?
 
 local gui: ScreenGui
 local ladderPage: Frame
@@ -96,10 +98,12 @@ local STAT_TEXT: { [string]: string } = { li = "力 💪", su = "速 ⚡", zhi =
 
 function BattleUi.init(
 	battleRemotes: Remotes,
-	coinCallback: (coins: number, mathString: string?) -> ()
+	coinCallback: (coins: number, mathString: string?) -> (),
+	activeBeastProvider: (() -> any)?
 )
 	remotes = battleRemotes
 	onCoins = coinCallback
+	getActiveBeast = activeBeastProvider
 
 	gui = Ui.new("ScreenGui", {
 		Name = "BattleArena",
@@ -116,19 +120,20 @@ function BattleUi.init(
 		Parent = gui,
 	})
 	local card = Ui.new("Frame", {
-		Size = UDim2.new(0, 540, 0, 600),
-		Position = UDim2.new(0.5, -270, 0.5, -300),
+		Size = UDim2.new(0, 540, 0, 720),
+		Position = UDim2.new(0.5, -270, 0.5, -360),
 		BackgroundColor3 = Ui.COLORS.card,
 		BorderSizePixel = 0,
 		Parent = scrim,
 	}, { Ui.corner(18), Ui.padding(12) })
 
 	Ui.button({
-		Text = "✕",
+		Text = "×",
 		Size = UDim2.new(0, 40, 0, 40),
 		Position = UDim2.new(1, -44, 0, 0),
-		TextSize = 22,
+		TextSize = 30,
 		BackgroundColor3 = Ui.COLORS.cardDim,
+		ZIndex = 8,
 		Parent = card,
 	}).Activated
 		:Connect(function()
@@ -144,6 +149,7 @@ function BattleUi.init(
 			end
 			flashOverlay.Visible = false
 			resultOverlay.Visible = false
+			BattleArena.hide()
 			gui.Enabled = false
 			notifyMusic("idle")
 		end)
@@ -178,36 +184,52 @@ function BattleUi.init(
 		"Frame",
 		{ Size = UDim2.fromScale(1, 1), BackgroundTransparency = 1, Visible = false, Parent = card }
 	)
-	opponentLabel =
-		Ui.text({ Text = "", Size = UDim2.new(1, 0, 0, 60), TextSize = 22, Parent = fightPage })
+	-- the animated arena gets a tall region at the top of the fight page
+	local arenaHolder = Ui.new("Frame", {
+		Size = UDim2.new(1, 0, 0, 264),
+		Position = UDim2.new(0, 0, 0, 0),
+		BackgroundTransparency = 1,
+		Parent = fightPage,
+	})
+	BattleArena.mount(arenaHolder)
+	opponentLabel = Ui.text({
+		Text = "",
+		Size = UDim2.new(1, 0, 0, 40),
+		Position = UDim2.new(0, 0, 0, 272),
+		TextSize = 16,
+		Parent = fightPage,
+	})
 	scoreLabel = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 34),
-		Position = UDim2.new(0, 0, 0, 62),
-		TextSize = 26,
+		Size = UDim2.new(1, 0, 0, 30),
+		Position = UDim2.new(0, 0, 0, 314),
+		TextSize = 22,
 		Parent = fightPage,
 	})
 	yourLabel = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 30),
-		Position = UDim2.new(0, 0, 0, 98),
-		TextSize = 18,
+		Size = UDim2.new(1, 0, 0, 24),
+		Position = UDim2.new(0, 0, 0, 346),
+		TextSize = 16,
 		TextColor3 = Ui.COLORS.inkSoft,
 		Parent = fightPage,
 	})
 	Ui.text({
 		Text = "偷偷选一张卡! Pick your card in secret:",
-		Size = UDim2.new(1, 0, 0, 26),
-		Position = UDim2.new(0, 0, 0, 150),
-		TextSize = 18,
+		Size = UDim2.new(1, 0, 0, 22),
+		Position = UDim2.new(0, 0, 0, 376),
+		TextSize = 17,
 		Parent = fightPage,
 	})
 	for index, stat in STAT_ORDER do
-		local button = Ui.button({
+		local button = Ui.tactile({
 			Text = STAT_TEXT[stat],
-			Size = UDim2.new(0, 150, 0, 110),
-			Position = UDim2.new(0, 10 + (index - 1) * 168, 0, 184),
-			TextSize = 30,
+			Size = UDim2.new(0, 150, 0, 100),
+			Position = UDim2.new(0, 10 + (index - 1) * 168, 0, 406),
+			TextSize = 28,
+			TextColor3 = Color3.fromRGB(255, 255, 255),
+			BackgroundColor3 = Ui.STAT_COLOR[stat],
+			radius = 16,
 			Parent = fightPage,
 		})
 		button.Activated:Connect(function()
@@ -217,9 +239,9 @@ function BattleUi.init(
 	end
 	revealLabel = Ui.text({
 		Text = "",
-		Size = UDim2.new(1, 0, 0, 150),
-		Position = UDim2.new(0, 0, 0, 320),
-		TextSize = 26,
+		Size = UDim2.new(1, 0, 0, 100),
+		Position = UDim2.new(0, 0, 0, 516),
+		TextSize = 22,
 		Parent = fightPage,
 	})
 
@@ -636,14 +658,22 @@ function BattleUi.startNpc(rung: number)
 	yourLabel.Text =
 		`你的兽: 力{started.yourStats.li} 速{started.yourStats.su} 智{started.yourStats.zhi}`
 	scoreLabel.Text = "0 : 0"
+	if getActiveBeast then
+		local beast = getActiveBeast()
+		if beast then
+			BattleArena.show(beast, { name = opponent.name, tint = Color3.fromRGB(150, 146, 158) })
+		end
+	end
 	BattleUi.setPickEnabled(true)
 	notifyMusic("fight")
 end
 
 function BattleUi.setPickEnabled(enabled: boolean)
-	for _, button in statButtons do
-		button.AutoButtonColor = enabled
-		button.BackgroundColor3 = if enabled then Ui.COLORS.accent else Ui.COLORS.cardDim
+	for stat, button in statButtons do
+		button.Active = enabled
+		button.BackgroundColor3 = if enabled
+			then Ui.STAT_COLOR[stat]
+			else Ui.darken(Ui.STAT_COLOR[stat], 0.45)
 	end
 end
 
@@ -800,6 +830,21 @@ function BattleUi.resolve()
 			then " ⚡"
 			else ""}\n{verdict}`
 	scoreLabel.Text = `{response.score.you} : {response.score.them}`
+	BattleArena.playRound({
+		winner = response.winner,
+		youScore = response.score.you,
+		themScore = response.score.them,
+		matchOver = response.match ~= nil,
+		playerWon = if response.match then response.match.playerWon else nil,
+		winnerStat = if response.winner == "a"
+			then you.stat
+			elseif response.winner == "b" then them.stat
+			else nil,
+		loserStat = if response.winner == "a"
+			then them.stat
+			elseif response.winner == "b" then you.stat
+			else nil,
+	})
 	if response.winner == "a" then
 		Audio.happy()
 	elseif response.winner == "b" then
@@ -860,6 +905,15 @@ function BattleUi.startGhostBattle()
 	yourLabel.Text =
 		`你的兽: 力{started.yourStats.li} 速{started.yourStats.su} 智{started.yourStats.zhi}`
 	scoreLabel.Text = "0 : 0"
+	if getActiveBeast then
+		local beast = getActiveBeast()
+		if beast then
+			BattleArena.show(beast, {
+				name = `👻 {ghost.ownerDisplayName}`,
+				tint = Color3.fromRGB(150, 130, 205),
+			})
+		end
+	end
 	BattleUi.setPickEnabled(true)
 	notifyMusic("fight")
 end

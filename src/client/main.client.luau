@@ -28,15 +28,54 @@ local battleFolder = remotes:WaitForChild("Battle")
 local currentQuestionId: string? = nil
 local busy = false
 
-local function nextQuestion()
-	local result = requestQuestion:InvokeServer()
-	if not result or not result.ok then
-		return
+-- Some picture icons stay stuck in Roblox moderation and render blank; learn
+-- which actually load, and re-request picture questions that would show a blank.
+local ContentProvider = game:GetService("ContentProvider")
+local IconManifest = require("../shared/Data/IconManifest")
+local goodIcons: { [string]: boolean } = {}
+task.spawn(function()
+	for _, id in IconManifest do
+		local probe = Instance.new("ImageLabel")
+		probe.Image = id
+		pcall(function()
+			-- the fetch-status callback is the reliable signal; IsLoaded on an
+			-- unparented probe stays false even for approved assets.
+			ContentProvider:PreloadAsync({ probe }, function(_, status)
+				goodIcons[id] = status == Enum.AssetFetchStatus.Success
+			end)
+		end)
+		probe:Destroy()
 	end
-	if result.waiting then
-		currentQuestionId = nil
-		QuizUi.showWaiting()
-		return
+end)
+
+local function iconsReady(question: any): boolean
+	if question.mode == "picture-char" then
+		return question.prompt.icon == nil or goodIcons[question.prompt.icon] == true
+	elseif question.mode == "char-picture" then
+		for _, choice in question.choices do
+			if choice.kind == "icon" and not goodIcons[choice.display] then
+				return false
+			end
+		end
+	end
+	return true
+end
+
+local function nextQuestion()
+	local result
+	for attempt = 1, 6 do
+		result = requestQuestion:InvokeServer()
+		if not result or not result.ok then
+			return
+		end
+		if result.waiting then
+			currentQuestionId = nil
+			QuizUi.showWaiting()
+			return
+		end
+		if iconsReady(result.question) or attempt == 6 then
+			break
+		end
 	end
 	currentQuestionId = result.question.questionId
 	QuizUi.render(result.question)
@@ -59,10 +98,11 @@ local function onChoiceTap(index: number)
 		return
 	end
 
-	-- terminal outcomes update the HUD from server numbers
+	-- terminal outcomes update the HUD and the kiosk rail from server numbers
 	Hud.setCoins(result.newCoins)
 	Hud.setLevel(result.newLevel)
 	Hud.setStreak(result.cleanStreak, result.streakNeeded)
+	QuizUi.setMeta(result.newCoins, result.cleanStreak, result.warmupRemaining)
 
 	if result.outcome == "clean" or result.outcome == "retry" then
 		QuizUi.celebrate(index)
@@ -131,6 +171,24 @@ ZooUi.init({
 		Hud.flash(mathString, "spend")
 	end
 end)
+-- the arena renders the player's active beast; fetch it from the zoo snapshot
+local getSnapshot = zooFolder:WaitForChild("GetSnapshot") :: RemoteFunction
+local function activeBeast(): any
+	local snap = getSnapshot:InvokeServer()
+	if not (snap and snap.ok) then
+		return nil
+	end
+	local beasts = snap.beasts or {}
+	if snap.activeBeastId then
+		for _, b in beasts do
+			if b.id == snap.activeBeastId then
+				return b
+			end
+		end
+	end
+	return beasts[1]
+end
+
 BattleUi.init({
 	ladder = battleFolder:WaitForChild("GetLadder") :: RemoteFunction,
 	startNpc = battleFolder:WaitForChild("StartNpc") :: RemoteFunction,
@@ -149,7 +207,7 @@ BattleUi.init({
 	if mathString then
 		Hud.flash(mathString, "earn")
 	end
-end)
+end, activeBeast)
 Anim.init()
 Music.init()
 
@@ -191,6 +249,7 @@ local function applyState(state: any)
 	Hud.setLevel(state.level)
 	Hud.setStreak(state.cleanStreak, 3)
 	Hud.pinyinOn = state.pinyinMode == true
+	QuizUi.setMeta(state.coins, state.cleanStreak, nil)
 end
 
 readyEvent.OnClientEvent:Connect(applyState)

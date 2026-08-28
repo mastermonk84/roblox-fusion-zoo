@@ -15,7 +15,12 @@ function GhostStores.new()
 	local ok, dataStore = pcall(function()
 		return DataStoreService:GetDataStore(Config.Profile.GHOST_STORE)
 	end)
-	local sortedMap = MemoryStoreService:GetSortedMap(Config.Profile.GHOST_INDEX)
+	-- MemoryStoreService errors on unpublished places (Studio); acquire it under
+	-- pcall like the DataStore above so the recency index degrades to a no-op
+	-- instead of aborting server boot.
+	local okMap, sortedMap = pcall(function()
+		return MemoryStoreService:GetSortedMap(Config.Profile.GHOST_INDEX)
+	end)
 	local ttl = Config.Profile.GHOST_TTL_DAYS * 86400
 
 	return {
@@ -37,12 +42,18 @@ function GhostStores.new()
 			end)
 		end,
 		indexSet = function(userId: number, publishedAt: number)
+			if not okMap then
+				return
+			end
 			pcall(function()
 				sortedMap:SetAsync(tostring(userId), true, ttl, publishedAt)
 			end)
 		end,
 		indexSample = function(count: number)
 			local out: { number } = {}
+			if not okMap then
+				return out
+			end
 			pcall(function()
 				-- newest-first window keeps the pool fresh
 				local items = sortedMap:GetRangeAsync(Enum.SortDirection.Descending, count)

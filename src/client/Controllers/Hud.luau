@@ -112,42 +112,46 @@ function Hud.init()
 	})
 
 	local bar = Ui.new("Frame", {
-		Size = UDim2.new(0, 330, 0, 46),
+		Size = UDim2.new(0, 0, 0, 42),
+		AutomaticSize = Enum.AutomaticSize.X,
 		Position = UDim2.new(0, 12, 0, 12),
-		BackgroundColor3 = Ui.COLORS.card,
-		BorderSizePixel = 0,
+		BackgroundTransparency = 1,
 		Parent = gui,
 	}, {
-		Ui.corner(12),
 		Ui.new("UIListLayout", {
 			FillDirection = Enum.FillDirection.Horizontal,
 			VerticalAlignment = Enum.VerticalAlignment.Center,
-			Padding = UDim.new(0, 10),
+			Padding = UDim.new(0, 8),
 		}),
-		Ui.padding(8),
 	})
 
-	coinLabel = Ui.text({
-		Text = "🪙 …",
-		Size = UDim2.new(0, 90, 1, 0),
-		TextSize = 24,
-		TextXAlignment = Enum.TextXAlignment.Left,
-		Parent = bar,
-	})
-	levelLabel = Ui.text({
-		Text = "L1",
-		Size = UDim2.new(0, 44, 1, 0),
-		TextSize = 22,
-		TextColor3 = Ui.COLORS.inkSoft,
-		Parent = bar,
-	})
-	starsLabel = Ui.text({
-		Text = "",
-		Size = UDim2.new(0, 160, 1, 0),
-		TextSize = 18,
-		TextXAlignment = Enum.TextXAlignment.Left,
-		Parent = bar,
-	})
+	-- floating pill chips, matching the kiosk reward rail
+	local function chip(textColor: Color3): TextLabel
+		local pill = Ui.new("Frame", {
+			BackgroundColor3 = Ui.COLORS.card,
+			AutomaticSize = Enum.AutomaticSize.X,
+			Size = UDim2.new(0, 0, 0, 40),
+			Parent = bar,
+		}, {
+			Ui.corner(12),
+			Ui.new("UIPadding", { PaddingLeft = UDim.new(0, 12), PaddingRight = UDim.new(0, 12) }),
+			Ui.new("UIStroke", { Color = Ui.COLORS.cardDim, Thickness = 1, Transparency = 0.2 }),
+		})
+		return Ui.text({
+			Text = "",
+			AutomaticSize = Enum.AutomaticSize.X,
+			Size = UDim2.new(0, 0, 1, 0),
+			TextSize = 22,
+			TextWrapped = false,
+			TextColor3 = textColor,
+			Parent = pill,
+		})
+	end
+
+	coinLabel = chip(Color3.fromRGB(138, 106, 0))
+	levelLabel = chip(Color3.fromRGB(46, 150, 220))
+	starsLabel = chip(Color3.fromRGB(181, 80, 47))
+	levelLabel.Text = "L1"
 end
 
 function Hud.setCoins(coins: number)

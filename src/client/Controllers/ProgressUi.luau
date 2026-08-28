@@ -40,19 +40,20 @@ function ProgressUi.init(onClose: () -> ())
 	}, { Ui.corner(18), Ui.padding(16) })
 
 	Ui.button({
-		Text = "✕",
+		Text = "×",
 		Size = UDim2.new(0, 40, 0, 40),
 		Position = UDim2.new(1, -44, 0, 4),
-		TextSize = 22,
+		TextSize = 30,
 		BackgroundColor3 = Ui.COLORS.cardDim,
 		Parent = card,
 	}).Activated
 		:Connect(onClose)
 
 	Ui.text({
-		Text = "识字进度",
-		Size = UDim2.new(1, 0, 0, 34),
-		TextSize = 30,
+		Text = "识字进度 · Character mastery",
+		Size = UDim2.new(1, -46, 0, 30),
+		TextSize = 24,
+		TextXAlignment = Enum.TextXAlignment.Left,
 		Parent = card,
 	})
 

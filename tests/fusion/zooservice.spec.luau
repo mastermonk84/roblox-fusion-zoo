@@ -95,6 +95,30 @@ return function()
 			expect(profile.activeBeastId).to.equal(result.beast.id)
 		end)
 
+		it("fuses a 3-part beast when the legs slot is unlocked", function()
+			local zoo, profile = setup()
+			profile.coins = 50
+			profile.slotsUnlocked.legs = true
+			for _, char in { "马", "蛙", "兔" } do
+				profile.animals[char] = true
+			end
+			local result = (zoo :: any):fuse(USER, { head = "马", body = "蛙", legs = "兔" })
+			expect(result.ok).to.equal(true)
+			expect(result.beast.slots.legs).to.equal("兔")
+			expect(result.beast.stats.su).to.equal(4) -- 速 now comes from 兔 legs, not 蛙 body
+		end)
+
+		it("gates a 3-part fuse until the legs slot is unlocked", function()
+			local zoo, profile = setup()
+			profile.coins = 50
+			for _, char in { "马", "蛙", "兔" } do
+				profile.animals[char] = true
+			end
+			expect((zoo :: any):fuse(USER, { head = "马", body = "蛙", legs = "兔" }).err).to.equal(
+				"legs_slot_locked"
+			)
+		end)
+
 		it("rejects fusion with unowned animals or missing funds", function()
 			local zoo, profile = setup()
 			profile.coins = 50

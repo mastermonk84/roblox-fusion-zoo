@@ -174,10 +174,16 @@ function ZooService.fuse(self: any, userId: number, payload: any): any
 	if not profile then
 		return fail("no_profile")
 	end
-	local slots = { head = payload.head, body = payload.body } -- 2-part entry fusion
+	-- head/body are the entry fusion; legs is a starting slot (unlocked in
+	-- onboarding), tail stays gated behind the ladder and is added via refuse.
+	local slots = { head = payload.head, body = payload.body, legs = payload.legs }
 	local invalid = occupantsValid(profile, slots)
 	if invalid then
 		return fail(invalid)
+	end
+	local gated = slotGateError(profile, slots)
+	if gated then
+		return fail(gated)
 	end
 	local count = 0
 	for _ in profile.beasts do
@@ -194,7 +200,12 @@ function ZooService.fuse(self: any, userId: number, payload: any): any
 	local beast: Beast = {
 		id = `b{profile.nextBeastId}`,
 		name = nil,
-		slots = { head = slots.head :: string, body = slots.body :: string, legs = nil, tail = nil },
+		slots = {
+			head = slots.head :: string,
+			body = slots.body :: string,
+			legs = slots.legs,
+			tail = nil,
+		},
 		feed = { head = 0, body = 0, legs = 0, tail = 0 },
 		golden = false,
 		colorway = nil,
